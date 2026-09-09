@@ -11,6 +11,12 @@ dist/
 build/
 out/
 .next/
+_site/
+.cache/
+
+# Test artifacts
+playwright-report/
+test-results/
 
 # Logs
 *.log
