@@ -1,0 +1,90 @@
+<!-- BEGIN: ContactAndDispatchSection -->
+<section class="py-20 bg-white" data-purpose="contact-cta" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-brand-light border-2 border-brand-navy rounded-3xl p-8 sm:p-12 shadow-comic-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Left Column: Direct Channels -->
+<div class="lg:col-span-5 space-y-6">
+<div>
+<span class="text-xs font-bold text-brand-blue uppercase tracking-widest">GET IN TOUCH</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy tracking-tight leading-tight mt-1">
+                  {{ contact.heading }}
+                </h2>
+<p class="text-brand-slate text-sm sm:text-base mt-3 leading-relaxed">
+                  {{ contact.intro }}
+                </p>
+</div>
+<!-- Direct Contact Details -->
+<div class="space-y-4 pt-2">
+{% for channel in contact.channels %}
+<div class="flex items-center gap-3 p-3.5 bg-white rounded-xl border border-brand-border hover:border-brand-navy transition-all">
+<div class="w-10 h-10 rounded-lg bg-brand-ice flex items-center justify-center text-brand-blue flex-shrink-0">
+{% if channel.type == "email" %}<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+{% elif channel.type == "cal" %}<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+{% elif channel.type == "location" %}<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+{% endif %}
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs text-brand-slate">{{ channel.label }}</p>
+<p class="text-sm font-bold text-brand-navy truncate">{{ channel.value }}</p>
+</div>
+{% if channel.action == "copy" %}<button class="contact-copy-btn text-xs text-brand-blue font-semibold hover:underline" data-copy-value="{{ channel.value }}" type="button">Copy</button>
+{% elif channel.action == "link" %}<a class="text-xs text-brand-blue font-semibold hover:underline" href="{{ channel.href }}" rel="noopener noreferrer" target="_blank">Open ↗</a>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+<p class="hand-annotation text-xl font-bold text-brand-navy pt-2">
+                {{ contact.closingCaption }}
+              </p>
+</div>
+<!-- Right Column: Interactive Dispatch Form -->
+<div class="lg:col-span-7 bg-white p-7 sm:p-8 rounded-2xl border-2 border-brand-navy shadow-comic">
+<h3 class="text-xl font-bold text-brand-navy mb-4">{{ contact.form.heading }}</h3>
+<!-- Topic selector -->
+<div class="mb-5">
+<label class="block text-xs font-bold text-brand-slate uppercase mb-2">{{ contact.form.topicSelectorLabel }}</label>
+<div class="flex flex-wrap gap-2" id="topic-selector-group">
+{% for topic in contact.form.topics %}<button class="topic-btn px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all {% if topic == contact.form.defaultTopic %}border-brand-navy bg-brand-navy text-white{% else %}border-slate-200 bg-slate-50 text-brand-slate hover:border-brand-navy{% endif %}" data-topic="{{ topic }}" type="button">{{ topic }}</button>{% endfor %}
+</div>
+</div>
+<!-- Form Inputs -->
+<form class="space-y-4" id="contact-dispatch-form">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1" for="user-name">{{ contact.form.fields.name.label }}</label>
+<input class="w-full text-sm rounded-xl border border-brand-border focus:border-brand-blue focus:ring-1 focus:ring-brand-blue py-2.5 px-3.5 text-brand-navy" id="user-name" placeholder="{{ contact.form.fields.name.placeholder }}" required type="text">
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1" for="user-email">{{ contact.form.fields.email.label }}</label>
+<input class="w-full text-sm rounded-xl border border-brand-border focus:border-brand-blue focus:ring-1 focus:ring-brand-blue py-2.5 px-3.5 text-brand-navy" id="user-email" placeholder="{{ contact.form.fields.email.placeholder }}" required type="email">
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1" for="user-org">{{ contact.form.fields.org.label }}</label>
+<input class="w-full text-sm rounded-xl border border-brand-border focus:border-brand-blue focus:ring-1 focus:ring-brand-blue py-2.5 px-3.5 text-brand-navy" id="user-org" placeholder="{{ contact.form.fields.org.placeholder }}" type="text">
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1" for="user-msg">{{ contact.form.fields.message.label }}</label>
+<textarea class="w-full text-sm rounded-xl border border-brand-border focus:border-brand-blue focus:ring-1 focus:ring-brand-blue py-2.5 px-3.5 text-brand-navy" id="user-msg" placeholder="{{ contact.form.fields.message.placeholder }}" required rows="4"></textarea>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="text-xs text-brand-slate">{{ contact.form.responseTimeNote }}</span>
+<button class="inline-flex items-center px-6 py-3 rounded-full bg-brand-navy text-white text-sm font-bold hover:bg-brand-blue transition-all shadow-comic hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95" type="submit">
+                    {{ contact.form.submitLabel }}
+                  </button>
+</div>
+</form>
+<!-- Success Alert -->
+<div class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3" id="form-success-banner">
+<svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>{{ contact.form.successMessage }}</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ContactAndDispatchSection -->

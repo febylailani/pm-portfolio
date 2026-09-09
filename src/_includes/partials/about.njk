@@ -1,0 +1,35 @@
+<!-- BEGIN: AboutSection -->
+<section class="py-20 bg-brand-light border-t border-brand-border" data-purpose="about-me-section" id="about">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Column: Story -->
+<div class="lg:col-span-6 space-y-6">
+<span class="text-xs font-bold text-brand-blue uppercase tracking-widest">{{ about.eyebrow }}</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy tracking-tight leading-snug">
+              {{ about.heading }}
+            </h2>
+<div class="space-y-4 text-brand-slate text-base sm:text-lg leading-relaxed">
+{% for paragraph in about.paragraphs %}<p>
+                {{ paragraph | mdInline | safe }}
+              </p>
+{% endfor %}
+<div class="p-4 bg-white rounded-xl border-2 border-brand-navy shadow-comic text-brand-navy text-sm font-semibold italic">
+                “{{ about.pullQuote }}”
+              </div>
+<p class="text-sm">
+                {{ about.closingParagraph | mdInline | safe }}
+              </p>
+</div>
+<div class="pt-2 flex items-center gap-4">
+<a class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-brand-navy text-white text-sm font-semibold hover:bg-brand-blue transition-all duration-200 shadow-comic hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5" href="{{ about.cta.href }}">
+                {{ about.cta.label }}
+              </a>
+<span class="hand-annotation text-xl font-bold text-brand-blue">{{ about.annotationCaption }}</span>
+</div>
+</div>
+<!-- Right Column: Illustrated Comic Panel -->
+<div class="lg:col-span-6 flex justify-center relative select-none"><div class="w-full flex flex-col items-center relative select-none"><div class="w-full bg-white border-2 border-brand-navy rounded-3xl p-3 sm:p-5 shadow-comic-lg overflow-hidden"><div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-3"><span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-blue">{{ about.illustration.cardEyebrow }}</span><span class="hand-annotation text-lg font-bold text-brand-navy">{{ about.illustration.cardCaption }}</span></div><img alt="{{ about.illustration.alt }}" class="w-full h-auto object-contain rounded-xl" src="{{ about.illustration.src | url }}"><div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-slate-100 text-center">{% for chip in about.statChips %}<div class="bg-brand-ice/60 p-1.5 rounded-lg"><p class="text-[10px] font-bold text-brand-navy uppercase">{{ chip.label }}</p><p class="text-[11px] text-brand-slate">{{ chip.sub }}</p></div>{% endfor %}</div></div></div></div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->

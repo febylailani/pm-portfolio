@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>{{ site.pageTitle }}</title>
+<link href="{{ '/assets/favicons/favicon-32x32.png' | url }}" rel="icon" sizes="32x32" type="image/png">
+<link href="{{ '/assets/favicons/favicon-16x16.png' | url }}" rel="icon" sizes="16x16" type="image/png">
+<link href="{{ '/assets/favicons/apple-touch-icon.png' | url }}" rel="apple-touch-icon">
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans & Caveat for handwritten doodle notes -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Custom Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B1D3A',
+              dark: '#081426',
+              blue: '#2563EB',
+              cobalt: '#1D4ED8',
+              ice: '#EFF6FF',
+              light: '#F8FAFC',
+              slate: '#64748B',
+              border: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            handwritten: ['"Caveat"', 'cursive']
+          },
+          boxShadow: {
+            'comic': '3px 3px 0px 0px rgba(11, 29, 58, 0.9)',
+            'comic-lg': '6px 6px 0px 0px rgba(11, 29, 58, 0.9)',
+            'soft': '0 10px 25px -5px rgba(37, 99, 235, 0.05)'
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography">
+    .hand-annotation {
+      font-family: 'Caveat', cursive;
+      letter-spacing: 0.5px;
+    }
+  </style>
+<style data-purpose="doodle-animations">
+    @keyframes subtle-float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(1deg); }
+    }
+    .animate-float {
+      animation: subtle-float 4s ease-in-out infinite;
+    }
+    .comic-border {
+      border: 1.5px solid #0B1D3A;
+    }
+  </style>
+</head>
+<body class="bg-white text-brand-navy font-sans antialiased selection:bg-brand-ice selection:text-brand-blue min-h-screen">
+<!-- Tailwind Play CDN only compiles classes it can see at parse time; these two
+     (opacity-100, pointer-events-auto) are only ever added later via main.js's
+     modal toggle, so they're pre-warmed here to avoid a first-toggle style lag. -->
+<div class="hidden opacity-100 pointer-events-auto" aria-hidden="true"></div>
+{{ content | safe }}
+<script>
+  window.__mockResponses = {{ aiDemo.topics | dump | safe }};
+  window.__aiDemoConfig = {
+    fallbackResponse: {{ aiDemo.fallbackResponse | dump | safe }},
+    freeTextResponseTemplate: {{ aiDemo.freeTextResponseTemplate | dump | safe }}
+  };
+</script>
+<script src="{{ '/assets/js/main.js' | url }}"></script>
+</body></html>
