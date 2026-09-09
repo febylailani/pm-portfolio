@@ -1,0 +1,38 @@
+{
+  "banner": {
+    "src": "/assets/images/career-journey-banner.png",
+    "alt": "Trajectory: Schlumberger Wireline Field Engineer to Senior Product Manager",
+    "eyebrow": "From Field Operations to Digital Core Systems",
+    "caption": "Deterministic Reliability ♡"
+  },
+  "roles": [
+    {
+      "icon": "building",
+      "title": "Senior Product Manager",
+      "company": "Hijra Group (Islamic Digital Bank & Fintech)",
+      "dateRange": "2021 – Present",
+      "dateRangeStyle": "current",
+      "progression": "Progressed through: Associate PM → PM Acquisition & Lifecycle → PM Business Banking & Strategy",
+      "bullets": [
+        "Led digital banking, AI copilot, and platform products from **0 to 1**.",
+        "Pioneered In-House Conversational Banking Assistant using LLM intent classification and automated guardrails.",
+        "Shipped Core Banking CBS migration cutting recurring vendor costs by **90%** and operations workload by 50%.",
+        "Orchestrated BI SNAP Open API host-to-host platform integration for institutional corporate banking.",
+        "Ranked in the **top-15 performers** out of ~500 company-wide employees."
+      ]
+    },
+    {
+      "icon": "settings-gear",
+      "title": "Wireline Field Engineer",
+      "company": "Schlumberger (SLB)",
+      "dateRange": "2016 – 2019",
+      "dateRangeStyle": "past",
+      "progression": null,
+      "bullets": [
+        "Directed high-pressure wireline logging operations and technical field management under zero-tolerance conditions.",
+        "Conducted geological data interpretation and led cross-functional offshore crews in safety-critical operations.",
+        "Acquired intense baseline training in system resilience, telemetry analysis, and failure mode mitigation."
+      ]
+    }
+  ]
+}

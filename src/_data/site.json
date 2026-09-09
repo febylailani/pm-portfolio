@@ -1,0 +1,28 @@
+{
+  "brandName": "Feby Lailani",
+  "brandTagline": "Senior PM (Fintech & AI)",
+  "brandInitials": "FL",
+  "pageTitle": "Feby Lailani — Senior Product Manager (Fintech & AI)",
+  "avatarImage": "/assets/images/avatar-portrait.png",
+  "navLinks": [
+    { "label": "About", "href": "#about" },
+    { "label": "Case Studies", "href": "#case-studies" },
+    { "label": "Operating Principles", "href": "#principles" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "navCta": { "label": "Book Intro ↗", "href": "#contact" },
+  "footerNavLinks": [
+    { "label": "Home", "href": "#hero" },
+    { "label": "About", "href": "#about" },
+    { "label": "Case Studies", "href": "#case-studies" },
+    { "label": "Principles", "href": "#principles" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "social": {
+    "linkedin": "https://linkedin.com",
+    "email": "febylailani@gmail.com"
+  },
+  "copyrightLine": "© 2026 Feby Lailani."
+}

@@ -1,0 +1,8 @@
+{
+  "annotationCaption": "Always a Student ♡",
+  "degrees": [
+    { "icon": "graduation-cap", "degree": "Bachelor in Business & Computing", "institution": "BINUS University", "description": "Information systems, strategic business planning, and software lifecycle architectures." },
+    { "icon": "smartphone", "degree": "Apple Developer Academy Alumni", "institution": "Apple Inc. Graduate Cohort", "description": "Product discovery, iOS engineering foundations, design thinking, and human interface guidelines." },
+    { "icon": "compass-dial", "degree": "Chemical & Petroleum Engineering", "institution": "Politeknik Negeri Bandung (POLBAN)", "description": "Quantitative problem solving, mathematical modeling, and mechanical control systems." }
+  ]
+}
