@@ -1,0 +1,26 @@
+{% import "partials/icons.njk" as icons %}
+<!-- Case Study Card -->
+<article class="bg-white rounded-2xl border-2 border-brand-border hover:border-brand-navy p-7 flex flex-col justify-between transition-all duration-200 hover:shadow-comic-lg group" data-purpose="case-study-card">
+<div>
+<div class="flex items-center justify-between mb-5">
+<span class="px-3.5 py-1 rounded-full text-xs font-bold bg-blue-50 text-brand-blue border border-blue-100">
+                  {{ caseStudy.category }}
+                </span>
+<div class="w-12 h-12 bg-brand-ice rounded-xl flex items-center justify-center text-brand-navy group-hover:scale-110 transition-transform">
+{{ icons.icon(caseStudy.icon) }}
+</div>
+</div>
+<h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors mb-3">
+                {{ caseStudy.title }}
+              </h3>
+<p class="text-brand-slate text-sm leading-relaxed mb-4">
+                {{ caseStudy.description }}
+              </p>
+<div class="flex flex-wrap gap-2 mb-6">
+{% for tag in caseStudy.tags %}<span class="text-xs px-2.5 py-1 bg-slate-100 rounded text-slate-600 font-medium">{{ tag }}</span>{% endfor %}
+</div>
+</div>
+<button class="case-study-lock-btn w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border-2 border-brand-navy bg-white hover:bg-brand-ice font-bold text-sm text-brand-navy transition-all active:scale-95" data-modal-title="{{ caseStudy.modalTitle }}" type="button">
+<span>View Confidential Case Study 🔒</span>
+</button>
+</article>

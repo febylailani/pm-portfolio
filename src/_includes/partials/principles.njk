@@ -1,0 +1,27 @@
+<!-- BEGIN: OperatingPrinciplesSection -->
+<section class="py-20 bg-white border-b border-brand-border" id="principles">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-12">
+<span class="text-xs font-bold text-brand-blue uppercase tracking-widest">HOW I THINK &amp; BUILD</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1 tracking-tight">3 Operating Principles</h2>
+<p class="text-brand-slate text-sm sm:text-base mt-2 max-w-2xl">Frameworks honed in mission-critical environments where precision and customer trust cannot fail.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+{% for principle in principles %}
+<div class="bg-white border-2 border-brand-navy rounded-2xl p-7 shadow-comic hover:shadow-comic-lg transition-all flex flex-col justify-between">
+<div>
+<span class="inline-block px-3 py-1 bg-brand-ice text-brand-blue font-extrabold text-xs rounded-md mb-4">PRINCIPLE {{ principle.number }}</span>
+<h3 class="text-xl font-bold text-brand-navy mb-3">{{ principle.title }}</h3>
+<p class="text-brand-slate text-sm leading-relaxed">
+                {{ principle.description }}
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-brand-blue">
+<span>{{ principle.footerTags }}</span>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+<!-- END: OperatingPrinciplesSection -->

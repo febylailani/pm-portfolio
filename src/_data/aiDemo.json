@@ -1,0 +1,29 @@
+{
+  "inputPlaceholder": "Ask me about AI in banking, product strategy, or 0→1 experience...",
+  "popularTopicsLabel": "POPULAR TOPICS:",
+  "fallbackResponse": "Exploring frontier products and delivering measurable business impact.",
+  "freeTextResponseTemplate": "Feby has 5+ years shipping complex regulated products, enterprise APIs, and conversational AI assistants. Inquiries about \"{{query}}\" are right in her wheelhouse!",
+  "introLine": "Feby's Copilot: ",
+  "topics": [
+    {
+      "label": "Conversational AI/NLP",
+      "response": "Built and benchmarked LLM agents for natural language banking workflows at Hijra Bank, ensuring compliant guardrails, fallback pipelines, and real financial intent routing."
+    },
+    {
+      "label": "0→1 Discovery",
+      "response": "Specialized in framing user archetypes, writing rigorous PRDs, leading wireframing, and launching zero-to-one regulated apps."
+    },
+    {
+      "label": "SNAP Open API",
+      "response": "Spearheaded integration with Bank Indonesia's SNAP protocol for standardized, bank-grade open banking APIs, optimizing ~IDR 144M/yr in operational cost."
+    },
+    {
+      "label": "Prompt & Model Evals",
+      "response": "Set up qualitative & quantitative eval frameworks to test hallucinations, fallback rates, semantic drift, and conversational intent."
+    },
+    {
+      "label": "Fintech Growth",
+      "response": "Drove core banking migration reducing vendor cost by 90% and optimized multi-tier KYC onboarding funnels to under 5 minutes."
+    }
+  ]
+}

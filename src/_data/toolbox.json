@@ -1,0 +1,21 @@
+{
+  "annotationCaption": "Tools for a better tomorrow ✨",
+  "columns": [
+    {
+      "heading": "AI & Agent Prototyping",
+      "items": ["Prompt eval frameworks & testing", "Two-Brain safety architecture", "Claude 3.5 / OpenAI APIs", "Vercel, Next.js & Supabase", "Retrieval-Augmented Generation"]
+    },
+    {
+      "heading": "Fintech & Open Banking",
+      "items": ["BI SNAP Open API Standard", "Core Banking Systems (CBS)", "Host-to-Host (H2H) Ledgers", "Automated KYC / Dukcapil AML", "OJK & BI Regulatory Compliance"]
+    },
+    {
+      "heading": "Data & Product Discovery",
+      "items": ["PostgreSQL & SQL querying", "BigQuery & Metabase dashboards", "Figma wireframing & specs", "User interview synthesis", "Funnel conversion analytics"]
+    },
+    {
+      "heading": "Life Beyond PRDs",
+      "items": ["Vibe coding & weekend hacks", "Pour-over specialty coffee", "Sci-fi literature & cybernetics", "Mentoring early career PMs", "Continuous learning & reading"]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+<!-- BEGIN: MainFooter -->
+<footer class="bg-white border-t border-brand-border py-12" data-purpose="page-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Brand & Title -->
+<div class="flex items-center space-x-3">
+<img alt="{{ site.brandName }} avatar" class="w-8 h-8 rounded-full object-cover" src="{{ site.avatarImage | url }}">
+<div>
+<span class="font-bold text-brand-navy text-sm">{{ site.brandName }}</span>
+<span class="text-xs text-brand-slate ml-1">— {{ site.brandTagline }}</span>
+</div>
+</div>
+<!-- Quick Nav Links -->
+<nav aria-label="Footer" class="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-semibold text-brand-slate" data-purpose="footer-links">
+{% for link in site.footerNavLinks %}<a class="hover:text-brand-blue transition-colors" href="{{ link.href }}">{{ link.label }}</a>
+{% endfor %}
+</nav>
+<!-- Socials & Copyright -->
+<div class="flex items-center space-x-4">
+<a aria-label="LinkedIn" class="text-brand-slate hover:text-brand-blue transition-colors" href="{{ site.social.linkedin }}" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63Z"></path>
+</svg>
+</a>
+<a aria-label="Email" class="text-brand-slate hover:text-brand-blue transition-colors" href="mailto:{{ site.social.email }}">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<rect height="16" rx="2" width="20" x="2" y="4"></rect>
+<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+</svg>
+</a>
+<span class="text-xs text-brand-slate">{{ site.copyrightLine }}</span>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->

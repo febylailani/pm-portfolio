@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ai-banking-assistant",
+    "category": "Conversational AI & NLP",
+    "icon": "chat-bot",
+    "title": "In-House AI Banking Assistant (Hijra Bank)",
+    "description": "Pioneered Indonesia's leading in-app conversational banking agent. Architected multi-stage intent routing, zero hallucination guardrails on financial ledger execution, and comprehensive prompt eval harnesses.",
+    "tags": ["Two-Brain Architecture", "0.00% Ledger Risk", "Investor Pitch Demo"],
+    "modalTitle": "In-House AI Banking Assistant (Hijra Bank)"
+  },
+  {
+    "id": "bi-snap-api",
+    "category": "Platform & Open Banking",
+    "icon": "bridge",
+    "title": "Host-to-Host API (BI SNAP Protocol)",
+    "description": "0→1 discovery, technical specification, and enterprise integration with Bank Indonesia's National Standard Open API (SNAP). Unlocked institutional cash management for enterprise B2B partners.",
+    "tags": ["BI SNAP Standard", "~IDR 144M/yr Savings", "H2H Cash Management"],
+    "modalTitle": "Host-to-Host API (BI SNAP Standard)"
+  },
+  {
+    "id": "core-banking-migration",
+    "category": "Cost & Infra Optimization",
+    "icon": "server-stack",
+    "title": "Core Banking Engine Migration (CBS)",
+    "description": "Migrated the bank's mission-critical core ledger and batch reconciliation services from costly monolithic vendor software to lean cloud infrastructure with zero account downtime and zero customer complaints.",
+    "tags": ["90% Vendor Cost Cut", "50% Ops Workload Cut", "Zero Downtime"],
+    "modalTitle": "Core Banking Engine Migration (CBS)"
+  },
+  {
+    "id": "kyc-onboarding",
+    "category": "Consumer Growth & KYC",
+    "icon": "shield-check",
+    "title": "Automated KYC & Onboarding Funnels",
+    "description": "Redesigned digital customer onboarding with biometric optical character recognition (OCR) and automated Dukcapil verification, shrinking completion time from hours to under 5 minutes while maintaining strict AML compliance.",
+    "tags": ["+20% KYC Approval", "< 5 Min Instant Onboarding", "Dukcapil / AML Rigor"],
+    "modalTitle": "Automated KYC & Consumer Onboarding Growth"
+  }
+]

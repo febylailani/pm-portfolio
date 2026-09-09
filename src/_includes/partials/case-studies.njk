@@ -1,0 +1,21 @@
+<!-- BEGIN: CaseStudiesSection -->
+<section class="py-20 bg-white" data-purpose="production-case-studies" id="case-studies">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-4 border-b border-brand-border">
+<div>
+<span class="text-xs font-bold text-brand-blue uppercase tracking-widest">SELECTED 0→1 EXECUTION</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1 tracking-tight">Production Case Studies</h2>
+</div>
+<span class="mt-4 sm:mt-0 text-sm font-semibold text-brand-slate flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Production &amp; Regulated Scale
+          </span>
+</div>
+<!-- Case Study Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+{% for caseStudy in caseStudies %}{% include "partials/case-study-card.njk" %}{% endfor %}
+</div>
+</div>
+</section>
+<!-- END: CaseStudiesSection -->

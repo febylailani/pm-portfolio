@@ -1,0 +1,28 @@
+<!-- BEGIN: ToolboxSection -->
+<section class="py-16 bg-brand-light border-b border-brand-border" id="toolbox">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
+<div>
+<span class="text-xs font-bold text-brand-blue uppercase tracking-widest">TOOLBOX &amp; METHODS</span>
+<h2 class="text-3xl font-extrabold text-brand-navy tracking-tight mt-1">Skills, Stack &amp; Explorations</h2>
+</div>
+<p class="hand-annotation text-2xl font-bold text-brand-blue rotate-1">
+            {{ toolbox.annotationCaption }}
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+{% for column in toolbox.columns %}
+<div class="bg-white p-6 rounded-2xl border border-brand-border">
+<h3 class="font-bold text-brand-navy text-base mb-3 flex items-center gap-2">
+<span class="text-brand-blue">✦</span> {{ column.heading }}
+            </h3>
+<ul class="text-xs sm:text-sm text-brand-slate space-y-2 font-medium">
+{% for item in column.items %}<li>• {{ item }}</li>
+{% endfor %}
+</ul>
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+<!-- END: ToolboxSection -->

@@ -1,0 +1,31 @@
+{# Inline icon macro: looks up a short data-driven key (from JSON content files)
+   and renders the matching inline SVG, so content data stays icon-agnostic. #}
+{% macro icon(name) %}
+{%- if name == "medal" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path></svg>
+{%- elif name == "rocket" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+{%- elif name == "bar-chart" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><line x1="18" x2="18" y1="20" y2="10"></line><line x1="12" x2="12" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="14"></line><path d="M3 20h18"></path></svg>
+{%- elif name == "trophy" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M6 4h12a2 2 0 0 1 2 2v3a6 6 0 0 1-6 6h0a6 6 0 0 1-6-6V6a2 2 0 0 1 2-2z"></path></svg>
+{%- elif name == "chat-bot" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 32 32"><rect fill="#FFFFFF" height="26" rx="4" width="18" x="7" y="3"></rect><line stroke-linecap="round" x1="12" x2="20" y1="6" y2="6"></line><rect fill="#2563EB" height="4" rx="2" stroke="none" width="8" x="10" y="10"></rect><rect fill="#EFF6FF" height="4" rx="2" width="8" x="14" y="17"></rect><path d="M26 8L27 11L30 12L27 13L26 16L25 13L22 12L25 11L26 8Z" fill="#2563EB" stroke="none"></path></svg>
+{%- elif name == "bridge" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 32 32"><path d="M5 12L16 5L27 12H5Z" fill="#FFFFFF"></path><line x1="9" x2="9" y1="12" y2="23"></line><line x1="16" x2="16" y1="12" y2="23"></line><line x1="23" x2="23" y1="12" y2="23"></line><rect fill="#FFFFFF" height="4" rx="1" width="24" x="4" y="23"></rect><circle cx="28" cy="7" fill="#2563EB" r="2.5" stroke="none"></circle><circle cx="4" cy="7" fill="#2563EB" r="2.5" stroke="none"></circle></svg>
+{%- elif name == "server-stack" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 32 32"><circle cx="12" cy="11" fill="#FFFFFF" r="5"></circle><path d="M12 3V6M12 16V19M4 11H7M17 11H20" stroke-linecap="round"></path><ellipse cx="23" cy="19" fill="#EFF6FF" rx="6" ry="2.5"></ellipse><ellipse cx="23" cy="23" fill="#EFF6FF" rx="6" ry="2.5"></ellipse><ellipse cx="23" cy="27" fill="#EFF6FF" rx="6" ry="2.5"></ellipse><line x1="17" x2="17" y1="19" y2="27"></line><line x1="29" x2="29" y1="19" y2="27"></line></svg>
+{%- elif name == "shield-check" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>
+{%- elif name == "building" -%}
+<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><line x1="3" x2="21" y1="21" y2="21"></line><line x1="3" x2="21" y1="10" y2="10"></line><polyline points="5 10 5 21"></polyline><polyline points="19 10 19 21"></polyline><polyline points="12 10 12 21"></polyline><path d="m12 2 10 8H2Z"></path></svg>
+{%- elif name == "settings-gear" -%}
+<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+{%- elif name == "graduation-cap" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+{%- elif name == "smartphone" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="20" rx="2" ry="2" width="14" x="5" y="2"></rect><line x1="12" x2="12.01" y1="18" y2="18"></line></svg>
+{%- elif name == "compass-dial" -%}
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+{%- endif -%}
+{% endmacro %}

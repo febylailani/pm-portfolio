@@ -1,0 +1,30 @@
+{% import "partials/icons.njk" as icons %}
+<!-- BEGIN: EducationSection -->
+<section class="py-16 bg-brand-light border-b border-brand-border" data-purpose="education-section">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between mb-8">
+<div>
+<span class="text-xs font-bold text-brand-blue uppercase tracking-widest">EDUCATION &amp; CREDENTIALS</span>
+<h2 class="text-3xl font-extrabold text-brand-navy mt-1 tracking-tight">Academic Foundations</h2>
+</div>
+<span class="hand-annotation text-2xl font-bold text-brand-navy rotate-3 hidden sm:block">
+            {{ education.annotationCaption }}
+          </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+{% for degree in education.degrees %}
+<div class="bg-white p-6 rounded-2xl border border-brand-border flex items-start space-x-4">
+<div class="w-12 h-12 rounded-xl bg-white border-2 border-brand-navy flex items-center justify-center text-brand-blue flex-shrink-0 shadow-comic">
+{{ icons.icon(degree.icon) }}
+</div>
+<div>
+<h3 class="font-bold text-brand-navy text-base leading-snug">{{ degree.degree }}</h3>
+<p class="text-xs text-brand-blue font-semibold mt-0.5">{{ degree.institution }}</p>
+<p class="text-xs text-brand-slate mt-2">{{ degree.description }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+<!-- END: EducationSection -->
