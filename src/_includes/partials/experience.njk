@@ -1,12 +1,12 @@
 <!-- BEGIN: ExperienceSection -->
-<section class="py-20 bg-white border-b border-brand-border" data-purpose="experience-timeline" id="experience">
+<section class="py-20 bg-brand-light border-b border-brand-border" data-purpose="experience-timeline" id="experience">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="mb-12">
 <span class="text-xs font-bold text-brand-blue uppercase tracking-widest">EXPERIENCE &amp; TRACK RECORD</span>
 <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1 tracking-tight">Career Journey</h2>
 </div>
 <!-- Timeline Container -->
-<div class="mb-8 p-3 sm:p-4 bg-brand-light rounded-2xl border-2 border-brand-navy shadow-comic"><div class="flex items-center justify-between mb-2"><span class="text-xs font-bold text-brand-navy uppercase tracking-wider">{{ experience.banner.eyebrow }}</span><span class="hand-annotation text-base font-bold text-brand-blue">{{ experience.banner.caption }}</span></div><img alt="{{ experience.banner.alt }}" class="w-full h-auto object-contain rounded-xl" src="{{ experience.banner.src | url }}"></div><div class="space-y-12 relative before:absolute before:inset-0 before:left-7 md:before:left-8 before:w-0.5 before:bg-brand-border">
+<div class="mb-8 p-3 sm:p-4 bg-white rounded-2xl border-2 border-brand-navy shadow-comic"><div class="flex items-center justify-between mb-2"><span class="text-xs font-bold text-brand-navy uppercase tracking-wider">{{ experience.banner.eyebrow }}</span><span class="hand-annotation text-base font-bold text-brand-blue">{{ experience.banner.caption }}</span></div><img alt="{{ experience.banner.alt }}" class="w-full h-auto object-contain rounded-xl" src="{{ experience.banner.src | url }}"></div><div class="space-y-12 relative before:absolute before:inset-0 before:left-7 md:before:left-8 before:w-0.5 before:bg-brand-border">
 {% for role in experience.roles %}{% include "partials/experience-role.njk" %}{% endfor %}
 </div>
 </div>
