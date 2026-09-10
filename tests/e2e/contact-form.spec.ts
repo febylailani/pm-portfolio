@@ -42,4 +42,19 @@ test.describe("Contact and dispatch form", () => {
     const clipboardText = await page.evaluate(() => navigator.clipboard.readText());
     expect(clipboardText).toBe("febylailani@gmail.com");
   });
+
+  test("TC-23: contact channel values are not truncated at mobile width (K-02 fix)", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/");
+    const values = page.locator('[data-purpose="contact-cta"] .font-bold.text-brand-navy.break-words');
+    const count = await values.count();
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i++) {
+      const el = values.nth(i);
+      const isTruncated = await el.evaluate((node) => node.scrollWidth > node.clientWidth);
+      expect(isTruncated).toBe(false);
+    }
+    await expect(page.locator("text=febylailani@gmail.com")).toBeVisible();
+  });
 });

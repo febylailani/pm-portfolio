@@ -1,3 +1,25 @@
 <!-- BEGIN: MainHeader -->
-<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-brand-border" data-purpose="sticky-navbar"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"><a class="flex items-center space-x-2.5 group" data-purpose="navbar-brand" href="#hero"><img alt="{{ site.brandName }} avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-brand-navy/10 group-hover:scale-105 transition-transform duration-200" src="{{ site.avatarImage | url }}"><div><h1 class="font-bold text-brand-navy text-sm sm:text-base leading-tight group-hover:text-brand-blue transition-colors">{{ site.brandName }}</h1><p class="text-[11px] sm:text-xs text-brand-slate font-medium">{{ site.brandTagline }}</p></div></a><nav aria-label="Primary" class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-brand-navy/80" data-purpose="desktop-nav">{% for link in site.navLinks %}<a class="hover:text-brand-blue transition-colors py-1" href="{{ link.href }}">{{ link.label }}</a>{% endfor %}</nav><div class="flex items-center space-x-2"><a class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-brand-blue text-white text-xs sm:text-sm font-bold hover:bg-brand-cobalt transition-all shadow-sm active:scale-95" data-purpose="nav-cta" href="{{ site.navCta.href }}">{{ site.navCta.label }}</a></div></div></header>
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-brand-border" data-purpose="sticky-navbar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+<a class="flex items-center space-x-2.5 group" data-purpose="navbar-brand" href="#hero"><img alt="{{ site.brandName }} avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-brand-navy/10 group-hover:scale-105 transition-transform duration-200" src="{{ site.avatarImage | url }}"><div><h1 class="font-bold text-brand-navy text-sm sm:text-base leading-tight group-hover:text-brand-blue transition-colors">{{ site.brandName }}</h1><p class="text-[11px] sm:text-xs text-brand-slate font-medium">{{ site.brandTagline }}</p></div></a>
+<nav aria-label="Primary" class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-brand-navy/80" data-purpose="desktop-nav">{% for link in site.navLinks %}<a class="hover:text-brand-blue transition-colors py-1" href="{{ link.href }}">{{ link.label }}</a>{% endfor %}</nav>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-brand-blue text-white text-xs sm:text-sm font-bold hover:bg-brand-cobalt transition-all shadow-sm active:scale-95" data-purpose="nav-cta" href="{{ site.navCta.href }}">{{ site.navCta.label }}</a>
+<button aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu" class="lg:hidden w-11 h-11 rounded-full border-2 border-brand-navy flex items-center justify-center text-brand-navy flex-shrink-0" id="mobile-nav-toggle" type="button">
+<svg class="w-5 h-5" data-icon="menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+<svg class="w-5 h-5 hidden" data-icon="close" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Mobile nav panel: mirrors the desktop nav for <lg viewports, opened via #mobile-nav-toggle -->
+<div class="hidden lg:hidden border-t border-brand-border bg-white shadow-comic" id="mobile-nav-panel">
+<nav aria-label="Mobile" class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col">{% for link in site.navLinks %}<a class="mobile-nav-link py-3.5 text-base font-semibold text-brand-navy border-b border-brand-border last:border-b-0 hover:text-brand-blue transition-colors" href="{{ link.href }}">{{ link.label }}</a>{% endfor %}</nav>
+</div>
+</header>
 <!-- END: MainHeader -->

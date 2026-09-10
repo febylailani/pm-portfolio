@@ -17,19 +17,21 @@
 <!-- Direct Contact Details -->
 <div class="space-y-4 pt-2">
 {% for channel in contact.channels %}
-<div class="flex items-center gap-3 p-3.5 bg-white rounded-xl border border-brand-border hover:border-brand-navy transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 p-3.5 bg-white rounded-xl border border-brand-border hover:border-brand-navy transition-all">
+<div class="flex items-center gap-3 min-w-0 flex-1">
 <div class="w-10 h-10 rounded-lg bg-brand-ice flex items-center justify-center text-brand-blue flex-shrink-0">
 {% if channel.type == "email" %}<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
 {% elif channel.type == "cal" %}<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
 {% elif channel.type == "location" %}<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
 {% endif %}
 </div>
-<div class="flex-1 min-w-0">
+<div class="min-w-0">
 <p class="text-xs text-brand-slate">{{ channel.label }}</p>
-<p class="text-sm font-bold text-brand-navy truncate">{{ channel.value }}</p>
+<p class="text-sm font-bold text-brand-navy break-words">{{ channel.value }}</p>
 </div>
-{% if channel.action == "copy" %}<button class="contact-copy-btn text-xs text-brand-blue font-semibold hover:underline" data-copy-value="{{ channel.value }}" type="button">Copy</button>
-{% elif channel.action == "link" %}<a class="text-xs text-brand-blue font-semibold hover:underline" href="{{ channel.href }}" rel="noopener noreferrer" target="_blank">Open ↗</a>
+</div>
+{% if channel.action == "copy" %}<button class="contact-copy-btn text-xs text-brand-blue font-semibold hover:underline self-start pl-[52px] sm:pl-0 flex-shrink-0" data-copy-value="{{ channel.value }}" type="button">Copy</button>
+{% elif channel.action == "link" %}<a class="text-xs text-brand-blue font-semibold hover:underline self-start pl-[52px] sm:pl-0 flex-shrink-0" href="{{ channel.href }}" rel="noopener noreferrer" target="_blank">Open ↗</a>
 {% endif %}
 </div>
 {% endfor %}

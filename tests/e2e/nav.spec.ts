@@ -40,4 +40,35 @@ test.describe("Navigation", () => {
       await expect(page.locator(`#${id}`)).toHaveCount(1);
     }
   });
+
+  test.describe("Mobile nav (K-01 fix)", () => {
+    test.use({ viewport: { width: 375, height: 812 } });
+
+    test("TC-21: hamburger toggle opens/closes the mobile nav panel", async ({ page }) => {
+      await page.goto("/");
+      const toggle = page.locator("#mobile-nav-toggle");
+      const panel = page.locator("#mobile-nav-panel");
+
+      await expect(panel).toBeHidden();
+      await expect(toggle).toHaveAttribute("aria-expanded", "false");
+
+      await toggle.click();
+      await expect(panel).toBeVisible();
+      await expect(toggle).toHaveAttribute("aria-expanded", "true");
+      await expect(page.locator(".mobile-nav-link")).toHaveCount(5);
+
+      await toggle.click();
+      await expect(panel).toBeHidden();
+      await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    });
+
+    test("TC-22: tapping a mobile nav link scrolls to the section and closes the panel", async ({ page }) => {
+      await page.goto("/");
+      await page.locator("#mobile-nav-toggle").click();
+      await page.locator(".mobile-nav-link", { hasText: "Contact" }).click();
+
+      await expect(page.locator("#mobile-nav-panel")).toBeHidden();
+      await expect(page.locator("#contact")).toBeInViewport({ ratio: 0.1 });
+    });
+  });
 });

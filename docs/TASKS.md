@@ -52,8 +52,8 @@
 Fix plan derived from `docs/UX_AUDIT.md` (audited 2026-09-10 against live `v0.1.0`). Each task references its finding ID for traceability back to the audit's evidence and rationale. Ordered by severity; within Critical/Important, roughly in the order a single engineer would tackle them (structural/global fixes before isolated polish).
 
 **Critical — do first**
-- [ ] **[K-01]** Add a mobile/tablet nav: a hamburger button below the `lg` breakpoint that opens a drawer/panel with the same links as the desktop nav (About/Case Studies/Operating Principles/Experience/Contact) plus the "Book Intro" CTA. Needs `aria-expanded` on the toggle and Escape-to-close.
-- [ ] **[K-02]** Stop truncating the contact channel rows (Direct Email / Cal.com / Location) on mobile — stack label, value, and action button vertically below a breakpoint instead of sharing one row, or drop `truncate` in favor of wrapping.
+- [x] **[K-01]** Add a mobile/tablet nav: a hamburger button below the `lg` breakpoint that opens a drawer/panel with the same links as the desktop nav (About/Case Studies/Operating Principles/Experience/Contact) plus the "Book Intro" CTA. Needs `aria-expanded` on the toggle and Escape-to-close.
+- [x] **[K-02]** Stop truncating the contact channel rows (Direct Email / Cal.com / Location) on mobile — stack label, value, and action button vertically below a breakpoint instead of sharing one row, or drop `truncate` in favor of wrapping.
 
 **Important**
 - [ ] **[P-01]** Fix the confidential-modal badge/close-button overlap on mobile — wrap badges onto their own line, or reserve clear space so `#confidentialModal .badges` never sits under the × button below ~400px.
