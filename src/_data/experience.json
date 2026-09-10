@@ -1,21 +1,21 @@
 {
   "banner": {
     "src": "/assets/images/career-journey-banner.png",
-    "alt": "Trajectory: Schlumberger Wireline Field Engineer to Senior Product Manager",
+    "alt": "Trajectory: Schlumberger Wireline Field Engineer to Product Manager",
     "eyebrow": "From Field Operations to Digital Core Systems",
     "caption": "Deterministic Reliability ♡"
   },
   "roles": [
     {
       "icon": "building",
-      "title": "Senior Product Manager",
+      "title": "Product Manager",
       "company": "Hijra Group (Islamic Digital Bank & Fintech)",
-      "dateRange": "2021 – Present",
-      "dateRangeStyle": "current",
+      "dateRange": "2021 – Jul 2026",
+      "dateRangeStyle": "past",
       "progression": "Progressed through: Associate PM → PM Acquisition & Lifecycle → PM Business Banking & Strategy",
       "bullets": [
         "Led digital banking, AI copilot, and platform products from **0 to 1**.",
-        "Pioneered In-House Conversational Banking Assistant using LLM intent classification and automated guardrails.",
+        "Co-led MISHA, an in-house NLP banking assistant, translating banking use cases and conversational flows into a limited-release product experience.",
         "Shipped Core Banking CBS migration cutting recurring vendor costs by **90%** and operations workload by 50%.",
         "Orchestrated BI SNAP Open API host-to-host platform integration for institutional corporate banking.",
         "Ranked in the **top-15 performers** out of ~500 company-wide employees."

@@ -111,10 +111,12 @@ Not started (implementation-wise). All blocking questions are now answered — r
 - [x] Updated `tests/e2e/audit-fixes.spec.ts` TC-33, which hardcoded the old toolbox heading text
 - [x] `npm test` passes (35/35); visually verified About, Principles, and Toolbox sections
 
-**Batch 4 — Experience, Contact, Footer**
-- [ ] Update `experience.json`: role title (`Senior Product Manager` → `Product Manager`), date range → `2021 – Jul 2026` (confirmed), the MISHA-related bullet copy
-- [ ] Update `contact.json`: intro body, form heading (`Send an Inquiry or Dispatch` → `Send a Message`), topic labels, success message
-- [ ] Update `site.json`'s `social.linkedin` → `https://www.linkedin.com/in/febylailani`
+**Batch 4 — Experience, Contact, Footer** ✅ Shipped
+- [x] Update `experience.json`: role title → `Product Manager`, date range → `2021 – Jul 2026`, MISHA bullet copy; also switched `dateRangeStyle` from `current` to `past` (blue "active" pill → neutral pill) since the role now has an end date, and fixed the banner image's `alt` text, which still said "Senior Product Manager"
+- [x] Update `contact.json`: intro body, form heading → `Send a Message`, topic labels (`Product Role` / `AI / Automation` / `Speaking / Writing` / `Coffee Chat`), success message
+- [x] Update `site.json`'s `social.linkedin` → `https://www.linkedin.com/in/febylailani`; also fixed `package.json`'s description field, which still said "Senior Product Manager" (not visible on-site, but same accuracy issue)
+- [x] Caught and fixed a real bug via `npm run test:links`: LinkedIn returns HTTP 999 to non-browser link checkers (a known anti-bot response, not a real broken link) — added `--skip "linkedin.com"` to the linkinator command rather than ignore/weaken the check generally
+- [x] `npm test` passes (35/35); visually verified Experience (date pill now correctly neutral, not "active" blue) and Contact sections
 
 **Batch 5 — New section: Independent Build (Iqro Land)**
 - [ ] Create `src/_data/iqroLand.json` (section copy, 6 cards, screenshot list, CTA) using the authentic origin story now in `COPY_POSITIONING_AUDIT.md` (her son getting stuck on hijaiyah letters, tahfidz repetition, parent-guided screen time) — not the earlier generic placeholder copy

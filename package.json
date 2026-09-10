@@ -1,7 +1,7 @@
 {
   "name": "pm-portfolio",
   "version": "0.1.0",
-  "description": "Feby Lailani — Senior Product Manager (Fintech & AI) portfolio website",
+  "description": "Feby Lailani — Product Manager portfolio website",
   "private": true,
   "scripts": {
     "start": "eleventy --serve",
@@ -9,7 +9,7 @@
     "build:prod": "eleventy --pathprefix=/pm-portfolio/",
     "lint:js": "eslint src/assets/js/main.js",
     "test:html": "html-validate \"_site/**/*.html\"",
-    "test:links": "linkinator _site --recurse --silent",
+    "test:links": "linkinator _site --recurse --silent --skip \"linkedin.com\"",
     "test:e2e": "start-server-and-test 'http-server _site -p 8181 -s' http://127.0.0.1:8181 'playwright test --config=tests/playwright.config.ts'",
     "test": "npm run lint:js && npm run build && npm run test:html && npm run test:links && npm run test:e2e"
   },

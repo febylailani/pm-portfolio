@@ -1,6 +1,6 @@
 {
   "heading": "Let's build something meaningful together.",
-  "intro": "I'm currently exploring strategic product leadership roles, 0→1 conversational AI advisory, and speaking invitations.",
+  "intro": "I'm currently exploring Product Manager roles, customer lifecycle and automation opportunities, applied AI product work, and selected writing or speaking collaborations.",
   "channels": [
     { "type": "email", "label": "Direct Email", "value": "febylailani@gmail.com", "action": "copy" },
     { "type": "cal", "label": "Cal.com Video Call", "value": "30-min intro or advisory chat", "href": "https://cal.com", "action": "link" },
@@ -8,10 +8,10 @@
   ],
   "closingCaption": "Good People Build Great Products ♡",
   "form": {
-    "heading": "Send an Inquiry or Dispatch",
+    "heading": "Send a Message",
     "topicSelectorLabel": "I'm interested in:",
-    "topics": ["Full-Time Role", "0→1 Advisory", "Speaking / Panel", "Coffee & Brainstorm"],
-    "defaultTopic": "Full-Time Role",
+    "topics": ["Product Role", "AI / Automation", "Speaking / Writing", "Coffee Chat"],
+    "defaultTopic": "Product Role",
     "fields": {
       "name": { "label": "Your Name *", "placeholder": "Alex Tan" },
       "email": { "label": "Work Email *", "placeholder": "alex@company.com" },
@@ -20,6 +20,6 @@
     },
     "responseTimeNote": "Response typically within 24h",
     "submitLabel": "Send Message ✦",
-    "successMessage": "Thank you! Your dispatch has been transmitted. Feby will review and respond shortly."
+    "successMessage": "Thanks, your message has been sent. Feby will reply soon."
   }
 }
