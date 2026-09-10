@@ -17,10 +17,24 @@ test.describe("Navigation", () => {
     }
   });
 
-  test("TC-02: header and hero CTAs target #contact", async ({ page }) => {
+  test("TC-02: the hero secondary CTA targets #contact", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator('[data-purpose="nav-cta"]')).toHaveAttribute("href", "#contact");
     await expect(page.getByRole("link", { name: /Contact Me/ })).toHaveAttribute("href", "#contact");
+  });
+
+  test("TC-42: the header 'Book Intro' CTA opens a pre-filled Google Calendar event in a new tab", async ({ page }) => {
+    await page.goto("/");
+    const cta = page.locator('[data-purpose="nav-cta"]');
+    await expect(cta).toHaveAttribute("target", "_blank");
+    await expect(cta).toHaveAttribute("rel", /noopener/);
+
+    const href = await cta.getAttribute("href");
+    expect(href).toBeTruthy();
+    const url = new URL(href!);
+    expect(url.origin + url.pathname).toBe("https://calendar.google.com/calendar/render");
+    expect(url.searchParams.get("action")).toBe("TEMPLATE");
+    expect(url.searchParams.get("text")).toContain("Feby Lailani");
+    expect(url.searchParams.get("add")).toBe("febylail.work@gmail.com");
   });
 
   test("TC-03: Explore Selected Work scrolls to #case-studies", async ({ page }) => {

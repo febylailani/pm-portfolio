@@ -49,12 +49,12 @@
 <!-- Topic selector -->
 <div class="mb-5">
 <label class="block text-xs font-bold text-brand-slate uppercase mb-2">{{ contact.form.topicSelectorLabel }}</label>
-<div class="flex flex-wrap gap-2" id="topic-selector-group">
+<div class="flex flex-wrap gap-2" data-selected-topic="{{ contact.form.defaultTopic }}" id="topic-selector-group">
 {% for topic in contact.form.topics %}<button class="topic-btn inline-flex items-center min-h-[44px] sm:min-h-0 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all {% if topic == contact.form.defaultTopic %}border-brand-navy bg-brand-navy text-white{% else %}border-slate-200 bg-slate-50 text-brand-slate hover:border-brand-navy{% endif %}" data-topic="{{ topic }}" type="button">{{ topic }}</button>{% endfor %}
 </div>
 </div>
 <!-- Form Inputs -->
-<form class="space-y-4" id="contact-dispatch-form">
+<form class="space-y-4" data-contact-email="{{ site.social.email }}" id="contact-dispatch-form">
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div>
 <label class="block text-xs font-bold text-brand-navy mb-1" for="user-name">{{ contact.form.fields.name.label }}</label>

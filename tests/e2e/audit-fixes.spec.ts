@@ -53,14 +53,20 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
 
   test("TC-28: anchor-scroll CTAs use a down arrow, not the external-link arrow (P-06)", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator('[data-purpose="nav-cta"]')).toHaveText("Book Intro ↓");
     await expect(page.getByRole("link", { name: /Contact Me/ })).toHaveText("Contact Me ↓");
 
     await page.locator(".case-study-lock-btn").first().click();
-    await expect(page.locator(".confidential-modal-schedule")).toHaveText("Schedule 30-min Interview Call ↓");
+    // No longer an anchor-scroll: it opens a pre-filled email, so it carries neither
+    // arrow. ↓ would now promise a scroll that never happens.
+    await expect(page.locator(".confidential-modal-schedule")).toHaveText("Request Full Case Study ✉");
 
     // the genuinely external Cal.com link keeps its correct ↗
     await expect(page.getByRole("link", { name: /Open ↗/ })).toHaveAttribute("target", "_blank");
+
+    // "Book Intro" now genuinely leaves the page (opens Google Calendar), so it correctly uses ↗
+    const navCta = page.locator('[data-purpose="nav-cta"]');
+    await expect(navCta).toHaveText("Book Intro ↗");
+    await expect(navCta).toHaveAttribute("target", "_blank");
   });
 
   test("TC-29: meta description and Open Graph tags are present (P-07)", async ({ page }) => {

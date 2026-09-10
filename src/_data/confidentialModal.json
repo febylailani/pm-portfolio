@@ -3,5 +3,7 @@
   "defaultTitle": "Confidential Case Study Dossier",
   "intro": "To protect the confidentiality of banking data, compliance with Bank Indonesia (BI) and OJK regulations, the in-depth details, and system-design teardown of this case study will be discussed and demonstrated live during the interview session.",
   "unlockButtonLabel": "🔐 Unlock Case Study",
-  "primaryCta": "Schedule 30-min Interview Call ↓"
+  "primaryCta": "Request Full Case Study ✉",
+  "requestSubject": "Case study request: {title}",
+  "requestBody": "Hi Feby,\n\nI came across your portfolio and would like to request the full walkthrough of this case study:\n\n  {title}\n\nA little context from my side:\n- Name:\n- Company / role:\n- What I would like to go deeper on:\n\nHappy to work around an NDA if that helps.\n\nThanks!"
 }

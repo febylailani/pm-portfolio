@@ -2,7 +2,7 @@
   "heading": "Let's build something meaningful together.",
   "intro": "I'm currently exploring Product Manager roles, customer lifecycle and automation opportunities, applied AI product work, and selected writing or speaking collaborations.",
   "channels": [
-    { "type": "email", "label": "Direct Email", "value": "febylailani@gmail.com", "action": "copy" },
+    { "type": "email", "label": "Direct Email", "value": "febylail.work@gmail.com", "action": "copy" },
     { "type": "cal", "label": "Cal.com Video Call", "value": "30-min intro or advisory chat", "href": "https://cal.com", "action": "link" },
     { "type": "location", "label": "Location & Timezone", "value": "Yogyakarta / Jakarta (GMT+7) • Hybrid/Remote", "action": "none" }
   ],
@@ -20,6 +20,6 @@
     },
     "responseTimeNote": "Response typically within 24h",
     "submitLabel": "Send Message ✦",
-    "successMessage": "Thanks, your message has been sent. Feby will reply soon."
+    "successMessage": "Opening your email app with this pre-filled — hit send there to reach Feby directly."
   }
 }

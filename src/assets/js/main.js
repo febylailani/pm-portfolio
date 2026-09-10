@@ -65,11 +65,25 @@
   }
 
   // --- Confidential Case Study Modal -----------------------------------
+  // The modal's primary CTA is a real mailto: link, so it already works with JS off ,
+  // the template renders it pre-filled with the generic dossier title. This narrows that
+  // fallback to the case study the visitor actually clicked, so the request that lands in
+  // the inbox names it instead of saying "one of your case studies".
+  function buildCaseStudyMailto(link, title) {
+    var to = link.dataset.contactEmail;
+    var subject = (link.dataset.subjectTemplate || "").split("{title}").join(title);
+    var body = (link.dataset.bodyTemplate || "").split("{title}").join(title);
+    return "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  }
+
   function openConfidentialModal(title) {
     var modal = document.getElementById("confidentialModal");
     var titleElem = document.getElementById("modalCaseTitle");
     if (!modal) return;
     if (title && titleElem) titleElem.textContent = title;
+
+    var requestLink = modal.querySelector(".confidential-modal-schedule");
+    if (requestLink && title) requestLink.href = buildCaseStudyMailto(requestLink, title);
     modal.classList.remove("opacity-0", "pointer-events-none");
     modal.classList.add("opacity-100", "pointer-events-auto");
     modal.inert = false;
@@ -83,12 +97,6 @@
     modal.classList.remove("opacity-100", "pointer-events-auto");
     modal.inert = true;
     document.body.style.overflow = "";
-  }
-
-  function scheduleFromModal() {
-    closeConfidentialModal();
-    var contactSection = document.getElementById("contact");
-    if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
   }
 
   function initModal() {
@@ -105,8 +113,15 @@
     var backdrop = document.getElementById("confidentialModalBackdrop");
     if (backdrop) backdrop.addEventListener("click", closeConfidentialModal);
 
-    var scheduleBtn = document.querySelector(".confidential-modal-schedule");
-    if (scheduleBtn) scheduleBtn.addEventListener("click", scheduleFromModal);
+    // Deliberately NOT preventDefault: the browser must still follow the mailto: href.
+    // Closing is deferred a tick so the modal is not made inert while that click is
+    // still being dispatched from inside it.
+    var requestLink = document.querySelector(".confidential-modal-schedule");
+    if (requestLink) {
+      requestLink.addEventListener("click", function () {
+        setTimeout(closeConfidentialModal, 0);
+      });
+    }
 
     window.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closeConfidentialModal();
@@ -152,17 +167,47 @@
       btn.className = base + " border-slate-200 bg-slate-50 text-brand-slate hover:border-brand-navy";
     });
     selectedBtn.className = base + " border-brand-navy bg-brand-navy text-white";
+
+    var group = document.getElementById("topic-selector-group");
+    if (group) group.dataset.selectedTopic = selectedBtn.dataset.topic || "";
+  }
+
+  function buildContactMailto(form) {
+    var to = form.dataset.contactEmail;
+    var name = document.getElementById("user-name").value.trim();
+    var email = document.getElementById("user-email").value.trim();
+    var org = document.getElementById("user-org").value.trim();
+    var message = document.getElementById("user-msg").value.trim();
+    var group = document.getElementById("topic-selector-group");
+    var topic = (group && group.dataset.selectedTopic) || "";
+
+    var subject = "Portfolio inquiry (" + topic + ") from " + name;
+
+    var bodyLines = ["Name: " + name, "Email: " + email];
+    if (org) bodyLines.push("Organization: " + org);
+    bodyLines.push("Topic: " + topic);
+    bodyLines.push("");
+    bodyLines.push(message);
+
+    return "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyLines.join("\n"));
   }
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    var banner = document.getElementById("form-success-banner");
     var form = document.getElementById("contact-dispatch-form");
+    var banner = document.getElementById("form-success-banner");
+    if (!form) return;
+
+    var mailtoUrl = buildContactMailto(form);
+    form.dataset.lastMailtoHref = mailtoUrl;
+
     if (banner) banner.classList.remove("hidden");
-    if (form) form.reset();
+    form.reset();
     setTimeout(function () {
       if (banner) banner.classList.add("hidden");
     }, 6000);
+
+    window.location.href = mailtoUrl;
   }
 
   function initContactForm() {
