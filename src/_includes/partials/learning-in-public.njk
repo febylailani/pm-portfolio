@@ -1,0 +1,35 @@
+<!-- BEGIN: LearningInPublicSection -->
+<section class="py-20 bg-white" data-purpose="learning-in-public" id="learning-in-public">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-3xl">
+<span class="text-xs font-bold text-brand-blue uppercase tracking-widest">{{ learningInPublic.eyebrow }}</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1 tracking-tight">{{ learningInPublic.heading }}</h2>
+<p class="mt-5 text-brand-slate text-base leading-relaxed">{{ learningInPublic.intro }}</p>
+</div>
+<!-- Content blocks -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+{% for block in learningInPublic.contentBlocks %}
+<div class="p-6 rounded-2xl border border-brand-border bg-brand-light">
+<h3 class="font-bold text-brand-navy text-base mb-2">{{ block.label }}</h3>
+<p class="text-brand-slate text-sm leading-relaxed">{{ block.body }}</p>
+</div>
+{% endfor %}
+</div>
+<!-- Article cards -->
+<div class="mt-12">
+<p class="text-xs font-bold text-brand-slate uppercase tracking-wider mb-4">{{ learningInPublic.articlesLabel }}</p>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+{% for article in learningInPublic.articles %}
+<article class="bg-white p-6 rounded-2xl border-2 border-brand-border hover:border-brand-navy transition-all duration-200 hover:shadow-comic flex flex-col justify-between">
+<div>
+<h3 class="text-base font-bold text-brand-navy mb-2 leading-snug">{{ article.title }}</h3>
+<p class="text-brand-slate text-sm leading-relaxed">{{ article.description }}</p>
+</div>
+<a class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-brand-blue hover:underline" href="{{ article.url }}" rel="noopener noreferrer" target="_blank">Read on LinkedIn ↗</a>
+</article>
+{% endfor %}
+</div>
+</div>
+</div>
+</section>
+<!-- END: LearningInPublicSection -->

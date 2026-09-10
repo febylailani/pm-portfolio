@@ -39,5 +39,5 @@
     { "caption": "Parent Dashboard / Progress View" }
   ],
   "screenshotsNote": "Screenshots coming soon — placeholders shown while the product is still in active iteration.",
-  "cta": { "label": "Build notes coming soon", "enabled": false, "href": "" }
+  "cta": { "label": "View Iqro Land Build Notes ↓", "enabled": true, "href": "#learning-in-public" }
 }

@@ -40,8 +40,10 @@ Automated coverage for the Phase 1 MVP. Run the full suite with `npm test`. Tool
 | TC-34 | Accessibility | Playwright | "Skip to main content" is the first focusable element on the page and targets `#main-content`. Regression guard for N-03. | `tests/e2e/audit-fixes.spec.ts` |
 | TC-35 | Content | Playwright | The AI-demo response box discloses that responses are a curated preview, not a live model. Regression guard for N-05. | `tests/e2e/audit-fixes.spec.ts` |
 | TC-36 | Content | Playwright | The Independent Build: Iqro Land section renders its heading, all 6 cards, and all 5 screenshot-placeholder captions. | `tests/e2e/new-sections.spec.ts` |
-| TC-37 | Functional | Playwright | Iqro Land's "Build notes coming soon" CTA renders as a disabled, non-clickable element, not a dead link. | `tests/e2e/new-sections.spec.ts` |
-| TC-38 | Structural | Playwright | Iqro Land sits directly after Selected Product Work and before About in page order. | `tests/e2e/new-sections.spec.ts` |
+| TC-37 | Functional | Playwright | Iqro Land's "View Iqro Land Build Notes" CTA links to and scrolls into `#learning-in-public`. | `tests/e2e/new-sections.spec.ts` |
+| TC-38 | Structural | Playwright | Iqro Land sits directly after Selected Product Work and before Learning in Public in page order. | `tests/e2e/new-sections.spec.ts` |
+| TC-39 | Content | Playwright | The Learning in Public section renders its heading, all 3 content blocks, and all 3 real article card titles. | `tests/e2e/new-sections.spec.ts` |
+| TC-40 | Functional | Playwright | Each Learning in Public article card links to its real LinkedIn URL with `target="_blank"`. | `tests/e2e/new-sections.spec.ts` |
 
 ## Known accepted limitation
 

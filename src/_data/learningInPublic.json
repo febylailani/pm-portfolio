@@ -1,0 +1,37 @@
+{
+  "eyebrow": "LEARNING IN PUBLIC",
+  "heading": "Learning in Public",
+  "intro": "I use writing and visual notes to make my learning visible: product thinking, AI-assisted building, career switching, and lessons from shipping products in regulated environments.",
+  "contentBlocks": [
+    {
+      "label": "LinkedIn Posts",
+      "body": "Selected posts where I share what I learned about product management, AI tools, career transition, and building in public."
+    },
+    {
+      "label": "Visual Study Notes",
+      "body": "Beginner-friendly visual notes on AI product management, agentic workflows, product thinking, and technical concepts."
+    },
+    {
+      "label": "Career Switch Story",
+      "body": "Reflections from moving from oil & gas field engineering into product management, and now toward applied AI product work."
+    }
+  ],
+  "articlesLabel": "Recent posts",
+  "articles": [
+    {
+      "title": "Challenges in Arabic Letter Tracing with AI",
+      "description": "Building the Hijaiyah letter-tracing feature for Iqro Land — and what happened when AI coding agents (Claude, GPT) couldn't reliably generate correct Arabic stroke paths on their own.",
+      "url": "https://lnkd.in/p/gcPqdbXP"
+    },
+    {
+      "title": "Local-First vs. Cloud: A Vibe-Coding Lesson",
+      "description": "What I learned about designing a data architecture that starts local-first but leaves a real path to scale, after asking my AI coding agent to evaluate my own Iqro Land codebase.",
+      "url": "https://www.linkedin.com/posts/febylailani_productmanagement-vibecoding-productmanager-activity-7500464099927969792-Tr6j"
+    },
+    {
+      "title": "Study Notes: Git for Vibe Coding",
+      "description": "Beginner-friendly notes on using Git safely while pairing with an AI coding agent — written for fellow non-engineers learning the same thing while building Iqro Land.",
+      "url": "https://www.linkedin.com/posts/febylailani_study-notes-git-activity-7495787976871026689-SOkl"
+    }
+  ]
+}
