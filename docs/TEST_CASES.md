@@ -39,6 +39,9 @@ Automated coverage for the Phase 1 MVP. Run the full suite with `npm test`. Tool
 | TC-33 | Consistency | Playwright | The "Skills, Stack & Explorations" and "Academic Foundations" `<h2>`s render at 36px, matching every other section heading. Regression guard for N-01. | `tests/e2e/audit-fixes.spec.ts` |
 | TC-34 | Accessibility | Playwright | "Skip to main content" is the first focusable element on the page and targets `#main-content`. Regression guard for N-03. | `tests/e2e/audit-fixes.spec.ts` |
 | TC-35 | Content | Playwright | The AI-demo response box discloses that responses are a curated preview, not a live model. Regression guard for N-05. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-36 | Content | Playwright | The Independent Build: Iqro Land section renders its heading, all 6 cards, and all 5 screenshot-placeholder captions. | `tests/e2e/new-sections.spec.ts` |
+| TC-37 | Functional | Playwright | Iqro Land's "Build notes coming soon" CTA renders as a disabled, non-clickable element, not a dead link. | `tests/e2e/new-sections.spec.ts` |
+| TC-38 | Structural | Playwright | Iqro Land sits directly after Selected Product Work and before About in page order. | `tests/e2e/new-sections.spec.ts` |
 
 ## Known accepted limitation
 

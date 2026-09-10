@@ -118,21 +118,25 @@ Not started (implementation-wise). All blocking questions are now answered — r
 - [x] Caught and fixed a real bug via `npm run test:links`: LinkedIn returns HTTP 999 to non-browser link checkers (a known anti-bot response, not a real broken link) — added `--skip "linkedin.com"` to the linkinator command rather than ignore/weaken the check generally
 - [x] `npm test` passes (35/35); visually verified Experience (date pill now correctly neutral, not "active" blue) and Contact sections
 
-**Batch 5 — New section: Independent Build (Iqro Land)**
-- [ ] Create `src/_data/iqroLand.json` (section copy, 6 cards, screenshot list, CTA) using the authentic origin story now in `COPY_POSITIONING_AUDIT.md` (her son getting stuck on hijaiyah letters, tahfidz repetition, parent-guided screen time) — not the earlier generic placeholder copy
-- [ ] Create `src/_includes/partials/iqro-land.njk` (follow the existing card-grid patterns from `toolbox.njk`/`case-studies.njk`)
-- [ ] Add clearly-labeled placeholder screenshot cards to `src/assets/images/` (confirmed approach — swap for real screenshots later, once Feby has seen the live layout)
-- [ ] Wire the new partial into `src/index.njk` in the position specified by the revised site structure (after Selected Product Work)
-- [ ] Add a nav entry if this section should be directly jump-linkable (confirm with Feby — not explicitly specified in the audit)
+**Batch 5 — New section: Independent Build (Iqro Land)** ✅ Shipped
+- [x] Create `src/_data/iqroLand.json` using the authentic origin story from `COPY_POSITIONING_AUDIT.md` (son getting stuck on hijaiyah letters, tahfidz repetition, parent-guided screen time) — not the earlier generic placeholder copy
+- [x] Create `src/_includes/partials/iqro-land.njk`: intro copy, a 6-card grid (reuses the "PRINCIPLE 01"-style eyebrow-pill pattern from `principles.njk` as a category label instead of a step number), and a 5-item screenshot placeholder grid (dashed border + image icon + "Screenshot coming soon" note, so it's unmistakably a placeholder, not a fake screenshot)
+- [x] Screenshot placeholders built as in-template dashed-border cards rather than image assets in `src/assets/images/` — no real images to place yet, and this makes the "pending" state visually obvious per Feby's request to see the layout first
+- [x] Wired into `src/index.njk` right after Selected Product Work (Case Studies), matching the revised site structure — this is the section's final position, not a temporary spot pending Batch 7
+- [x] No nav entry added — matches the existing precedent that not every section is nav-linked (Toolbox and Education aren't either); easy to add later if Feby wants it after seeing the live layout
+- [x] CTA ships as a disabled "Build notes coming soon" (not a link to anywhere) rather than pointing at Learning in Public before that section exists — will wire up properly once Batch 6 ships
+- [x] 3 new regression tests (TC-36, TC-37, TC-38); `npm test` passes (38/38); visually verified desktop + mobile
 
 **Batch 6 — New section: Learning in Public**
 - [ ] Create `src/_data/learningInPublic.json` (section copy, 3 content blocks, and the 3 real article cards — title/description/URL — from `COPY_POSITIONING_AUDIT.md`; do not pad with invented cards)
 - [ ] Create `src/_includes/partials/learning-in-public.njk` (static cards linking out with `target="_blank"` + the ↗ icon, matching the site's established pattern for genuinely external links)
 - [ ] Wire into `src/index.njk` after Iqro Land (or before Contact, per the revised structure)
+- [ ] Wire up Iqro Land's CTA (currently a disabled "Build notes coming soon" from Batch 5) to link to this new section once it exists, and flip its `enabled` flag to true in `iqroLand.json`
 
 **Batch 7 — Site restructure**
 - [ ] Reorder `src/index.njk`'s includes to match: Hero → Key Metrics → Selected Product Work → Independent Build → About → Operating Principles → Toolbox → Learning in Public → Experience → Education → Contact
 - [ ] Re-check in-page anchor nav (`site.json`'s `navLinks`/`footerNavLinks`) still points at the right sections in the right order, and update the mobile nav panel accordingly (no code change needed there, it's data-driven — just verify)
+- [ ] Re-check `bg-white`/`bg-brand-light` alternation across all sections after reordering — Iqro Land shipped as `bg-brand-light` sitting next to About (also `bg-brand-light`) as an interim state; fix once the final order is locked in
 
 **Batch 8 — Final QA**
 - [ ] Re-run `npm test` after each batch (not just at the end)

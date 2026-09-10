@@ -1,0 +1,43 @@
+{
+  "eyebrow": "INDEPENDENT BUILD",
+  "heading": "Iqro Land",
+  "paragraphs": [
+    "Iqro Land started as a way to help my 5-year-old son learn his hijaiyah letters and Juz 30 for school. I watched him get stuck for weeks, missing the same letters over and over — and the same with tahfidz, until consistent repetition at home (on parent-guided screen time) finally helped it click. That gap between \"he needs more practice\" and \"there's nothing simple enough for a 5-year-old\" is what I'm building toward.",
+    "This project is also how I've spent my time since leaving Hijra Group in July 2026 focused on upskilling — exploring automation and hands-on software development with AI. It's end-to-end product building outside a company: defining the problem, writing requirements, designing responsive UX, creating learning flows, testing with AI coding agents, debugging implementation issues, and iterating toward a shippable product."
+  ],
+  "cards": [
+    {
+      "label": "Problem Statement",
+      "body": "My son (5) kept getting stuck on the same hijaiyah letters for weeks, and needed extra repetition to keep pace with his school's Juz 30 target. Existing apps were either too complex or not built for parent-guided, screen-time-conscious learning."
+    },
+    {
+      "label": "Target User",
+      "body": "A 5-year-old learning hijaiyah and Juz 30 for school, practicing alongside a parent on parent-guided screen time."
+    },
+    {
+      "label": "Product Scope",
+      "body": "Hijaiyah learning, tahfidz playback, iqro practice, rewards, onboarding, and parent-friendly progress visibility."
+    },
+    {
+      "label": "Product Decisions",
+      "body": "Responsive-first layout, large tap targets, simple copy, gentle visual system, and low-friction learning paths."
+    },
+    {
+      "label": "Applied AI Workflow",
+      "body": "Used AI coding agents to translate requirements into implementation, test responsive behavior, debug Arabic/harakat rendering, and iterate product flows."
+    },
+    {
+      "label": "Current Result",
+      "body": "A working prototype covering hijaiyah and tahfidz practice — my son is recognizing letters faster and memorizing more quickly after consistent practice at home, and the product keeps iterating from there."
+    }
+  ],
+  "screenshots": [
+    { "caption": "Iqro Land Homepage" },
+    { "caption": "Hijaiyah Learning Module" },
+    { "caption": "Tahfidz Playback Flow" },
+    { "caption": "Reward / Achievement Screen" },
+    { "caption": "Parent Dashboard / Progress View" }
+  ],
+  "screenshotsNote": "Screenshots coming soon — placeholders shown while the product is still in active iteration.",
+  "cta": { "label": "Build notes coming soon", "enabled": false, "href": "" }
+}
