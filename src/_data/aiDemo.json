@@ -4,6 +4,7 @@
   "fallbackResponse": "Exploring frontier products and delivering measurable business impact.",
   "freeTextResponseTemplate": "Feby has 5+ years shipping complex regulated products, enterprise APIs, and conversational AI assistants. Inquiries about \"{{query}}\" are right in her wheelhouse!",
   "introLine": "Feby's Copilot: ",
+  "disclosureCaption": "(curated preview, not a live model)",
   "topics": [
     {
       "label": "Conversational AI/NLP",

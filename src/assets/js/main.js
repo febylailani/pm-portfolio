@@ -176,11 +176,17 @@
     if (form) form.addEventListener("submit", handleFormSubmit);
 
     document.querySelectorAll(".contact-copy-btn").forEach(function (btn) {
+      var toast = btn.parentElement.querySelector(".copy-toast");
       btn.addEventListener("click", function () {
         var value = btn.dataset.copyValue;
         if (navigator.clipboard && value) {
           navigator.clipboard.writeText(value).then(function () {
-            window.alert("Email address copied!");
+            if (!toast) return;
+            toast.classList.remove("hidden");
+            clearTimeout(toast._hideTimer);
+            toast._hideTimer = setTimeout(function () {
+              toast.classList.add("hidden");
+            }, 2000);
           });
         }
       });

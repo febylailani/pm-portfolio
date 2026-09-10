@@ -36,6 +36,9 @@ Automated coverage for the Phase 1 MVP. Run the full suite with `npm test`. Tool
 | TC-30 | Accessibility | Playwright | `#ai-response-box` and `#form-success-banner` have `aria-live="polite"`. Regression guard for P-08. | `tests/e2e/audit-fixes.spec.ts` |
 | TC-31 | Accessibility | Playwright | The About stat-chip captions and the modal's "Production Architecture" badge render in their darkened, AA-passing colors. Regression guard for P-09. | `tests/e2e/audit-fixes.spec.ts` |
 | TC-32 | Responsive | Playwright | Footer nav links, footer social icons, AI-demo topic pills, the email "Copy" button, and contact-form topic pills are all ≥44px tall at 375px. Regression guard for P-05. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-33 | Consistency | Playwright | The "Skills, Stack & Explorations" and "Academic Foundations" `<h2>`s render at 36px, matching every other section heading. Regression guard for N-01. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-34 | Accessibility | Playwright | "Skip to main content" is the first focusable element on the page and targets `#main-content`. Regression guard for N-03. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-35 | Content | Playwright | The AI-demo response box discloses that responses are a curated preview, not a live model. Regression guard for N-05. | `tests/e2e/audit-fixes.spec.ts` |
 
 ## Known accepted limitation
 

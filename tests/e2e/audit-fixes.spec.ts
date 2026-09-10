@@ -115,3 +115,37 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
     expect(topicBox!.height).toBeGreaterThanOrEqual(44);
   });
 });
+
+test.describe("UX audit — Nice-to-have fixes (N-01, N-03, N-05)", () => {
+  test("TC-33: 'Skills, Stack & Explorations' and 'Academic Foundations' headings match the 36px section-heading scale (N-01)", async ({ page }) => {
+    await page.goto("/");
+    const sizes = await page.evaluate(() => {
+      const find = (text: string) =>
+        Array.from(document.querySelectorAll("h2")).find((h) => h.textContent?.trim() === text);
+      return {
+        toolbox: find("Skills, Stack & Explorations") ? getComputedStyle(find("Skills, Stack & Explorations")!).fontSize : null,
+        education: find("Academic Foundations") ? getComputedStyle(find("Academic Foundations")!).fontSize : null,
+      };
+    });
+    expect(sizes.toolbox).toBe("36px");
+    expect(sizes.education).toBe("36px");
+  });
+
+  test("TC-34: 'Skip to main content' is the first focusable element and targets #main-content (N-03)", async ({ page }) => {
+    await page.goto("/");
+    await page.keyboard.press("Tab");
+    const focused = await page.evaluate(() => ({
+      text: document.activeElement?.textContent?.trim(),
+      href: document.activeElement?.getAttribute("href"),
+    }));
+    expect(focused.text).toBe("Skip to main content");
+    expect(focused.href).toBe("#main-content");
+    await expect(page.locator("#main-content")).toHaveCount(1);
+  });
+
+  test("TC-35: the AI-demo response box discloses that responses are curated, not live (N-05)", async ({ page }) => {
+    await page.goto("/");
+    await page.locator(".ai-topic-btn").first().click();
+    await expect(page.locator("#ai-response-box")).toContainText("curated preview, not a live model");
+  });
+});

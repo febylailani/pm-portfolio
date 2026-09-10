@@ -1,9 +1,9 @@
 # UI/UX Audit — Portfolio Site (2026-09-10)
 
-A structural review of the live portfolio site across visual hierarchy, spacing/color/typography consistency, readability, navigation flow, responsiveness, baseline accessibility, and copy/CTA clarity. 16 findings, each with evidence and a concrete recommendation. No code was changed as part of this audit — see `TASKS.md` for the fix plan derived from it.
+A structural review of the live portfolio site across visual hierarchy, spacing/color/typography consistency, readability, navigation flow, responsiveness, baseline accessibility, and copy/CTA clarity. 16 findings, each with evidence and a concrete recommendation. No code was changed as part of the audit itself — see `TASKS.md` for the fix plan and `UX_FIXES_SPEC.md` for implementation decisions. **Update (2026-09-10):** 15 of 16 findings have since been fixed and shipped; see the Resolution Status table below.
 
 - **Site audited:** https://febylailani.github.io/pm-portfolio/
-- **Version:** `main` @ `6c31e23` (v0.1.0)
+- **Version at audit time:** `main` @ `6c31e23` (v0.1.0)
 - **Viewports checked:** 375px (mobile), 768px (tablet), 1440px (desktop)
 - **Scope note:** PR #2 (case-study copy revision + modal simplification) was still pending at audit time and was intentionally not evaluated here.
 
@@ -14,6 +14,27 @@ A structural review of the live portfolio site across visual hierarchy, spacing/
 | 🔴 Critical | 2 | Directly blocks the page's primary jobs: finding a section, or contacting Feby |
 | 🟠 Important | 9 | Page still works, but feels unpolished, less accessible, or over-promises |
 | 🟢 Nice-to-have | 5 | Polish that isn't urgent |
+
+## Resolution Status
+
+| ID | Finding | Status | Shipped in |
+|---|---|---|---|
+| K-01 | No mobile/tablet nav | ✅ Resolved | #4 |
+| K-02 | Contact info truncated on mobile | ✅ Resolved | #4 |
+| P-01 | Modal badge/close overlap | ✅ Resolved | #5 |
+| P-02 | Two `<h1>` elements | ✅ Resolved | #5 |
+| P-03 | Hidden modal buttons keyboard-focusable | ✅ Resolved | #5 |
+| P-04 | No focus indicator on AI-demo input | ✅ Resolved | #5 |
+| P-05 | Tap targets under 44px | ✅ Resolved | #5 |
+| P-06 | CTA copy/icon over-promises | ✅ Resolved | #5 |
+| P-07 | No meta description / OG tags | ✅ Resolved | #5 |
+| P-08 | Dynamic content not announced | ✅ Resolved | #5 |
+| P-09 | Contrast just under WCAG AA | ✅ Resolved | #5 |
+| N-01 | Inconsistent heading scale | ✅ Resolved | #6 |
+| N-02 | Native `alert()` for copy confirmation | ✅ Resolved | #6 |
+| N-03 | No skip-to-content link | ✅ Resolved | #6 |
+| N-04 | Duplicate illustration | ⏸️ Open — needs a new illustration asset, not executable in an AI coding session. Stays in the Phase 2 backlog. | — |
+| N-05 | AI-demo doesn't disclose curated responses | ✅ Resolved | #6 |
 
 ---
 
