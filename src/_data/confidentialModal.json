@@ -2,6 +2,6 @@
   "badges": ["🔒 Confidential & NDA Protected", "Production Architecture"],
   "defaultTitle": "Confidential Case Study Dossier",
   "intro": "To protect the confidentiality of banking data, compliance with Bank Indonesia (BI) and OJK regulations, the in-depth details, and system-design teardown of this case study will be discussed and demonstrated live during the interview session.",
-  "unlockButtonLabel": "Unlock Case Study",
+  "unlockButtonLabel": "🔐 Unlock Case Study",
   "primaryCta": "Schedule 30-min Interview Call ↓"
 }
