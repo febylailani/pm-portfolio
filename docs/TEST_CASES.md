@@ -24,6 +24,9 @@ Automated coverage for the Phase 1 MVP. Run the full suite with `npm test`. Tool
 | TC-18 | Accessibility | axe-core (Playwright) | Zero critical violations with the confidential modal open; the modal exposes `role="dialog"`, `aria-modal="true"`, and `aria-labelledby`. | `tests/e2e/a11y.spec.ts` |
 | TC-19 | Accessibility | Playwright | Every `<img>` has a non-empty, descriptive `alt` attribute. | `tests/e2e/a11y.spec.ts` |
 | TC-20 | Responsive | Playwright | No horizontal overflow at 375px, 768px, and 1280px viewport widths. | `tests/e2e/responsive.spec.ts` |
+| TC-21 | Functional | Playwright | At 375px, the hamburger toggle opens/closes the mobile nav panel and updates `aria-expanded`. Regression guard for K-01. | `tests/e2e/nav.spec.ts` |
+| TC-22 | Functional | Playwright | At 375px, tapping a mobile nav link scrolls to its section and closes the panel. Regression guard for K-01. | `tests/e2e/nav.spec.ts` |
+| TC-23 | Responsive | Playwright | At 375px, no contact-channel value (email, Cal.com, location) is truncated. Regression guard for K-02. | `tests/e2e/contact-form.spec.ts` |
 
 ## Known accepted limitation
 

@@ -111,6 +111,38 @@
     });
   }
 
+  // --- Mobile nav panel ---------------------------------------------------
+  function setMobileNavOpen(open) {
+    var toggle = document.getElementById("mobile-nav-toggle");
+    var panel = document.getElementById("mobile-nav-panel");
+    if (!toggle || !panel) return;
+
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    panel.classList.toggle("hidden", !open);
+    toggle.querySelector('[data-icon="menu"]').classList.toggle("hidden", open);
+    toggle.querySelector('[data-icon="close"]').classList.toggle("hidden", !open);
+  }
+
+  function initMobileNav() {
+    var toggle = document.getElementById("mobile-nav-toggle");
+    var panel = document.getElementById("mobile-nav-panel");
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener("click", function () {
+      setMobileNavOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    panel.querySelectorAll(".mobile-nav-link").forEach(function (link) {
+      link.addEventListener("click", function () {
+        setMobileNavOpen(false);
+      });
+    });
+
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setMobileNavOpen(false);
+    });
+  }
+
   // --- Contact form ------------------------------------------------------
   function selectFormTopic(selectedBtn) {
     document.querySelectorAll(".topic-btn").forEach(function (btn) {
@@ -155,6 +187,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     initAiDemo();
     initModal();
+    initMobileNav();
     initContactForm();
   });
 })();
