@@ -9,6 +9,7 @@ module.exports = [
         document: "readonly",
         navigator: "readonly",
         setTimeout: "readonly",
+        clearTimeout: "readonly",
       },
     },
     rules: {
