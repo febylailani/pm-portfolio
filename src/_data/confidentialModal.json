@@ -1,13 +1,7 @@
 {
   "badges": ["🔒 Confidential & NDA Protected", "Production Architecture"],
   "defaultTitle": "Confidential Case Study Dossier",
-  "intro": "To protect the confidentiality of banking data, compliance with Bank Indonesia (BI) and OJK regulations, and proprietary model-evaluation architecture, the in-depth details, live telemetry, and system-design teardown of this case study will be discussed and demonstrated live during the interview session.",
-  "unboxLabel": "What we will unbox in our discussion:",
-  "highlights": [
-    "Live walkthrough of the **Two-Brain safety architecture** & prompt guardrails",
-    "Exact **token latency curves, eval datasets,** and cost economics",
-    "Unredacted **PRD architecture, user journey maps,** and compliance sign-offs"
-  ],
-  "primaryCta": "Schedule 30-min Interview Call ↗",
-  "secondaryCta": "Close Dossier"
+  "intro": "To protect the confidentiality of banking data, compliance with Bank Indonesia (BI) and OJK regulations, the in-depth details, and system-design teardown of this case study will be discussed and demonstrated live during the interview session.",
+  "unlockButtonLabel": "Unlock Case Study",
+  "primaryCta": "Schedule 30-min Interview Call ↗"
 }

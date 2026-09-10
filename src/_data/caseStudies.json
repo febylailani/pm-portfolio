@@ -4,8 +4,8 @@
     "category": "Conversational AI & NLP",
     "icon": "chat-bot",
     "title": "In-House AI Banking Assistant (Hijra Bank)",
-    "description": "Pioneered Indonesia's leading in-app conversational banking agent. Architected multi-stage intent routing, zero hallucination guardrails on financial ledger execution, and comprehensive prompt eval harnesses.",
-    "tags": ["Two-Brain Architecture", "0.00% Ledger Risk", "Investor Pitch Demo"],
+    "description": "Launched an in-house conversational banking assistant, to production through a limited-user rollout, enabling users to access transaction insights/history and execute banking transactions via chat; also used in investor demonstrations.",
+    "tags": ["Applied AI", "Investor Pitch Demo"],
     "modalTitle": "In-House AI Banking Assistant (Hijra Bank)"
   },
   {
