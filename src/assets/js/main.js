@@ -76,22 +76,32 @@
     return "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   }
 
-  function openConfidentialModal(title) {
-    var modal = document.getElementById("confidentialModal");
-    var titleElem = document.getElementById("modalCaseTitle");
+  // Two dialogs share this machinery: #confidentialModal for client work that is gated,
+  // and #publicModal for Iqro Land, which is Feby's own project and has nothing to gate.
+  // The card says which one it wants via data-modal-target, so adding a third later means
+  // adding a partial , not another branch in here.
+  var MODAL_TITLE_ID = { confidentialModal: "modalCaseTitle", publicModal: "publicModalTitle" };
+
+  function openModal(id, title) {
+    var modal = document.getElementById(id);
     if (!modal) return;
+
+    var titleElem = document.getElementById(MODAL_TITLE_ID[id]);
     if (title && titleElem) titleElem.textContent = title;
 
+    // Only the gated dialog carries a request link to personalize; the public one has
+    // an ordinary in-page anchor.
     var requestLink = modal.querySelector(".confidential-modal-schedule");
     if (requestLink && title) requestLink.href = buildCaseStudyMailto(requestLink, title);
+
     modal.classList.remove("opacity-0", "pointer-events-none");
     modal.classList.add("opacity-100", "pointer-events-auto");
     modal.inert = false;
     document.body.style.overflow = "hidden";
   }
 
-  function closeConfidentialModal() {
-    var modal = document.getElementById("confidentialModal");
+  function closeModal(id) {
+    var modal = document.getElementById(id);
     if (!modal) return;
     modal.classList.add("opacity-0", "pointer-events-none");
     modal.classList.remove("opacity-100", "pointer-events-auto");
@@ -99,19 +109,40 @@
     document.body.style.overflow = "";
   }
 
+  function closeAllModals() {
+    Object.keys(MODAL_TITLE_ID).forEach(closeModal);
+  }
+
   function initModal() {
     document.querySelectorAll(".case-study-lock-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        openConfidentialModal(btn.dataset.modalTitle);
+        openModal(btn.dataset.modalTarget || "confidentialModal", btn.dataset.modalTitle);
       });
     });
 
     document.querySelectorAll(".confidential-modal-close").forEach(function (btn) {
-      btn.addEventListener("click", closeConfidentialModal);
+      btn.addEventListener("click", function () {
+        closeModal("confidentialModal");
+      });
+    });
+    document.querySelectorAll(".public-modal-close").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        closeModal("publicModal");
+      });
     });
 
     var backdrop = document.getElementById("confidentialModalBackdrop");
-    if (backdrop) backdrop.addEventListener("click", closeConfidentialModal);
+    if (backdrop) {
+      backdrop.addEventListener("click", function () {
+        closeModal("confidentialModal");
+      });
+    }
+    var publicBackdrop = document.getElementById("publicModalBackdrop");
+    if (publicBackdrop) {
+      publicBackdrop.addEventListener("click", function () {
+        closeModal("publicModal");
+      });
+    }
 
     // Deliberately NOT preventDefault: the browser must still follow the mailto: href.
     // Closing is deferred a tick so the modal is not made inert while that click is
@@ -119,12 +150,23 @@
     var requestLink = document.querySelector(".confidential-modal-schedule");
     if (requestLink) {
       requestLink.addEventListener("click", function () {
-        setTimeout(closeConfidentialModal, 0);
+        setTimeout(function () {
+          closeModal("confidentialModal");
+        }, 0);
+      });
+    }
+
+    // The public CTA scrolls to another section on the same page, so the dialog must get
+    // out of the way first , otherwise the visitor lands behind a full-screen overlay.
+    var publicCta = document.querySelector(".public-modal-cta");
+    if (publicCta) {
+      publicCta.addEventListener("click", function () {
+        closeModal("publicModal");
       });
     }
 
     window.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeConfidentialModal();
+      if (e.key === "Escape") closeAllModals();
     });
   }
 

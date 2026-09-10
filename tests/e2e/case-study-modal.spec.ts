@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test.describe("Confidential case study modal", () => {
   test("TC-06: each lock button opens the modal with the correct interpolated title", async ({ page }) => {
     await page.goto("/");
-    const buttons = page.locator(".case-study-lock-btn");
+    const buttons = page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]');
     const count = await buttons.count();
     expect(count).toBe(4);
 
@@ -50,7 +50,7 @@ test.describe("Confidential case study modal", () => {
 
   test("TC-09: the modal CTA is a mailto: request naming the case study that was unlocked", async ({ page }) => {
     await page.goto("/");
-    const buttons = page.locator(".case-study-lock-btn");
+    const buttons = page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]');
     const count = await buttons.count();
     expect(count).toBe(4);
 
