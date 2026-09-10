@@ -58,9 +58,19 @@ test.describe("Iqro Land as a public case study card", () => {
     expect(caption).not.toMatch(/^Homepage screenshot/i);
 
     const img = figure.locator("img");
-    await expect(img).toHaveAttribute("src", "/assets/images/iqroland-showcase-1.webp");
+    // Match the FILENAME, not the whole path. The old exact-path assertion passed locally
+    // (served at root) while the deployed page 404'd, because production builds with
+    // --pathprefix=/pm-portfolio/ and the src has to carry that prefix.
+    expect(await img.getAttribute("src")).toMatch(/\/assets\/images\/iqroland-showcase-1\.webp$/);
     await expect(img).toHaveAttribute("loading", "lazy");
     expect(await img.getAttribute("alt")).toContain("Concept visualization");
+
+    // The assertion that would actually have caught the broken path: a 404 still has a
+    // src attribute, but it never decodes.
+    await img.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth), { timeout: 10000 })
+      .toBeGreaterThan(0);
   });
 
   test("TC-44: 'Pre-Alpha' is the status wording everywhere, and 'beta' appears nowhere", async ({ page }) => {
