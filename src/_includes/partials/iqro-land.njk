@@ -1,0 +1,46 @@
+<!-- BEGIN: IndependentBuildSection -->
+<section class="py-20 bg-brand-light border-t border-brand-border" data-purpose="independent-build" id="iqro-land">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-3xl">
+<span class="text-xs font-bold text-brand-blue uppercase tracking-widest">{{ iqroLand.eyebrow }}</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1 tracking-tight">{{ iqroLand.heading }}</h2>
+<div class="mt-5 space-y-4 text-brand-slate text-base leading-relaxed">
+{% for paragraph in iqroLand.paragraphs %}<p>{{ paragraph }}</p>
+{% endfor %}
+</div>
+</div>
+<!-- Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+{% for card in iqroLand.cards %}
+<div class="bg-white p-6 rounded-2xl border border-brand-border">
+<span class="inline-block px-3 py-1 bg-brand-ice text-brand-blue font-extrabold text-[11px] rounded-md mb-3 uppercase tracking-wide">{{ card.label }}</span>
+<p class="text-brand-slate text-sm leading-relaxed">{{ card.body }}</p>
+</div>
+{% endfor %}
+</div>
+<!-- Screenshot placeholders -->
+<div class="mt-12">
+<p class="text-xs font-bold text-brand-slate uppercase tracking-wider mb-4">Product Screens</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+{% for shot in iqroLand.screenshots %}
+<div class="aspect-[4/5] bg-white border-2 border-dashed border-brand-border rounded-xl flex flex-col items-center justify-center gap-2 p-3 text-center">
+<svg class="w-7 h-7 text-brand-slate/50" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<rect height="16" rx="2" width="18" x="3" y="4"></rect>
+<circle cx="8.5" cy="9.5" r="1.5"></circle>
+<path d="m21 15-5-5L5 21" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<p class="text-xs font-semibold text-brand-navy">{{ shot.caption }}</p>
+</div>
+{% endfor %}
+</div>
+<p class="text-xs text-brand-slate mt-3">{{ iqroLand.screenshotsNote }}</p>
+</div>
+<!-- CTA -->
+<div class="mt-10">
+{% if iqroLand.cta.enabled %}<a class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-brand-navy text-white text-sm font-semibold hover:bg-brand-blue transition-all duration-200 shadow-comic hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5" href="{{ iqroLand.cta.href }}">{{ iqroLand.cta.label }}</a>
+{% else %}<span aria-disabled="true" class="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-brand-border text-brand-slate text-sm font-semibold cursor-not-allowed">{{ iqroLand.cta.label }}</span>
+{% endif %}
+</div>
+</div>
+</section>
+<!-- END: IndependentBuildSection -->
