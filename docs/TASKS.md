@@ -79,6 +79,64 @@ Fix plan derived from `docs/UX_AUDIT.md` (audited 2026-09-10 against live `v0.1.
 - [x] Re-run an axe-core pass to confirm P-03/P-04/P-08 close their respective violations
 - [x] Update `docs/UX_AUDIT.md` findings to note which are resolved (all 15 fixable findings shipped; N-04 remains open pending a real illustration asset)
 
+## Phase 1.2 — Copy & Positioning Overhaul
+
+Full content specification: `docs/COPY_POSITIONING_AUDIT.md`. Goal: reposition from "Senior Product Manager (Fintech & AI)" to "Product Manager · Consumer & Enterprise Products · Applied AI", so the site reads accurately against Feby's actual CV/title history and supports non-fintech PM applications (e.g. respond.io-style roles), while staying warm and specific rather than hyperbolic. This is a content-and-structure change only — no new architecture is needed, since every section is already a `src/_data/*.json` file; the two new sections follow the existing partial + data-file pattern.
+
+Not started. Batched into shippable PRs, in recommended order — earlier batches carry the highest-visibility positioning fixes (the acceptance criteria in `COPY_POSITIONING_AUDIT.md` are mostly satisfied by Batch 1 alone).
+
+**⚠️ Needs Feby's input before shipping (do not guess):**
+- [ ] Confirm the exact "Experience" date-range wording (`2021 – Jul 2026`, `2021 – 2026`, or other) — reflects a real employment/career-break status change, not something to assume.
+- [ ] Provide the real LinkedIn profile URL (currently the placeholder `https://linkedin.com` in `site.json`; already tracked in the Phase 2 backlog below, but now also blocks the footer/social copy criteria above).
+- [ ] Confirm whether Iqro Land screenshots are ready to use, or whether to ship the new section with placeholder images (`docs/COPY_POSITIONING_AUDIT.md` explicitly allows placeholders) until real ones exist.
+- [ ] Confirm whether any real LinkedIn post / article URLs exist yet for the "Learning in Public" section, or whether to ship with placeholder cards (also explicitly allowed) pending real links.
+
+**Batch 1 — Core positioning (title, meta, nav/footer, hero, AI-demo copy)**
+- [ ] Update `site.json`: `pageTitle`, `metaDescription`, navbar/footer subtitle (`brandTagline` or equivalent), `og:*`/`twitter:*` derived values
+- [ ] Update `hero.json`: badge, H1 (`headlinePrefix`/`headlineHighlight`/`headlineSuffix`), bio, `primaryCta`/`secondaryCta` labels, illustration tag annotations
+- [ ] Update `aiDemo.json`: input placeholder, the "Fintech Growth" → "Lifecycle Growth" and "Prompt & Model Evals" → "AI Workflow Evaluation" topic labels (and their canned responses if they reference the old framing)
+- [ ] Update tests that hardcode old copy strings (at minimum `tests/e2e/nav.spec.ts` TC-02, `tests/e2e/audit-fixes.spec.ts` TC-28, `tests/e2e/hero-ai-demo.spec.ts` TC-04/TC-05 topic-label assertions)
+
+**Batch 2 — Metrics & Selected Product Work (case studies)**
+- [ ] Update `metrics.json`: card 1 and card 2 copy per the table; confirm card 3/4 subtitle wording
+- [ ] Update `caseStudies.json`: section eyebrow/title/status text (lives in `case-studies.njk`, not JSON — update the template's hardcoded strings), the case CTA label to add 🔐 (in `confidentialModal.json`'s `unlockButtonLabel`), and each of the 4 cards' `title`/`description`/`tags` (MISHA rename, H2H body + tags, core-banking body, KYC body)
+- [ ] Update tests referencing old case-study copy (`tests/e2e/case-study-modal.spec.ts` TC-06 title assertions if `modalTitle`s change)
+
+**Batch 3 — About, Operating Principles, Toolbox**
+- [ ] Update `about.json`: eyebrow, heading (keep or revise), paragraphs, pull-quote, closing paragraph, illustration `cardCaption`/label
+- [ ] Update `principles.json`: principle 01 title + body; principle 02 body; principle 03 body (titles for 02/03 stay as-is per the audit)
+- [ ] Update `toolbox.json`: section title, AI card items, Fintech card title (→ "Enterprise, Banking & Platform Products"), Life-Beyond-PRDs card items
+
+**Batch 4 — Experience, Contact, Footer**
+- [ ] Update `experience.json`: role title (`Senior Product Manager` → `Product Manager`), date range (pending Feby's confirmation above), the MISHA-related bullet copy
+- [ ] Update `contact.json`: intro body, form heading (`Send an Inquiry or Dispatch` → `Send a Message`), topic labels, success message
+- [ ] Update `site.json`'s `social.linkedin` once the real URL is provided
+
+**Batch 5 — New section: Independent Build (Iqro Land)**
+- [ ] Create `src/_data/iqroLand.json` (section copy, 6 cards, screenshot list, CTA — see spec)
+- [ ] Create `src/_includes/partials/iqro-land.njk` (follow the existing card-grid patterns from `toolbox.njk`/`case-studies.njk`)
+- [ ] Add placeholder or real screenshots to `src/assets/images/` per Feby's answer above
+- [ ] Wire the new partial into `src/index.njk` in the position specified by the revised site structure (after Selected Product Work)
+- [ ] Add a nav entry if this section should be directly jump-linkable (confirm with Feby — not explicitly specified in the audit)
+
+**Batch 6 — New section: Learning in Public**
+- [ ] Create `src/_data/learningInPublic.json` (section copy, 3 content blocks, 5 article cards)
+- [ ] Create `src/_includes/partials/learning-in-public.njk`
+- [ ] Wire into `src/index.njk` after Iqro Land (or before Contact, per the revised structure)
+- [ ] Use placeholder article links unless real URLs are provided (see input needed above)
+
+**Batch 7 — Site restructure**
+- [ ] Reorder `src/index.njk`'s includes to match: Hero → Key Metrics → Selected Product Work → Independent Build → About → Operating Principles → Toolbox → Learning in Public → Experience → Education → Contact
+- [ ] Re-check in-page anchor nav (`site.json`'s `navLinks`/`footerNavLinks`) still points at the right sections in the right order, and update the mobile nav panel accordingly (no code change needed there, it's data-driven — just verify)
+
+**Batch 8 — Final QA**
+- [ ] Re-run `npm test` after each batch (not just at the end)
+- [ ] Manual pass against `COPY_POSITIONING_AUDIT.md`'s "Section-level acceptance criteria" checklist
+- [ ] Grep the built `_site/` output for "Senior Product Manager" / "Senior PM" to confirm zero matches
+- [ ] Visual QA at 375/768/1440px for the 2 new sections (new content = new responsive surface area, not covered by existing screenshots)
+- [ ] Update `docs/PRD.md`'s Summary, Target audience, and Content-sections list to reflect the new positioning and structure once shipped
+- [ ] Add a `CHANGELOG.md` entry and consider whether this warrants a `v0.2.0` tag (content/positioning change, not just bug fixes)
+
 ## Phase 2 — Backlog (not part of this release)
 
 - Real contact-form backend (e.g., Formspree) with spam protection — requires Feby to create the third-party account
