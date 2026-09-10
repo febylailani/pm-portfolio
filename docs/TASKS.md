@@ -86,7 +86,7 @@ Full content specification: `docs/COPY_POSITIONING_AUDIT.md`. Goal: reposition f
 Not started. Batched into shippable PRs, in recommended order — earlier batches carry the highest-visibility positioning fixes (the acceptance criteria in `COPY_POSITIONING_AUDIT.md` are mostly satisfied by Batch 1 alone).
 
 **⚠️ Needs Feby's input before shipping (do not guess):**
-- [ ] Confirm the exact "Experience" date-range wording (`2021 – Jul 2026`, `2021 – 2026`, or other) — reflects a real employment/career-break status change, not something to assume.
+- [x] ~~Confirm the exact "Experience" date-range wording~~ — **Answered 2026-09-10:** `2021 – Jul 2026`. Feby left Hijra Group in July 2026 and has since been focused on upskilling (automation, hands-on software development with AI), starting with the Iqro Land project. This "now" phase is told through the new Independent Build section and an added About closing sentence — not a third formal Experience entry. See `COPY_POSITIONING_AUDIT.md`'s Experience-date row and the enriched Iqro Land section copy for the full story (including the authentic origin: her 5-year-old son getting stuck on hijaiyah letters and needing extra tahfidz repetition, with screen time parent-guided).
 - [ ] Provide the real LinkedIn profile URL (currently the placeholder `https://linkedin.com` in `site.json`; already tracked in the Phase 2 backlog below, but now also blocks the footer/social copy criteria above).
 - [ ] Confirm whether Iqro Land screenshots are ready to use, or whether to ship the new section with placeholder images (`docs/COPY_POSITIONING_AUDIT.md` explicitly allows placeholders) until real ones exist.
 - [ ] Confirm whether any real LinkedIn post / article URLs exist yet for the "Learning in Public" section, or whether to ship with placeholder cards (also explicitly allowed) pending real links.
@@ -103,17 +103,17 @@ Not started. Batched into shippable PRs, in recommended order — earlier batche
 - [ ] Update tests referencing old case-study copy (`tests/e2e/case-study-modal.spec.ts` TC-06 title assertions if `modalTitle`s change)
 
 **Batch 3 — About, Operating Principles, Toolbox**
-- [ ] Update `about.json`: eyebrow, heading (keep or revise), paragraphs, pull-quote, closing paragraph, illustration `cardCaption`/label
+- [ ] Update `about.json`: eyebrow, heading (keep or revise), paragraphs, pull-quote, closing paragraph (include the added "Since July 2026..." bridge sentence linking to the Independent Build section), illustration `cardCaption`/label
 - [ ] Update `principles.json`: principle 01 title + body; principle 02 body; principle 03 body (titles for 02/03 stay as-is per the audit)
 - [ ] Update `toolbox.json`: section title, AI card items, Fintech card title (→ "Enterprise, Banking & Platform Products"), Life-Beyond-PRDs card items
 
 **Batch 4 — Experience, Contact, Footer**
-- [ ] Update `experience.json`: role title (`Senior Product Manager` → `Product Manager`), date range (pending Feby's confirmation above), the MISHA-related bullet copy
+- [ ] Update `experience.json`: role title (`Senior Product Manager` → `Product Manager`), date range → `2021 – Jul 2026` (confirmed), the MISHA-related bullet copy
 - [ ] Update `contact.json`: intro body, form heading (`Send an Inquiry or Dispatch` → `Send a Message`), topic labels, success message
 - [ ] Update `site.json`'s `social.linkedin` once the real URL is provided
 
 **Batch 5 — New section: Independent Build (Iqro Land)**
-- [ ] Create `src/_data/iqroLand.json` (section copy, 6 cards, screenshot list, CTA — see spec)
+- [ ] Create `src/_data/iqroLand.json` (section copy, 6 cards, screenshot list, CTA) using the authentic origin story now in `COPY_POSITIONING_AUDIT.md` (her son getting stuck on hijaiyah letters, tahfidz repetition, parent-guided screen time) — not the earlier generic placeholder copy
 - [ ] Create `src/_includes/partials/iqro-land.njk` (follow the existing card-grid patterns from `toolbox.njk`/`case-studies.njk`)
 - [ ] Add placeholder or real screenshots to `src/assets/images/` per Feby's answer above
 - [ ] Wire the new partial into `src/index.njk` in the position specified by the revised site structure (after Selected Product Work)

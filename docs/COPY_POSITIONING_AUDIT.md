@@ -61,7 +61,7 @@ Longer positioning, used in the hero body or About section:
 | About paragraph 1 | `...commanding high-stakes offshore and onshore drilling operations where equipment failures or miscalculations carried zero margin for error.` | `...working in offshore and onshore field operations where safety, precision, and clear decisions mattered every day.` | Less dramatic |
 | About paragraph 2 | `That baptism of fire forged my approach... deterministic engineering reliability... joyful user interface... delight.` | `That experience shaped how I approach product work: understand the system, reduce ambiguity, manage risk, and design user journeys that make complex workflows easier.` | More grounded |
 | About pull-quote | `Engineer mindset × PM heart... extreme rigor... delight.` | `I bring field-engineering rigor into product work: clear problem framing, careful risk thinking, and practical user journeys that reduce friction.` | Better recruiter copy |
-| About closing paragraph | `...deploy conversational LLM copilots.` | `...helped ship chatbot automation and an in-house NLP banking assistant in a regulated environment.` | Avoid overclaiming LLM/copilot scope |
+| About closing paragraph | `...deploy conversational LLM copilots.` | `...helped ship chatbot automation and an in-house NLP banking assistant in a regulated environment. Since July 2026, I've been focused on upskilling — hands-on with automation and AI-assisted software development, starting with Iqro Land below.` | Avoid overclaiming LLM/copilot scope; the added sentence bridges to the "now" phase and links into the new Iqro Land section instead of leaving an unexplained gap |
 | About image label | `Wireline SLB → Hijra Fintech & AI` | `Field Engineering → Product Management` | More inclusive |
 | Principle 01 title | `Fall in love with the unsexy plumbing` | `Care about the operational layer` | More professional |
 | Principle 01 body | `Flashy features won't save a broken infrastructure... flawless reconciliation engines... low token latency... rock-solid compliance protocols...` | `I care about the systems behind the interface: ledgers, integrations, reconciliation, support workflows, and the details users rarely see but feel when they break.` | Less buzzword-heavy |
@@ -74,7 +74,7 @@ Longer positioning, used in the hero body or About section:
 | Toolbox — Fintech card | `Fintech & Open Banking` | `Enterprise, Banking & Platform Products` | Keeps fintech, adds enterprise |
 | Toolbox — Life card | `Pour-over coffee`, `Sci-fi literature`, etc. | `Independent product building`, `visual learning notes`, `product writing`, `AI-assisted prototyping`, `mentoring early PMs` | More useful for a portfolio |
 | Experience title | `Senior Product Manager — Hijra Group` | `Product Manager — Hijra Group` | Important correction |
-| Experience date | `2021 – Present` | `2021 – Jul 2026` or `2021 – 2026` | Match current status — **confirm exact wording with Feby before shipping** |
+| Experience date | `2021 – Present` | `2021 – Jul 2026` | **Confirmed by Feby.** Left Hijra Group in July 2026; since then she's been focused on upskilling (automation, hands-on software development with AI) — this "now" period is told through the new Independent Build: Iqro Land section and the About/Contact copy, not as a third formal Experience entry (avoids padding a professional timeline with a non-employment phase). |
 | Experience bullet | `Pioneered In-House Conversational Banking Assistant using LLM intent classification and automated guardrails.` | `Co-led MISHA, an in-house NLP banking assistant, translating banking use cases and conversational flows into a limited-release product experience.` | Safer, more PM-focused |
 | Contact body | `...strategic product leadership roles, 0→1 conversational AI advisory, and speaking invitations.` | `Product Manager roles, customer lifecycle and automation opportunities, applied AI product work, and selected writing or speaking collaborations.` | More relevant to job search |
 | Contact form title | `Send an Inquiry or Dispatch` | `Send a Message` | "Dispatch" feels less recruiter-friendly |
@@ -88,20 +88,20 @@ Placed after "Selected Product Work" (or before "Skills, Methods & Current Explo
 
 **Section copy:**
 
-> Iqro Land is a faith-based learning game I am building independently to help young children practice hijaiyah, iqro, and short surah learning through a simple, gentle, and child-friendly interface.
+> Iqro Land started as a way to help my 5-year-old son learn his hijaiyah letters and Juz 30 for school. I watched him get stuck for weeks, missing the same letters over and over — and the same with tahfidz, until consistent repetition at home (on parent-guided screen time) finally helped it click. That gap between "he needs more practice" and "there's nothing simple enough for a 5-year-old" is what I'm building toward.
 >
-> This project helps me practice end-to-end product building outside work: defining the problem, writing requirements, designing responsive UX, creating learning flows, testing with AI coding agents, debugging implementation issues, and iterating toward a shippable product.
+> This project is also how I've spent my time since leaving Hijra Group in July 2026 focused on upskilling — exploring automation and hands-on software development with AI. It's end-to-end product building outside a company: defining the problem, writing requirements, designing responsive UX, creating learning flows, testing with AI coding agents, debugging implementation issues, and iterating toward a shippable product.
 
 **Cards:**
 
 | Card | Copy |
 |---|---|
-| Problem Statement | Parents need a simple and engaging way to help young children practice Quran learning without making the experience feel like homework. |
-| Target User | Young children around 5 years old, with parent-assisted learning and simple navigation. |
+| Problem Statement | My son (5) kept getting stuck on the same hijaiyah letters for weeks, and needed extra repetition to keep pace with his school's Juz 30 target. Existing apps were either too complex or not built for parent-guided, screen-time-conscious learning. |
+| Target User | A 5-year-old learning hijaiyah and Juz 30 for school, practicing alongside a parent on parent-guided screen time. |
 | Product Scope | Hijaiyah learning, tahfidz playback, iqro practice, rewards, onboarding, and parent-friendly progress visibility. |
 | Product Decisions | Responsive-first layout, large tap targets, simple copy, gentle visual system, and low-friction learning paths. |
 | Applied AI Workflow | Used AI coding agents to translate requirements into implementation, test responsive behavior, debug Arabic/harakat rendering, and iterate product flows. |
-| Current Result | Working prototype direction with multiple learning modules, visual assets, and playback requirements under active iteration. |
+| Current Result | A working prototype covering hijaiyah and tahfidz practice — my son is recognizing letters faster and memorizing more quickly after consistent practice at home, and the product keeps iterating from there. |
 
 **Screenshots (3–5, placeholders acceptable until real assets exist):** Iqro Land Homepage, Hijaiyah Learning Module, Tahfidz Playback Flow, Reward/Achievement Screen, Parent Dashboard/Progress View.
 
