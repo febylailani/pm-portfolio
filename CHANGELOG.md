@@ -7,37 +7,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-
-- Refined the "In-House AI Banking Assistant (Hijra Bank)" case study's description and tags to more precisely describe the shipped feature; renamed the case-study CTA to "Unlock Case Study".
-- Simplified the confidential-modal copy and removed the redundant "what we'll unbox" list and secondary "Close Dossier" button.
-
-- Added a mobile/tablet hamburger nav menu — the desktop nav was previously hidden below 1024px with no replacement (K-01).
-- Contact channel values (email, Cal.com, location) no longer truncate on phone-width screens (K-02).
-- Fixed the confidential-modal badges overlapping the close button on mobile (P-01).
-- Relabeled anchor-scroll CTAs ("Book Intro", "Schedule Call", "Schedule 30-min Interview Call") to use "↓" instead of the external-link "↗" icon, which is now reserved for links that actually leave the page (P-06).
-- Darkened two text/background color pairs that fell just short of WCAG AA contrast (P-09).
-
-- "Skills, Stack & Explorations" and "Academic Foundations" headings now match the 36px size used by every other section heading (N-01).
-- Replaced the native `window.alert()` copy-confirmation with an inline toast next to the "Copy" button (N-02).
-- The hero AI-demo response box now discloses that its answers are a curated preview, not a live model (N-05).
+## [0.2.0] - 2026-09-10
 
 ### Added
 
-- `docs/UX_AUDIT.md`: a UI/UX audit of the live v0.1.0 site (16 findings: 2 critical, 9 important, 5 nice-to-have) covering navigation, responsiveness, accessibility, and CTA clarity.
-- `docs/UX_FIXES_SPEC.md`: implementation decisions for the audit's fixes.
-- A "Phase 1.1 — UX Audit Fixes" task list in `docs/TASKS.md`, tracking the fix for each audit finding.
+- A new "Independent Build: Iqro Land" section describing a self-initiated, applied-AI learning app Feby has been building since July 2026 for her son — covering problem statement, target user, product scope, product decisions, AI-assisted workflow, and current result, with clearly-labeled placeholder product-screen slots pending real screenshots.
+- A new "Learning in Public" section surfacing three real published LinkedIn articles (Arabic letter-tracing with AI, local-first vs. cloud architecture, Git for vibe coding) alongside a short career-switch narrative.
+- Feby's current chapter (Jul 2026 – Now: "Focus Upskilling") added to the Experience timeline, describing her transition into independent applied-AI product building.
+- A mobile/tablet hamburger nav menu — the desktop nav was previously hidden below 1024px with no replacement (K-01).
 - `<meta name="description">` and Open Graph/Twitter card tags, so sharing the site link now shows a title, summary, and preview image (P-07).
 - `aria-live="polite"` on the AI-demo response box and the contact-form success banner, so screen readers announce them when they appear (P-08).
+- A visible focus ring on the hero AI-demo input (P-04), and a "Skip to main content" link for keyboard users (N-03).
+- `docs/UX_AUDIT.md`, `docs/UX_FIXES_SPEC.md`, and `docs/COPY_POSITIONING_AUDIT.md`, plus matching "Phase 1.1" and "Phase 1.2" task lists in `docs/TASKS.md`.
+- 20 new regression tests (TC-21 … TC-40) covering the UX fixes and the two new sections.
+
+### Changed
+
+- Repositioned Feby from "Senior Product Manager (Fintech & AI)" to "Product Manager · Consumer & Enterprise Products · Applied AI" across the page title, meta description, header/footer badge, hero, about, and contact copy, so the site reads well for non-fintech PM roles (e.g., customer-lifecycle/automation/messaging) and not only banking.
+- Replaced narrowly fintech-flavored AI phrasing with broader "applied AI" language (e.g., "NLP banking assistant", "chatbot automation", "AI-assisted prototyping") throughout the case studies, about, toolbox, and experience copy.
+- Added Feby's real LinkedIn profile URL (`linkedin.com/in/febylailani`) to the footer, replacing the generic placeholder.
+- Reordered page sections to: Hero → Key Metrics → Selected Product Work → Independent Build (Iqro Land) → About → Operating Principles → Toolbox → Learning in Public → Experience → Education → Contact, and adjusted the `bg-white`/`bg-brand-light` section-background alternation to preserve card contrast under the new order (Experience's background and its inner timeline-banner box swapped colors).
+- Updated `docs/PRD.md`'s Summary, Target audience, and Content-sections list to reflect the new positioning and page structure.
+- Refined the "In-House AI Banking Assistant (Hijra Bank)" case study's description and tags to more precisely describe the shipped feature; renamed the case-study CTA to "Unlock Case Study".
+- Simplified the confidential-modal copy and removed the redundant "what we'll unbox" list and secondary "Close Dossier" button.
+- Contact channel values (email, Cal.com, location) no longer truncate on phone-width screens (K-02).
+- Relabeled anchor-scroll CTAs ("Book Intro", "Schedule Call", "Schedule 30-min Interview Call") to use "↓" instead of the external-link "↗" icon, which is now reserved for links that actually leave the page (P-06).
+- Darkened two text/background color pairs that fell just short of WCAG AA contrast (P-09).
+- "Skills, Methods & Current Explorations" and "Academic Foundations" headings now match the 36px size used by every other section heading (N-01).
+- Replaced the native `window.alert()` copy-confirmation with an inline toast next to the "Copy" button (N-02).
+- The hero AI-demo response box now discloses that its answers are a curated preview, not a live model (N-05).
 - The confidential modal is now `inert` while closed, so its buttons no longer receive keyboard focus when hidden (P-03).
-- A visible focus ring on the hero AI-demo input (P-04).
-- A "Skip to main content" link for keyboard users (N-03).
-- 15 new regression tests (TC-21 … TC-35) covering all of the above.
 
 ### Fixed
 
 - The page now has exactly one `<h1>` (the header brand name is no longer a heading) (P-02).
 - Mobile tap targets (footer nav links, footer social icons, the email "Copy" button, AI-demo topic pills, contact-form topic pills) now meet the 44×44px minimum (P-05).
+- Fixed the confidential-modal badges overlapping the close button on mobile (P-01).
 
 ### Known limitation
 
@@ -65,5 +70,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The contact form does not send anywhere yet (front-end demo only); real backend integration is planned for a later release.
 - LinkedIn and Cal.com links ship with placeholder URLs pending Feby's real profile/booking links.
 
-[Unreleased]: https://github.com/febylailani/pm-portfolio/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/febylailani/pm-portfolio/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/febylailani/pm-portfolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/febylailani/pm-portfolio/releases/tag/v0.1.0

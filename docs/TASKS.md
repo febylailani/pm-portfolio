@@ -140,12 +140,12 @@ Not started (implementation-wise). All blocking questions are now answered — r
 - [x] Re-audited `bg-white`/`bg-brand-light` alternation across every section's inner card styling (grepped each partial for `border`/`bg-*` on cards to classify them as needing a fixed light parent, fixed white parent, or flexible). The new order creates an unavoidable parity conflict at Experience (sandwiched between Learning in Public, fixed `bg-white` by its cards, and Education, fixed `bg-brand-light` by its cards): flipped Experience's own section background from `bg-white` to `bg-brand-light` in [experience.njk](../src/_includes/partials/experience.njk) — justified independently since Experience's role-cards use the same thin-border "quiet card" style as Toolbox/Metrics/Education/IqroLand, all of which need a light parent for contrast. Also swapped the inner timeline-banner box from `bg-brand-light` to `bg-white` so it still contrasts against its new light section background. Net pattern: white → light → light (About, accepted trade-off) → white → light → white → light (Experience, changed) → light (Education) → white — the one remaining light-light adjacency (Experience/Education) is judged the least-bad option, both being "credentials/background" sections thematically. Verified via `npm run build` + a full `npm test` run (40/40 passing) + a full-page screenshot and computed-style check confirming the exact intended colors per section.
 
 **Batch 8 — Final QA**
-- [ ] Re-run `npm test` after each batch (not just at the end)
-- [ ] Manual pass against `COPY_POSITIONING_AUDIT.md`'s "Section-level acceptance criteria" checklist
-- [ ] Grep the built `_site/` output for "Senior Product Manager" / "Senior PM" to confirm zero matches
-- [ ] Visual QA at 375/768/1440px for the 2 new sections (new content = new responsive surface area, not covered by existing screenshots)
-- [ ] Update `docs/PRD.md`'s Summary, Target audience, and Content-sections list to reflect the new positioning and structure once shipped
-- [ ] Add a `CHANGELOG.md` entry and consider whether this warrants a `v0.2.0` tag (content/positioning change, not just bug fixes)
+- [x] Re-ran `npm test` after each batch throughout Phase 1.2, and again on `main` after the Batch 7 merge — 40/40 passing.
+- [x] Manual pass against `COPY_POSITIONING_AUDIT.md`'s "Section-level acceptance criteria" checklist — all 10 criteria verified against `src/_data/*.json` and the built output (positioning string, no "Senior" language, applied-AI phrasing, 🔐 disclosure, MISHA "limited-release" wording, real LinkedIn URL, Iqro Land + Learning in Public present with real article links, contact copy scope).
+- [x] Grepped the built `_site/` output for "Senior Product Manager" / "Senior PM" — zero matches.
+- [x] Visual QA at 375/768/1440px for Iqro Land and Learning in Public via Playwright screenshots — no horizontal overflow at any width, no clipping or layout breakage.
+- [x] Updated `docs/PRD.md`'s Summary, Target audience, and Content-sections list for the new positioning and 13-section structure (was 11).
+- [x] Added a consolidated `[0.2.0]` `CHANGELOG.md` entry covering both Phase 1.1 (UX audit fixes) and Phase 1.2 (copy/positioning overhaul), since neither had been tagged yet; bumped `package.json` to `0.2.0`. Warrants a minor version bump, not a patch — this is a real content/structure/positioning change, not just fixes.
 
 ## Phase 2 — Backlog (not part of this release)
 
