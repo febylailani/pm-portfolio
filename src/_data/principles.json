@@ -1,20 +1,20 @@
 [
   {
     "number": "01",
-    "title": "Fall in love with the unsexy plumbing",
-    "description": "Flashy features won't save a broken infrastructure. Real competitive advantage lives in flawless reconciliation engines, robust core ledger APIs, low token latency, and rock-solid compliance protocols like BI SNAP.",
+    "title": "Care about the operational layer",
+    "description": "I care about the systems behind the interface: ledgers, integrations, reconciliation, support workflows, and the details users rarely see but feel when they break.",
     "footerTags": "Core CBS • Ledger Integrity • APIs"
   },
   {
     "number": "02",
     "title": "AI as an amplifier, not a gimmick",
-    "description": "Do not ship LLMs for novelty. Run rigorous eval harnesses, establish deterministic fallbacks, protect user funds with strict guardrails, and ensure conversational agents genuinely reduce human friction.",
-    "footerTags": "Model Evals • Safe Guardrails • Two-Brain"
+    "description": "I treat AI as workflow automation with guardrails: define the user problem first, test outputs, design fallbacks, and keep humans in the loop for risky actions.",
+    "footerTags": "Model Evals • Guardrails • Human-in-the-Loop"
   },
   {
     "number": "03",
     "title": "Empathy with technical precision",
-    "description": "Translate cumbersome Bank Indonesia and OJK regulatory mandates into joyful, modular user journeys. Great PMs remove friction without compromising security, risk controls, or architectural elegance.",
+    "description": "Translate regulatory, operational, and technical constraints into user journeys that are clearer, safer, and easier to complete.",
     "footerTags": "Human Centered • Regulated Systems"
   }
 ]

@@ -117,13 +117,13 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
 });
 
 test.describe("UX audit — Nice-to-have fixes (N-01, N-03, N-05)", () => {
-  test("TC-33: 'Skills, Stack & Explorations' and 'Academic Foundations' headings match the 36px section-heading scale (N-01)", async ({ page }) => {
+  test("TC-33: 'Skills, Methods & Current Explorations' and 'Academic Foundations' headings match the 36px section-heading scale (N-01)", async ({ page }) => {
     await page.goto("/");
     const sizes = await page.evaluate(() => {
       const find = (text: string) =>
         Array.from(document.querySelectorAll("h2")).find((h) => h.textContent?.trim() === text);
       return {
-        toolbox: find("Skills, Stack & Explorations") ? getComputedStyle(find("Skills, Stack & Explorations")!).fontSize : null,
+        toolbox: find("Skills, Methods & Current Explorations") ? getComputedStyle(find("Skills, Methods & Current Explorations")!).fontSize : null,
         education: find("Academic Foundations") ? getComputedStyle(find("Academic Foundations")!).fontSize : null,
       };
     });
