@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Refined the "In-House AI Banking Assistant (Hijra Bank)" case study's description and tags to more precisely describe the shipped feature; renamed the case-study CTA to "Unlock Case Study".
+- Simplified the confidential-modal copy and removed the redundant "what we'll unbox" list and secondary "Close Dossier" button.
+
+### Added
+
+- `docs/UX_AUDIT.md`: a UI/UX audit of the live v0.1.0 site (16 findings: 2 critical, 9 important, 5 nice-to-have) covering navigation, responsiveness, accessibility, and CTA clarity.
+- A "Phase 1.1 — UX Audit Fixes" task list in `docs/TASKS.md`, tracking the fix for each audit finding.
+
 ## [0.1.0] - 2026-09-09
 
 ### Added

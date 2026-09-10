@@ -34,8 +34,8 @@
 **CI/CD**
 - [x] Write `.github/workflows/ci.yml` (lint, build, validate, link-check, e2e tests on every PR)
 - [x] Write `.github/workflows/deploy.yml` (build with `pathPrefix` + deploy to GitHub Pages on push to `main`)
-- [ ] One-time manual setup (repo owner): enable **Settings → Pages → Source: GitHub Actions**
-- [ ] One-time manual setup (repo owner): enable branch protection on `main` requiring the `CI` check
+- [x] One-time manual setup (repo owner): enable **Settings → Pages → Source: GitHub Actions**
+- [ ] One-time manual setup (repo owner): enable branch protection on `main` requiring the `CI` check (blocked on repo-admin permissions during initial setup — still pending)
 
 **Docs**
 - [x] `docs/PRD.md`, `docs/TASKS.md`, `docs/TEST_CASES.md`
@@ -43,9 +43,41 @@
 - [x] Seed `CHANGELOG.md`
 
 **Launch**
-- [ ] Merge `feature/eleventy-portfolio-mvp` to `main` via pull request
-- [ ] Verify the live GitHub Pages deploy matches the approved mockup
-- [ ] Tag `v0.1.0` and cut a GitHub Release from the `CHANGELOG.md` entry
+- [x] Merge `feature/eleventy-portfolio-mvp` to `main` via pull request
+- [x] Verify the live GitHub Pages deploy matches the approved mockup
+- [x] Tag `v0.1.0` and cut a GitHub Release from the `CHANGELOG.md` entry
+
+## Phase 1.1 — UX Audit Fixes
+
+Fix plan derived from `docs/UX_AUDIT.md` (audited 2026-09-10 against live `v0.1.0`). Each task references its finding ID for traceability back to the audit's evidence and rationale. Ordered by severity; within Critical/Important, roughly in the order a single engineer would tackle them (structural/global fixes before isolated polish).
+
+**Critical — do first**
+- [ ] **[K-01]** Add a mobile/tablet nav: a hamburger button below the `lg` breakpoint that opens a drawer/panel with the same links as the desktop nav (About/Case Studies/Operating Principles/Experience/Contact) plus the "Book Intro" CTA. Needs `aria-expanded` on the toggle and Escape-to-close.
+- [ ] **[K-02]** Stop truncating the contact channel rows (Direct Email / Cal.com / Location) on mobile — stack label, value, and action button vertically below a breakpoint instead of sharing one row, or drop `truncate` in favor of wrapping.
+
+**Important**
+- [ ] **[P-01]** Fix the confidential-modal badge/close-button overlap on mobile — wrap badges onto their own line, or reserve clear space so `#confidentialModal .badges` never sits under the × button below ~400px.
+- [ ] **[P-02]** Demote the header brand name from `<h1>` to a non-heading element (`<p>`/`<span>`) in `partials/header.njk`, so the hero headline is the page's only `<h1>`.
+- [ ] **[P-03]** Make the confidential modal inert while closed: toggle `inert` (or `aria-hidden="true"` + `tabindex="-1"` on its focusable children) in `main.js`'s `openConfidentialModal`/`closeConfidentialModal`.
+- [ ] **[P-04]** Give `#ai-prompt-input` a visible `focus-visible` ring (e.g. `focus-visible:ring-2 focus-visible:ring-brand-blue`) in `partials/hero.njk`.
+- [ ] **[P-05]** Audit tap targets at the 375px breakpoint and bump padding until footer nav links, footer social icons, the email "Copy" button, AI-demo topic pills, and contact-form topic pills are all ≥44×44px, without changing desktop sizing.
+- [ ] **[P-06]** Relabel the "Book Intro ↗" / "Schedule Call ↗" / "Schedule 30-min Interview Call ↗" CTAs to describe what actually happens (an in-page scroll to the contact form), and remove the ↗ icon from all three — reserve ↗ for links with `target="_blank"` only (matches the Cal.com link's existing correct usage).
+- [ ] **[P-07]** Add `<meta name="description">` and `og:title` / `og:description` / `og:image` tags to `layouts/base.njk`, sourced from `site.json`/`hero.json` content and the hero illustration.
+- [ ] **[P-08]** Add `aria-live="polite"` to `#ai-response-box` and `#form-success-banner`.
+- [ ] **[P-09]** Darken the text color on the About-section stat-chip captions and the modal's "Production Architecture" badge (e.g. to `slate-600`/`blue-700`) to clear the 4.5:1 contrast threshold — same pattern as the earlier case-study tag-chip fix.
+
+**Nice-to-have**
+- [ ] **[N-01]** Bump the `<h2>` size for "Skills, Stack & Explorations" and "Academic Foundations" to match the other section headings (36px at `sm`+), or explicitly document why they're intentionally smaller.
+- [ ] **[N-02]** Replace the `window.alert()` copy-confirmation in `main.js` with an inline toast/tooltip matching the `#form-success-banner` visual pattern.
+- [ ] **[N-03]** Add a visually-hidden "Skip to main content" link at the top of `base.njk`, targeting `<main>`.
+- [ ] **[N-04]** Commission a second illustration so About and Experience no longer reuse the identical career-journey banner (tracked here and in the Phase 2 backlog below).
+- [ ] **[N-05]** Add a small caption under the hero AI-demo response box disclosing it's a curated preview, not a live model.
+
+**Verification**
+- [ ] Re-run `npm test` (build + html-validate + linkinator + Playwright/axe) after each batch of fixes
+- [ ] Manually re-check K-01/K-02/P-01/P-05 at 375px and 768px after fixing
+- [ ] Re-run an axe-core pass to confirm P-03/P-04/P-08 close their respective violations
+- [ ] Update `docs/UX_AUDIT.md` findings to note which are resolved, or archive it once all Critical + Important items ship
 
 ## Phase 2 — Backlog (not part of this release)
 
