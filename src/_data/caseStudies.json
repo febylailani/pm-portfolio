@@ -3,18 +3,18 @@
     "id": "ai-banking-assistant",
     "category": "Conversational AI & NLP",
     "icon": "chat-bot",
-    "title": "In-House AI Banking Assistant (Hijra Bank)",
-    "description": "Launched an in-house conversational banking assistant, to production through a limited-user rollout, enabling users to access transaction insights/history and execute banking transactions via chat; also used in investor demonstrations.",
-    "tags": ["Applied AI", "Investor Pitch Demo"],
-    "modalTitle": "In-House AI Banking Assistant (Hijra Bank)"
+    "title": "MISHA: In-house NLP Banking Assistant",
+    "description": "Co-led a limited-release conversational banking assistant that helped selected users access transaction history, transaction insights, and supported banking actions through chat. Also used in investor demonstrations.",
+    "tags": ["Applied AI", "Limited Release", "Conversational Banking"],
+    "modalTitle": "MISHA: In-house NLP Banking Assistant"
   },
   {
     "id": "bi-snap-api",
     "category": "Platform & Open Banking",
     "icon": "bridge",
     "title": "Host-to-Host API (BI SNAP Protocol)",
-    "description": "0→1 discovery, technical specification, and enterprise integration with Bank Indonesia's National Standard Open API (SNAP). Unlocked institutional cash management for enterprise B2B partners.",
-    "tags": ["BI SNAP Standard", "~IDR 144M/yr Savings", "H2H Cash Management"],
+    "description": "Led 0→1 discovery and product requirements for Bank Indonesia SNAP-based host-to-host API integration, supporting enterprise banking workflows and institutional transaction needs.",
+    "tags": ["BI SNAP Standard", "Enterprise API", "Cash Management"],
     "modalTitle": "Host-to-Host API (BI SNAP Standard)"
   },
   {
@@ -22,8 +22,8 @@
     "category": "Cost & Infra Optimization",
     "icon": "server-stack",
     "title": "Core Banking Engine Migration (CBS)",
-    "description": "Migrated the bank's mission-critical core ledger and batch reconciliation services from costly monolithic vendor software to lean cloud infrastructure with zero account downtime and zero customer complaints.",
-    "tags": ["90% Vendor Cost Cut", "50% Ops Workload Cut", "Zero Downtime"],
+    "description": "Helped drive core banking migration that reduced monthly vendor cost by ~90%, reduced operations workload by ~50%, and completed with zero customer complaints.",
+    "tags": ["90% Vendor Cost Cut", "50% Ops Workload Cut", "Zero Customer Complaints"],
     "modalTitle": "Core Banking Engine Migration (CBS)"
   },
   {
@@ -31,8 +31,8 @@
     "category": "Consumer Growth & KYC",
     "icon": "shield-check",
     "title": "Automated KYC & Onboarding Funnels",
-    "description": "Redesigned digital customer onboarding with biometric optical character recognition (OCR) and automated Dukcapil verification, shrinking completion time from hours to under 5 minutes while maintaining strict AML compliance.",
-    "tags": ["+20% KYC Approval", "< 5 Min Instant Onboarding", "Dukcapil / AML Rigor"],
+    "description": "Improved digital onboarding and KYC verification, reducing processing time from around 12 minutes to around 5 minutes and improving automated KYC approvals by ~20%.",
+    "tags": ["+20% KYC Approval", "~5 Min Onboarding", "Dukcapil / AML Rigor"],
     "modalTitle": "Automated KYC & Consumer Onboarding Growth"
   }
 ]

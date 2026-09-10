@@ -98,10 +98,11 @@ Not started (implementation-wise). All blocking questions are now answered — r
 - [x] Update tests that hardcoded old copy strings (`tests/e2e/nav.spec.ts` TC-02/TC-03, `tests/e2e/audit-fixes.spec.ts` TC-28); `hero-ai-demo.spec.ts` TC-04/TC-05 needed no changes — they assert dynamically against whatever topics render, not hardcoded labels
 - [x] `npm test` passes (35/35); visually verified hero + footer render correctly
 
-**Batch 2 — Metrics & Selected Product Work (case studies)**
-- [ ] Update `metrics.json`: card 1 and card 2 copy per the table; confirm card 3/4 subtitle wording
-- [ ] Update `caseStudies.json`: section eyebrow/title/status text (lives in `case-studies.njk`, not JSON — update the template's hardcoded strings), the case CTA label to add 🔐 (in `confidentialModal.json`'s `unlockButtonLabel`), and each of the 4 cards' `title`/`description`/`tags` (MISHA rename, H2H body + tags, core-banking body, KYC body)
-- [ ] Update tests referencing old case-study copy (`tests/e2e/case-study-modal.spec.ts` TC-06 title assertions if `modalTitle`s change)
+**Batch 2 — Metrics & Selected Product Work (case studies)** ✅ Shipped
+- [x] Update `metrics.json`: card 1 (`Product Management`), card 2 (`Limited Release` / `In-house NLP Banking Assistant`), card 3 subtitle simplified to `Core Banking Migration`; card 4 unchanged
+- [x] Update `case-studies.njk`'s hardcoded eyebrow/title/status text (`SELECTED PRODUCT WORK`, `Selected Product Work`, `Some details are confidential 🔐`); `confidentialModal.json`'s `unlockButtonLabel` → `🔐 Unlock Case Study`; all 4 `caseStudies.json` cards (MISHA rename + `modalTitle` to match, H2H body + tags, core-banking body, KYC body) — also tightened 2 tags ("Zero Downtime" → "Zero Customer Complaints", "< 5 Min Instant Onboarding" → "~5 Min Onboarding") to stay consistent with the revised, less-absolute body copy
+- [x] `tests/e2e/case-study-modal.spec.ts` TC-06 needed no changes — it asserts dynamically against each card's `data-modal-title` attribute, not a hardcoded title string
+- [x] `npm test` passes (35/35 — one run hit 19 transient failures under system load with `page.goto` timing out from the very first test, unrelated to the content changes; a clean re-run passed everything); visually verified metrics + case-study cards render correctly
 
 **Batch 3 — About, Operating Principles, Toolbox**
 - [ ] Update `about.json`: eyebrow, heading (keep or revise), paragraphs, pull-quote, closing paragraph (include the added "Since July 2026..." bridge sentence linking to the Independent Build section), illustration `cardCaption`/label
