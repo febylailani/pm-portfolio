@@ -2,7 +2,7 @@
 
 ## Summary
 
-A single-page, public portfolio website for Feby Lailani, Senior Product Manager (Fintech & AI), showcasing her work history, production case studies, operating principles, skills, and a way for visitors to get in touch. The visual design was approved via a Google Stitch mockup; this project re-platforms that design onto Eleventy (11ty) so content can be maintained without editing markup.
+A single-page, public portfolio website for Feby Lailani, Product Manager · Consumer & Enterprise Products · Applied AI, showcasing her work history, production case studies, an independent applied-AI build (Iqro Land), operating principles, skills, learning-in-public writing, and a way for visitors to get in touch. The visual design was approved via a Google Stitch mockup; this project re-platforms that design onto Eleventy (11ty) so content can be maintained without editing markup. Positioning was later revised (Phase 1.2) from a fintech-specific "Senior Product Manager" framing to a broader consumer/enterprise/applied-AI framing, so the site reads well for non-fintech PM roles as well as her banking background.
 
 ## Goals
 
@@ -21,23 +21,25 @@ See `TASKS.md` for the full Phase 2 backlog.
 
 ## Target audience
 
-- Recruiters and hiring managers evaluating Feby for senior PM roles.
-- Founders/teams seeking 0→1 product or conversational-AI advisory.
-- Conference organizers considering her for speaking engagements.
+- Recruiters and hiring managers evaluating Feby for Product Manager roles across consumer, enterprise, and applied-AI product work — not fintech-only (e.g., customer-lifecycle/automation/messaging roles like respond.io).
+- Founders/teams seeking 0→1 product, applied-AI, or automation advisory.
+- Conference organizers or communities considering her for speaking or writing engagements.
 
 ## Content sections (in page order)
 
 1. **Header/Nav** — brand identity, jump links to each section, primary CTA.
 2. **Hero** — headline, bio, primary/secondary CTAs, an interactive "ask about my experience" demo bar with canned responses per topic.
 3. **Key Metrics** — four standout numbers (years of experience, cost savings, performance ranking, etc.).
-4. **Production Case Studies** — four case studies, each summarized publicly with a "confidential — discuss in interview" modal for deeper detail (protects NDA'd banking information).
-5. **About** — narrative bio connecting her engineering background to her product philosophy.
-6. **Operating Principles** — three principles that describe how she approaches product work.
-7. **Toolbox & Skills** — four categorized skill/interest lists.
-8. **Experience** — reverse-chronological work history with achievement bullets.
-9. **Education** — academic and credential background.
-10. **Contact** — direct channels (email, scheduling link, location) plus a front-end demo inquiry form.
-11. **Footer** — brand recap, quick nav, social links.
+4. **Selected Product Work (Case Studies)** — four case studies, each summarized publicly with a "confidential — discuss in interview" modal for deeper detail (protects NDA'd banking information).
+5. **Independent Build: Iqro Land** — a self-initiated, applied-AI product she is building since July 2026 (a learning app for her son), covering problem statement, target user, scope, product decisions, AI-assisted workflow, and current result, with placeholder product-screen slots pending real screenshots.
+6. **About** — narrative bio connecting her engineering background to her product philosophy.
+7. **Operating Principles** — three principles that describe how she approaches product work.
+8. **Toolbox & Skills** — four categorized skill/interest lists.
+9. **Learning in Public** — writing and visual notes (LinkedIn posts, study notes, career-switch story) that make her learning process visible, linking out to three real published articles.
+10. **Experience** — reverse-chronological work history with achievement bullets, including her current upskilling/independent-build chapter.
+11. **Education** — academic and credential background.
+12. **Contact** — direct channels (email, scheduling link, location) plus a front-end demo inquiry form.
+13. **Footer** — brand recap, quick nav, social links.
 
 ## Content ownership & editing model
 
