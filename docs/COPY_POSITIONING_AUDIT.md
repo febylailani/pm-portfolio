@@ -80,7 +80,7 @@ Longer positioning, used in the hero body or About section:
 | Contact form title | `Send an Inquiry or Dispatch` | `Send a Message` | "Dispatch" feels less recruiter-friendly |
 | Contact topics | `Full-Time Role`, `0→1 Advisory`, `Speaking / Panel`, `Coffee & Brainstorm` | `Product Role`, `AI / Automation`, `Speaking / Writing`, `Coffee Chat` | More natural |
 | Success message | `Your dispatch has been transmitted.` | `Thanks, your message has been sent. Feby will reply soon.` | Less gimmicky |
-| LinkedIn link | `https://linkedin.com` | Feby's real LinkedIn URL | Currently a placeholder — **needs the real URL from Feby** |
+| LinkedIn link | `https://linkedin.com` | **`https://www.linkedin.com/in/febylailani`** (confirmed by Feby, 2026-09-10) | Update `site.json`'s `social.linkedin` |
 
 ## New section 1 — Independent Build: Iqro Land
 
@@ -103,7 +103,7 @@ Placed after "Selected Product Work" (or before "Skills, Methods & Current Explo
 | Applied AI Workflow | Used AI coding agents to translate requirements into implementation, test responsive behavior, debug Arabic/harakat rendering, and iterate product flows. |
 | Current Result | A working prototype covering hijaiyah and tahfidz practice — my son is recognizing letters faster and memorizing more quickly after consistent practice at home, and the product keeps iterating from there. |
 
-**Screenshots (3–5, placeholders acceptable until real assets exist):** Iqro Land Homepage, Hijaiyah Learning Module, Tahfidz Playback Flow, Reward/Achievement Screen, Parent Dashboard/Progress View.
+**Screenshots (3–5):** Iqro Land Homepage, Hijaiyah Learning Module, Tahfidz Playback Flow, Reward/Achievement Screen, Parent Dashboard/Progress View. **Confirmed by Feby (2026-09-10): ship with placeholders for now** — she wants to see how the section lays out on the live site before providing real screenshots. Use clearly-labeled placeholder cards (e.g. a neutral illustration + "Screenshot coming soon" caption), not fabricated fake app screenshots, so it's obvious to any visitor that these are pending.
 
 **CTA:** `View Iqro Land Build Notes` (or, if not ready, a disabled `Build notes coming soon`).
 
@@ -123,17 +123,15 @@ Placed after Iqro Land or before Contact. Purpose: show Feby actively learning, 
 | Visual Study Notes | Beginner-friendly visual notes on AI product management, agentic workflows, product thinking, and technical concepts. |
 | Career Switch Story | Reflections from moving from oil & gas field engineering into product management, and now toward applied AI product work. |
 
-**Article cards (placeholder links until real URLs exist):**
+**Article cards — confirmed 2026-09-10 with 3 real LinkedIn posts from Feby.** Titles/descriptions below were read directly from each post (not invented); this replaces the original 5 generic placeholder titles, since real content is available for these 3. Use static cards (title, 1-line summary, "Read on LinkedIn →"), not an embed:
 
-| Title | Description |
-|---|---|
-| From Field Engineer to Product Manager | How operational discipline, safety thinking, and ambiguity management shaped my PM approach. |
-| What I Learned Shipping Chatbot Automation | Lessons from customer support automation, workflow design, vendor decisions, and operational adoption. |
-| Building Iqro Land with AI Coding Agents | What AI helps with, where it fails, and how I review outputs as a product manager. |
-| Applied AI Without the Hype | How I think about AI as workflow automation: user problem first, evaluation, fallbacks, and human control. |
-| Customer Lifecycle Lessons from Digital Banking | What onboarding, KYC, engagement, support, and enterprise workflows taught me about lifecycle products. |
+| Title | Description | URL |
+|---|---|---|
+| Challenges in Arabic Letter Tracing with AI | Building the Hijaiyah letter-tracing feature for Iqro Land — and what happened when AI coding agents (Claude, GPT) couldn't reliably generate correct Arabic stroke paths on their own. | `https://lnkd.in/p/gcPqdbXP` |
+| Local-First vs. Cloud: A Vibe-Coding Lesson | What she learned about designing a data architecture that starts local-first but leaves a real path to scale, after asking her AI coding agent to evaluate her own Iqro Land codebase. | `https://www.linkedin.com/posts/febylailani_productmanagement-vibecoding-productmanager-activity-7500464099927969792-Tr6j` |
+| Study Notes: Git for Vibe Coding | Beginner-friendly notes on using Git safely while pairing with an AI coding agent — written for fellow non-engineers learning the same thing while building Iqro Land. | `https://www.linkedin.com/posts/febylailani_study-notes-git-activity-7495787976871026689-SOkl` |
 
-If embedding LinkedIn directly proves unstable, use static cards instead (post title, 1-line summary, date, "Read on LinkedIn →") — swap in real LinkedIn URLs once available.
+These 3 replace the "Content blocks" table's generic "LinkedIn Posts" line above with real, working examples — no fabricated post titles ship. Room for more cards later as she publishes; don't pad the section with invented ones to reach 5.
 
 ## Recommended revised site structure
 
@@ -160,8 +158,8 @@ Rationale: recruiters see role fit and evidence first, then independent build, t
 - Confidential case-study CTAs include 🔐.
 - MISHA is described as "limited-release" or "selected-user rollout".
 - H2H/API and CBS experience are represented through enterprise/platform language.
-- Iqro Land section exists with screenshots or placeholders.
-- Learning in Public section exists with LinkedIn/article placeholders.
+- Iqro Land section exists with clearly-labeled screenshot placeholders (confirmed approach for now).
+- Learning in Public section exists with the 3 real LinkedIn post links (Arabic letter tracing, local-first vs. cloud, Git study notes).
 - Footer LinkedIn link is not the generic `https://linkedin.com`.
 - Contact copy supports Product Manager roles, customer lifecycle, automation, applied AI, and writing/speaking collaboration.
 

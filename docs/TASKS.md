@@ -83,13 +83,13 @@ Fix plan derived from `docs/UX_AUDIT.md` (audited 2026-09-10 against live `v0.1.
 
 Full content specification: `docs/COPY_POSITIONING_AUDIT.md`. Goal: reposition from "Senior Product Manager (Fintech & AI)" to "Product Manager · Consumer & Enterprise Products · Applied AI", so the site reads accurately against Feby's actual CV/title history and supports non-fintech PM applications (e.g. respond.io-style roles), while staying warm and specific rather than hyperbolic. This is a content-and-structure change only — no new architecture is needed, since every section is already a `src/_data/*.json` file; the two new sections follow the existing partial + data-file pattern.
 
-Not started. Batched into shippable PRs, in recommended order — earlier batches carry the highest-visibility positioning fixes (the acceptance criteria in `COPY_POSITIONING_AUDIT.md` are mostly satisfied by Batch 1 alone).
+Not started (implementation-wise). All blocking questions are now answered — ready to execute. Batched into shippable PRs, in recommended order — earlier batches carry the highest-visibility positioning fixes (the acceptance criteria in `COPY_POSITIONING_AUDIT.md` are mostly satisfied by Batch 1 alone).
 
-**⚠️ Needs Feby's input before shipping (do not guess):**
-- [x] ~~Confirm the exact "Experience" date-range wording~~ — **Answered 2026-09-10:** `2021 – Jul 2026`. Feby left Hijra Group in July 2026 and has since been focused on upskilling (automation, hands-on software development with AI), starting with the Iqro Land project. This "now" phase is told through the new Independent Build section and an added About closing sentence — not a third formal Experience entry. See `COPY_POSITIONING_AUDIT.md`'s Experience-date row and the enriched Iqro Land section copy for the full story (including the authentic origin: her 5-year-old son getting stuck on hijaiyah letters and needing extra tahfidz repetition, with screen time parent-guided).
-- [ ] Provide the real LinkedIn profile URL (currently the placeholder `https://linkedin.com` in `site.json`; already tracked in the Phase 2 backlog below, but now also blocks the footer/social copy criteria above).
-- [ ] Confirm whether Iqro Land screenshots are ready to use, or whether to ship the new section with placeholder images (`docs/COPY_POSITIONING_AUDIT.md` explicitly allows placeholders) until real ones exist.
-- [ ] Confirm whether any real LinkedIn post / article URLs exist yet for the "Learning in Public" section, or whether to ship with placeholder cards (also explicitly allowed) pending real links.
+**⚠️ Needed Feby's input before shipping — all 4 answered 2026-09-10:**
+- [x] ~~Confirm the exact "Experience" date-range wording~~ — `2021 – Jul 2026`. Feby left Hijra Group in July 2026 and has since been focused on upskilling (automation, hands-on software development with AI), starting with the Iqro Land project. This "now" phase is told through the new Independent Build section and an added About closing sentence — not a third formal Experience entry. See `COPY_POSITIONING_AUDIT.md`'s Experience-date row and the enriched Iqro Land section copy for the full story (including the authentic origin: her 5-year-old son getting stuck on hijaiyah letters and needing extra tahfidz repetition, with screen time parent-guided).
+- [x] ~~Provide the real LinkedIn profile URL~~ — `https://www.linkedin.com/in/febylailani`.
+- [x] ~~Confirm Iqro Land screenshot readiness~~ — **ship with placeholders.** Feby wants to see the section's layout live before providing real screenshots; use clearly-labeled placeholder cards ("Screenshot coming soon"), not fabricated fake app UI.
+- [x] ~~Confirm Learning in Public article links~~ — **3 real LinkedIn posts provided and read directly** (not invented): "Challenges in Arabic Letter Tracing with AI", "Local-First vs. Cloud: A Vibe-Coding Lesson", "Study Notes: Git for Vibe Coding". Full titles/descriptions/URLs in `COPY_POSITIONING_AUDIT.md`'s New Section 2.
 
 **Batch 1 — Core positioning (title, meta, nav/footer, hero, AI-demo copy)**
 - [ ] Update `site.json`: `pageTitle`, `metaDescription`, navbar/footer subtitle (`brandTagline` or equivalent), `og:*`/`twitter:*` derived values
@@ -110,20 +110,19 @@ Not started. Batched into shippable PRs, in recommended order — earlier batche
 **Batch 4 — Experience, Contact, Footer**
 - [ ] Update `experience.json`: role title (`Senior Product Manager` → `Product Manager`), date range → `2021 – Jul 2026` (confirmed), the MISHA-related bullet copy
 - [ ] Update `contact.json`: intro body, form heading (`Send an Inquiry or Dispatch` → `Send a Message`), topic labels, success message
-- [ ] Update `site.json`'s `social.linkedin` once the real URL is provided
+- [ ] Update `site.json`'s `social.linkedin` → `https://www.linkedin.com/in/febylailani`
 
 **Batch 5 — New section: Independent Build (Iqro Land)**
 - [ ] Create `src/_data/iqroLand.json` (section copy, 6 cards, screenshot list, CTA) using the authentic origin story now in `COPY_POSITIONING_AUDIT.md` (her son getting stuck on hijaiyah letters, tahfidz repetition, parent-guided screen time) — not the earlier generic placeholder copy
 - [ ] Create `src/_includes/partials/iqro-land.njk` (follow the existing card-grid patterns from `toolbox.njk`/`case-studies.njk`)
-- [ ] Add placeholder or real screenshots to `src/assets/images/` per Feby's answer above
+- [ ] Add clearly-labeled placeholder screenshot cards to `src/assets/images/` (confirmed approach — swap for real screenshots later, once Feby has seen the live layout)
 - [ ] Wire the new partial into `src/index.njk` in the position specified by the revised site structure (after Selected Product Work)
 - [ ] Add a nav entry if this section should be directly jump-linkable (confirm with Feby — not explicitly specified in the audit)
 
 **Batch 6 — New section: Learning in Public**
-- [ ] Create `src/_data/learningInPublic.json` (section copy, 3 content blocks, 5 article cards)
-- [ ] Create `src/_includes/partials/learning-in-public.njk`
+- [ ] Create `src/_data/learningInPublic.json` (section copy, 3 content blocks, and the 3 real article cards — title/description/URL — from `COPY_POSITIONING_AUDIT.md`; do not pad with invented cards)
+- [ ] Create `src/_includes/partials/learning-in-public.njk` (static cards linking out with `target="_blank"` + the ↗ icon, matching the site's established pattern for genuinely external links)
 - [ ] Wire into `src/index.njk` after Iqro Land (or before Contact, per the revised structure)
-- [ ] Use placeholder article links unless real URLs are provided (see input needed above)
 
 **Batch 7 — Site restructure**
 - [ ] Reorder `src/index.njk`'s includes to match: Hero → Key Metrics → Selected Product Work → Independent Build → About → Operating Principles → Toolbox → Learning in Public → Experience → Education → Contact
@@ -140,7 +139,7 @@ Not started. Batched into shippable PRs, in recommended order — earlier batche
 ## Phase 2 — Backlog (not part of this release)
 
 - Real contact-form backend (e.g., Formspree) with spam protection — requires Feby to create the third-party account
-- Real LinkedIn profile URL and Cal.com booking link (currently placeholders — see `README.md`)
+- Real Cal.com booking link (currently a placeholder — see `README.md`; the LinkedIn URL itself is now resolved, see Phase 1.2)
 - Per-case-study detail pages, replacing the shared "confidential" modal pattern
 - Full keyboard focus trap + broader WCAG AA audit for the confidential modal
 - Dark mode
