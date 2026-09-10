@@ -3,10 +3,10 @@
   "columns": [
     {
       "heading": "AI & Agent Prototyping",
-      "items": ["Prompt eval frameworks & testing", "Two-Brain safety architecture", "Claude 3.5 / OpenAI APIs", "Vercel, Next.js & Supabase", "Retrieval-Augmented Generation"]
+      "items": ["AI-assisted prototyping", "Chatbot workflow design", "Prompt and output testing", "Claude Code / OpenAI workflows", "Playwright learning"]
     },
     {
-      "heading": "Fintech & Open Banking",
+      "heading": "Enterprise, Banking & Platform Products",
       "items": ["BI SNAP Open API Standard", "Core Banking Systems (CBS)", "Host-to-Host (H2H) Ledgers", "Automated KYC / Dukcapil AML", "OJK & BI Regulatory Compliance"]
     },
     {
@@ -15,7 +15,7 @@
     },
     {
       "heading": "Life Beyond PRDs",
-      "items": ["Vibe coding & weekend hacks", "Pour-over specialty coffee", "Sci-fi literature & cybernetics", "Mentoring early career PMs", "Continuous learning & reading"]
+      "items": ["Independent product building", "Visual learning notes", "Product writing", "AI-assisted prototyping", "Mentoring early PMs"]
     }
   ]
 }

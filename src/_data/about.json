@@ -1,19 +1,19 @@
 {
-  "eyebrow": "ABOUT ME: FROM OFFSHORE RIGS TO FINTECH",
-  "heading": "An engineer's rigor with a product maker's empathy.",
+  "eyebrow": "ABOUT ME: FROM FIELD ENGINEERING TO PRODUCT MANAGEMENT",
+  "heading": "Field-engineering rigor, product empathy, and practical execution.",
   "paragraphs": [
-    "I began my professional career as a **Wireline Field Engineer at Schlumberger (SLB)**, commanding high-stakes offshore and onshore drilling operations where equipment failures or miscalculations carried zero margin for error.",
-    "That baptism of fire forged my approach to product management: **deterministic engineering reliability at the foundation**, wrapped in an empathetic, joyful user interface that solves real pain points."
+    "I began my professional career as a **Wireline Field Engineer at Schlumberger (SLB)**, working in offshore and onshore field operations where safety, precision, and clear decisions mattered every day.",
+    "That experience shaped how I approach product work: understand the system, reduce ambiguity, manage risk, and design user journeys that make complex workflows easier."
   ],
-  "pullQuote": "Engineer mindset × PM heart. My approach is built on extreme rigor: deterministic reliability at the platform base, layered with empathetic, human-centered interfaces that delight.",
-  "closingParagraph": "Over the past 5+ years at **Hijra Group**, I applied this philosophy to build digital banking rails from scratch, direct core banking overhauls, orchestrate central bank open APIs, and deploy conversational LLM copilots.",
+  "pullQuote": "I bring field-engineering rigor into product work: clear problem framing, careful risk thinking, and practical user journeys that reduce friction.",
+  "closingParagraph": "Over the past 5+ years at **Hijra Group**, I applied this philosophy to build digital banking rails from scratch, direct core banking overhauls, orchestrate central bank open APIs, and helped ship chatbot automation and an in-house NLP banking assistant in a regulated environment. Since July 2026, I've been focused on upskilling — hands-on with automation and AI-assisted software development, starting with Iqro Land below.",
   "cta": { "label": "Let's Talk Product →", "href": "#contact" },
   "annotationCaption": "Passionate about 0→1 ♡",
   "illustration": {
     "src": "/assets/images/career-journey-banner.png",
     "alt": "Career Progression: From Offshore Wireline Rig Engineer to AI Product Manager",
     "cardEyebrow": "Career Evolution Visualized",
-    "cardCaption": "Wireline SLB → Hijra Fintech & AI"
+    "cardCaption": "Field Engineering → Product Management"
   },
   "statChips": [
     { "label": "Oil & Gas Rig", "sub": "Extreme Rigor" },

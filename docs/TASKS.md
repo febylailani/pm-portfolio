@@ -104,10 +104,12 @@ Not started (implementation-wise). All blocking questions are now answered — r
 - [x] `tests/e2e/case-study-modal.spec.ts` TC-06 needed no changes — it asserts dynamically against each card's `data-modal-title` attribute, not a hardcoded title string
 - [x] `npm test` passes (35/35 — one run hit 19 transient failures under system load with `page.goto` timing out from the very first test, unrelated to the content changes; a clean re-run passed everything); visually verified metrics + case-study cards render correctly
 
-**Batch 3 — About, Operating Principles, Toolbox**
-- [ ] Update `about.json`: eyebrow, heading (keep or revise), paragraphs, pull-quote, closing paragraph (include the added "Since July 2026..." bridge sentence linking to the Independent Build section), illustration `cardCaption`/label
-- [ ] Update `principles.json`: principle 01 title + body; principle 02 body; principle 03 body (titles for 02/03 stay as-is per the audit)
-- [ ] Update `toolbox.json`: section title, AI card items, Fintech card title (→ "Enterprise, Banking & Platform Products"), Life-Beyond-PRDs card items
+**Batch 3 — About, Operating Principles, Toolbox** ✅ Shipped
+- [x] Update `about.json`: eyebrow, heading (revised to the more direct option), paragraphs, pull-quote, closing paragraph (includes the "Since July 2026..." bridge sentence linking to the Independent Build section), illustration `cardCaption` (`Field Engineering → Product Management`)
+- [x] Update `principles.json`: principle 01 title + body; principle 02 body; principle 03 body (titles for 02/03 unchanged); also fixed principle 02's `footerTags` ("Two-Brain" → "Human-in-the-Loop") since "Two-Brain Architecture" no longer appears anywhere on the site after Batch 2's MISHA tag rewrite — would've been an orphaned reference
+- [x] Update `toolbox.json` + `toolbox.njk`: section title (`Skills, Methods & Current Explorations`), AI card items, "Fintech & Open Banking" → "Enterprise, Banking & Platform Products", Life-Beyond-PRDs card items
+- [x] Updated `tests/e2e/audit-fixes.spec.ts` TC-33, which hardcoded the old toolbox heading text
+- [x] `npm test` passes (35/35); visually verified About, Principles, and Toolbox sections
 
 **Batch 4 — Experience, Contact, Footer**
 - [ ] Update `experience.json`: role title (`Senior Product Manager` → `Product Manager`), date range → `2021 – Jul 2026` (confirmed), the MISHA-related bullet copy
