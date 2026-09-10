@@ -1,0 +1,67 @@
+<!-- BEGIN: Public Case Study Modal (Iqro Land) -->
+<!-- Deliberately a SEPARATE dialog from #confidentialModal rather than the same one with
+     conditionals. The two say opposite things: one explains why the detail is withheld,
+     this one exists because there is nothing to withhold. Folding them together would
+     have meant a badge, an intro, a body and a CTA that all swap , at which point they
+     are two dialogs sharing a wrapper anyway. The a11y structure is kept identical
+     (role, aria-modal, inert, backdrop, Escape) so both behave the same to a screen
+     reader and to the existing modal tests. -->
+<div aria-labelledby="publicModalTitle" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300 ease-out" id="publicModal" inert role="dialog">
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-md transition-opacity" id="publicModalBackdrop"></div>
+<div class="relative bg-white rounded-3xl border-2 border-brand-navy max-w-3xl w-full p-6 sm:p-8 shadow-2xl z-10 transform scale-95 transition-all max-h-[90vh] overflow-y-auto">
+<!-- Close Button -->
+<button aria-label="Close case study" class="public-modal-close absolute top-4 right-4 w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-brand-navy flex items-center justify-center transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Header -->
+<div class="flex items-center gap-3 mb-4 pr-10">
+<div class="w-12 h-12 rounded-2xl bg-emerald-50 border-2 border-emerald-600 flex items-center justify-center text-emerald-700 shadow-comic flex-shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
+<path d="M7 11V7a5 5 0 0 1 9.9-1" stroke-linecap="round"></path>
+</svg>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+{% for badge in iqroLand.badges %}<span class="px-2.5 py-0.5 rounded-full {% if loop.first %}bg-emerald-100 text-emerald-800{% else %}bg-amber-100 text-amber-800{% endif %} text-[11px] font-bold whitespace-nowrap">{{ badge }}</span>{% endfor %}
+</div>
+<h3 class="text-xl font-extrabold text-brand-navy mt-1" id="publicModalTitle">{{ iqroLand.defaultTitle }}</h3>
+</div>
+</div>
+<!-- Narrative -->
+<div class="space-y-3.5 text-sm text-brand-slate leading-relaxed border-t border-slate-100 pt-4 mt-4">
+<p class="text-brand-navy font-semibold">{{ iqroLand.intro }}</p>
+{% for paragraph in iqroLand.paragraphs %}<p>{{ paragraph }}</p>
+{% endfor %}
+</div>
+<!-- Breakdown cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+{% for card in iqroLand.cards %}
+<div class="bg-brand-light p-4 rounded-2xl border border-brand-border">
+<span class="inline-block px-3 py-1 bg-brand-ice text-brand-blue font-extrabold text-[11px] rounded-md mb-2 uppercase tracking-wide">{{ card.label }}</span>
+<p class="text-brand-slate text-sm leading-relaxed">{{ card.body }}</p>
+</div>
+{% endfor %}
+</div>
+<!-- Visual. Labelled as a concept visualization in BOTH the eyebrow and the caption,
+     because the image is a mockup of the intended screen, not a capture of the running
+     pre-alpha , and a portfolio that blurs that line is the kind of thing a reader only
+     has to catch once. -->
+<div class="mt-8">
+<p class="text-xs font-bold text-brand-slate uppercase tracking-wider mb-3">{{ iqroLand.visual.label }}</p>
+<figure class="m-0">
+<img alt="{{ iqroLand.visual.alt }}" class="w-full h-auto rounded-2xl border-2 border-brand-border" height="{{ iqroLand.visual.height }}" loading="lazy" src="{{ iqroLand.visual.src }}" width="{{ iqroLand.visual.width }}">
+<figcaption class="text-xs text-brand-slate mt-2">{{ iqroLand.visual.caption }}</figcaption>
+</figure>
+</div>
+<!-- CTA -->
+{% if iqroLand.cta.enabled %}
+<div class="flex flex-col sm:flex-row gap-3 pt-6">
+<a class="public-modal-cta flex-1 inline-flex items-center justify-center text-center px-6 py-3 rounded-full bg-brand-navy text-white text-sm font-bold hover:bg-brand-blue transition-all shadow-comic hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95" href="{{ iqroLand.cta.href }}">{{ iqroLand.cta.label }}</a>
+</div>
+{% endif %}
+</div>
+</div>
+<!-- END: Public Case Study Modal (Iqro Land) -->

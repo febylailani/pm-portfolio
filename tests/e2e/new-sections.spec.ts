@@ -1,45 +1,79 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Independent Build: Iqro Land (Batch 5)", () => {
-  test("TC-36: the section renders with its heading, all 6 cards, and 5 screenshot placeholders", async ({ page }) => {
+test.describe("Iqro Land as a public case study card", () => {
+  test("TC-36: the card is marked open, and its modal carries the migrated section content", async ({ page }) => {
     await page.goto("/");
-    const section = page.locator("#iqro-land");
-    await expect(section.locator("h2")).toHaveText("Iqro Land");
 
-    const cardLabels = [
+    // The standalone #iqro-land section was retired; its content now lives in the modal
+    // behind the public card, so the section itself must be gone.
+    await expect(page.locator("#iqro-land")).toHaveCount(0);
+
+    const card = page.locator('[data-purpose="case-study-card"]', { hasText: "Iqro Land" });
+    await expect(card).toHaveCount(1);
+    await expect(card.getByText("Open project", { exact: true })).toBeVisible();
+
+    const openBtn = card.locator(".case-study-lock-btn");
+    await expect(openBtn).toHaveText("📖 Read the Full Story");
+    await expect(openBtn).toHaveAttribute("data-modal-target", "publicModal");
+    await openBtn.click();
+
+    const modal = page.locator("#publicModal");
+    await expect(modal).toHaveClass(/opacity-100/);
+    // The gated dialog must stay shut , a public card that opened the NDA modal would
+    // be exactly the wrong story.
+    await expect(page.locator("#confidentialModal")).toHaveClass(/opacity-0/);
+
+    for (const label of [
       "Problem Statement",
       "Target User",
       "Product Scope",
       "Product Decisions",
       "Applied AI Workflow",
       "Current Result",
-    ];
-    for (const label of cardLabels) {
-      await expect(section.getByText(label, { exact: true })).toBeVisible();
+    ]) {
+      await expect(modal.getByText(label, { exact: true })).toBeVisible();
     }
-
-    const screenshotCaptions = ["Iqro Land Homepage", "Hijaiyah Learning Module", "Tahfidz Playback Flow", "Reward / Achievement Screen", "Parent Dashboard / Progress View"];
-    for (const caption of screenshotCaptions) {
-      await expect(section.getByText(caption, { exact: true })).toBeVisible();
-    }
-    await expect(section.getByText("Screenshots coming soon", { exact: false })).toBeVisible();
   });
 
-  test("TC-37: the 'View Iqro Land Build Notes' CTA scrolls to Learning in Public", async ({ page }) => {
+  test("TC-37: the modal CTA scrolls to Learning in Public and closes the dialog", async ({ page }) => {
     await page.goto("/");
-    const cta = page.locator("#iqro-land").getByRole("link", { name: /View Iqro Land Build Notes/ });
+    await page.locator('[data-purpose="case-study-card"]', { hasText: "Iqro Land" }).locator(".case-study-lock-btn").click();
+
+    const cta = page.locator(".public-modal-cta");
     await expect(cta).toHaveAttribute("href", "#learning-in-public");
     await cta.click();
+    await expect(page.locator("#publicModal")).toHaveClass(/opacity-0/);
     await expect(page.locator("#learning-in-public")).toBeInViewport({ ratio: 0.1 });
   });
 
-  test("TC-38: Iqro Land sits directly after Selected Product Work in page order", async ({ page }) => {
+  test("TC-38: the visual is labelled a concept visualization, not a product screenshot", async ({ page }) => {
     await page.goto("/");
-    const caseStudiesY = await page.locator("#case-studies").evaluate((el) => el.getBoundingClientRect().top);
-    const iqroLandY = await page.locator("#iqro-land").evaluate((el) => el.getBoundingClientRect().top);
-    const learningY = await page.locator("#learning-in-public").evaluate((el) => el.getBoundingClientRect().top);
-    expect(iqroLandY).toBeGreaterThan(caseStudiesY);
-    expect(learningY).toBeGreaterThan(iqroLandY);
+    await page.locator('[data-purpose="case-study-card"]', { hasText: "Iqro Land" }).locator(".case-study-lock-btn").click();
+
+    const figure = page.locator("#publicModal figure");
+    const caption = (await figure.locator("figcaption").textContent())!;
+    expect(caption).toContain("Concept visualization");
+    expect(caption).toContain("not a screenshot of the running pre-alpha");
+    // Guards against anyone later relabelling a mockup as a real capture.
+    expect(caption).not.toMatch(/^Homepage screenshot/i);
+
+    const img = figure.locator("img");
+    await expect(img).toHaveAttribute("src", "/assets/images/iqroland-showcase-1.webp");
+    await expect(img).toHaveAttribute("loading", "lazy");
+    expect(await img.getAttribute("alt")).toContain("Concept visualization");
+  });
+
+  test("TC-44: 'Pre-Alpha' is the status wording everywhere, and 'beta' appears nowhere", async ({ page }) => {
+    await page.goto("/");
+    const card = page.locator('[data-purpose="case-study-card"]', { hasText: "Iqro Land" });
+    await expect(card.getByText("Pre-Alpha, Real User", { exact: true })).toBeVisible();
+
+    await card.locator(".case-study-lock-btn").click();
+    const modal = page.locator("#publicModal");
+    await expect(modal.getByText("Pre-Alpha", { exact: true })).toBeVisible();
+
+    const bodyText = (await page.locator("body").innerText()).toLowerCase();
+    expect(bodyText).not.toContain("beta");
   });
 });
 

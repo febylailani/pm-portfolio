@@ -11,6 +11,16 @@ test.describe("Accessibility", () => {
     expect(seriousOrWorse, JSON.stringify(seriousOrWorse, null, 2)).toEqual([]);
   });
 
+  test("TC-45: zero critical/serious violations with the PUBLIC modal open", async ({ page }) => {
+    await page.goto("/");
+    await page.locator('[data-purpose="case-study-card"]', { hasText: "Iqro Land" }).locator(".case-study-lock-btn").click();
+    await expect(page.locator("#publicModal")).toHaveClass(/opacity-100/);
+
+    const results = await new AxeBuilder({ page }).analyze();
+    const serious = results.violations.filter((v) => v.impact === "critical" || v.impact === "serious");
+    expect(serious).toEqual([]);
+  });
+
   test("TC-18: zero critical violations with the confidential modal open", async ({ page }) => {
     await page.goto("/");
     await page.locator(".case-study-lock-btn").first().click();

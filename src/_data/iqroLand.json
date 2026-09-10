@@ -1,6 +1,12 @@
 {
-  "eyebrow": "INDEPENDENT BUILD",
-  "heading": "Iqro Land",
+  "accessChip": "Open project",
+  "openButtonLabel": "📖 Read the Full Story",
+  "defaultTitle": "Iqro Land: Bilingual Hijaiyah & Tahfidz PWA",
+  "badges": [
+    "🌍 Open Project — No NDA",
+    "Pre-Alpha"
+  ],
+  "intro": "Unlike the client work in this section, Iqro Land is my own product — so there is nothing to gate. This is the full picture.",
   "paragraphs": [
     "Iqro Land started as a way to help my 5-year-old son learn his hijaiyah letters and Juz 30 for school. I watched him get stuck for weeks, missing the same letters over and over — and the same with tahfidz, until consistent repetition at home (on parent-guided screen time) finally helped it click. That gap between \"he needs more practice\" and \"there's nothing simple enough for a 5-year-old\" is what I'm building toward.",
     "This project is also how I've spent my time since leaving Hijra Group in July 2026 focused on upskilling — exploring automation and hands-on software development with AI. It's end-to-end product building outside a company: defining the problem, writing requirements, designing responsive UX, creating learning flows, testing with AI coding agents, debugging implementation issues, and iterating toward a shippable product."
@@ -28,16 +34,20 @@
     },
     {
       "label": "Current Result",
-      "body": "A working prototype covering hijaiyah and tahfidz practice — my son is recognizing letters faster and memorizing more quickly after consistent practice at home, and the product keeps iterating from there."
+      "body": "A working pre-alpha covering hijaiyah and tahfidz practice — my son is recognizing letters faster and memorizing more quickly after consistent practice at home, and the product keeps iterating from there."
     }
   ],
-  "screenshots": [
-    { "caption": "Iqro Land Homepage" },
-    { "caption": "Hijaiyah Learning Module" },
-    { "caption": "Tahfidz Playback Flow" },
-    { "caption": "Reward / Achievement Screen" },
-    { "caption": "Parent Dashboard / Progress View" }
-  ],
-  "screenshotsNote": "Screenshots coming soon — placeholders shown while the product is still in active iteration.",
-  "cta": { "label": "View Iqro Land Build Notes ↓", "enabled": true, "href": "#learning-in-public" }
+  "visual": {
+    "label": "Concept Visualization",
+    "src": "/assets/images/iqroland-showcase-1.webp",
+    "width": 1586,
+    "height": 992,
+    "alt": "Concept visualization of the Iqro Land home screen: a greeting card from the Kuku mascot above four menu tiles — Learn Hijaiyah, Hijaiyah Adventure, Tahfidz Adventure, and More Games.",
+    "caption": "Concept visualization — an illustrative mockup of the intended home screen, not a screenshot of the running pre-alpha."
+  },
+  "cta": {
+    "label": "View Iqro Land Build Notes ↓",
+    "enabled": true,
+    "href": "#learning-in-public"
+  }
 }

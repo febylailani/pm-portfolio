@@ -3,9 +3,15 @@
 <article class="bg-white rounded-2xl border-2 border-brand-border hover:border-brand-navy p-7 flex flex-col justify-between transition-all duration-200 hover:shadow-comic-lg group" data-purpose="case-study-card">
 <div>
 <div class="flex items-center justify-between mb-5">
+<div class="flex items-center gap-2 flex-wrap">
 <span class="px-3.5 py-1 rounded-full text-xs font-bold bg-blue-50 text-brand-blue border border-blue-100">
                   {{ caseStudy.category }}
                 </span>
+<!-- Marks, before the card is even opened, that this one is NOT behind the NDA
+                     gate. Without it the only difference is the button label at the far
+                     bottom of the card, which is exactly where nobody looks first. -->
+{% if caseStudy.access == "public" %}<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">{{ iqroLand.accessChip }}</span>{% endif %}
+</div>
 <div class="w-12 h-12 bg-brand-ice rounded-xl flex items-center justify-center text-brand-navy group-hover:scale-110 transition-transform">
 {{ icons.icon(caseStudy.icon) }}
 </div>
@@ -20,7 +26,10 @@
 {% for tag in caseStudy.tags %}<span class="text-xs px-2.5 py-1 bg-slate-100 rounded text-slate-600 font-medium">{{ tag }}</span>{% endfor %}
 </div>
 </div>
-<button class="case-study-lock-btn w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border-2 border-brand-navy bg-white hover:bg-brand-ice font-bold text-sm text-brand-navy transition-all active:scale-95" data-modal-title="{{ caseStudy.modalTitle }}" type="button">
-<span>{{ confidentialModal.unlockButtonLabel }}</span>
+<!-- One button class for both kinds so the grid stays visually even; the access
+     decides which dialog opens and what it is called. A public card that still
+     said "Unlock" would promise a gate that is not there. -->
+<button class="case-study-lock-btn w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border-2 {% if caseStudy.access == "public" %}border-emerald-600 text-emerald-800 hover:bg-emerald-50{% else %}border-brand-navy text-brand-navy hover:bg-brand-ice{% endif %} bg-white font-bold text-sm transition-all active:scale-95" data-modal-target="{% if caseStudy.access == "public" %}publicModal{% else %}confidentialModal{% endif %}" data-modal-title="{{ caseStudy.modalTitle }}" type="button">
+<span>{% if caseStudy.access == "public" %}{{ iqroLand.openButtonLabel }}{% else %}{{ confidentialModal.unlockButtonLabel }}{% endif %}</span>
 </button>
 </article>
