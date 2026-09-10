@@ -54,7 +54,7 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
   test("TC-28: anchor-scroll CTAs use a down arrow, not the external-link arrow (P-06)", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator('[data-purpose="nav-cta"]')).toHaveText("Book Intro ↓");
-    await expect(page.getByRole("link", { name: /Schedule Call/ })).toHaveText("Schedule Call ↓");
+    await expect(page.getByRole("link", { name: /Contact Me/ })).toHaveText("Contact Me ↓");
 
     await page.locator(".case-study-lock-btn").first().click();
     await expect(page.locator(".confidential-modal-schedule")).toHaveText("Schedule 30-min Interview Call ↓");

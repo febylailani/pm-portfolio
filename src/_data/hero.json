@@ -1,19 +1,19 @@
 {
-  "pillBadge": "Product Manager • Fintech • AI • Impact",
-  "headlinePrefix": "Shaping conversational AI, fintech platforms & frontier products from",
-  "headlineHighlight": "0 to 1",
+  "pillBadge": "Product Manager • Consumer & Enterprise • Applied AI",
+  "headlinePrefix": "Building practical product experiences across consumer journeys, enterprise platforms, and",
+  "headlineHighlight": "applied AI",
   "headlineSuffix": ".",
-  "bio": "Product Manager with 5+ years shipping complex regulated products, consumer onboarding, enterprise APIs, and conversational AI assistants. Hands-on with AI prototyping, output evaluation, and model-limit testing. Recognized as top-15 performer out of ~500 employees.",
-  "primaryCta": { "label": "Explore Case Studies ↓", "href": "#case-studies" },
-  "secondaryCta": { "label": "Schedule Call ↓", "href": "#contact" },
+  "bio": "Product Manager with 5+ years across onboarding, KYC, customer lifecycle, enterprise APIs, cash management systems, support automation, and applied AI workflows. Recognized as a top-15 performer out of ~500 employees.",
+  "primaryCta": { "label": "Explore Selected Work ↓", "href": "#case-studies" },
+  "secondaryCta": { "label": "Contact Me ↓", "href": "#contact" },
   "illustration": {
     "src": "/assets/images/hero-illustration.png",
     "alt": "Feby Lailani - Conversational AI & Product Management Illustration"
   },
   "annotationCaption": "Building useful things ♡",
   "tags": [
-    { "label": "✦ AI Prototyping" },
+    { "label": "✦ Applied AI" },
     { "label": "0 → 1 Execution", "handwritten": true },
-    { "label": "Fintech ✦" }
+    { "label": "Consumer & Enterprise ✦" }
   ]
 }

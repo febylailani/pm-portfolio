@@ -20,12 +20,12 @@ test.describe("Navigation", () => {
   test("TC-02: header and hero CTAs target #contact", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator('[data-purpose="nav-cta"]')).toHaveAttribute("href", "#contact");
-    await expect(page.getByRole("link", { name: /Schedule Call/ })).toHaveAttribute("href", "#contact");
+    await expect(page.getByRole("link", { name: /Contact Me/ })).toHaveAttribute("href", "#contact");
   });
 
-  test("TC-03: Explore Case Studies scrolls to #case-studies", async ({ page }) => {
+  test("TC-03: Explore Selected Work scrolls to #case-studies", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: /Explore Case Studies/ }).click();
+    await page.getByRole("link", { name: /Explore Selected Work/ }).click();
     await expect(page.locator("#case-studies")).toBeInViewport({ ratio: 0.1 });
   });
 
