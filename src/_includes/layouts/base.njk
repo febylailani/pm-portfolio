@@ -4,6 +4,17 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>{{ site.pageTitle }}</title>
+<meta content="{{ site.metaDescription }}" name="description">
+<link href="{{ site.siteUrl }}" rel="canonical">
+<meta content="website" property="og:type">
+<meta content="{{ site.siteUrl }}" property="og:url">
+<meta content="{{ site.pageTitle }}" property="og:title">
+<meta content="{{ site.metaDescription }}" property="og:description">
+<meta content="{{ site.ogImage }}" property="og:image">
+<meta content="summary_large_image" name="twitter:card">
+<meta content="{{ site.pageTitle }}" name="twitter:title">
+<meta content="{{ site.metaDescription }}" name="twitter:description">
+<meta content="{{ site.ogImage }}" name="twitter:image">
 <link href="{{ '/assets/favicons/favicon-32x32.png' | url }}" rel="icon" sizes="32x32" type="image/png">
 <link href="{{ '/assets/favicons/favicon-16x16.png' | url }}" rel="icon" sizes="16x16" type="image/png">
 <link href="{{ '/assets/favicons/apple-touch-icon.png' | url }}" rel="apple-touch-icon">

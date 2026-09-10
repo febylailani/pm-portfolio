@@ -30,8 +30,8 @@
 <p class="text-sm font-bold text-brand-navy break-words">{{ channel.value }}</p>
 </div>
 </div>
-{% if channel.action == "copy" %}<button class="contact-copy-btn text-xs text-brand-blue font-semibold hover:underline self-start pl-[52px] sm:pl-0 flex-shrink-0" data-copy-value="{{ channel.value }}" type="button">Copy</button>
-{% elif channel.action == "link" %}<a class="text-xs text-brand-blue font-semibold hover:underline self-start pl-[52px] sm:pl-0 flex-shrink-0" href="{{ channel.href }}" rel="noopener noreferrer" target="_blank">Open ↗</a>
+{% if channel.action == "copy" %}<button class="contact-copy-btn inline-flex items-center min-h-[44px] sm:min-h-0 text-xs text-brand-blue font-semibold hover:underline self-start pl-[52px] sm:pl-0 flex-shrink-0" data-copy-value="{{ channel.value }}" type="button">Copy</button>
+{% elif channel.action == "link" %}<a class="inline-flex items-center min-h-[44px] sm:min-h-0 text-xs text-brand-blue font-semibold hover:underline self-start pl-[52px] sm:pl-0 flex-shrink-0" href="{{ channel.href }}" rel="noopener noreferrer" target="_blank">Open ↗</a>
 {% endif %}
 </div>
 {% endfor %}
@@ -47,7 +47,7 @@
 <div class="mb-5">
 <label class="block text-xs font-bold text-brand-slate uppercase mb-2">{{ contact.form.topicSelectorLabel }}</label>
 <div class="flex flex-wrap gap-2" id="topic-selector-group">
-{% for topic in contact.form.topics %}<button class="topic-btn px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all {% if topic == contact.form.defaultTopic %}border-brand-navy bg-brand-navy text-white{% else %}border-slate-200 bg-slate-50 text-brand-slate hover:border-brand-navy{% endif %}" data-topic="{{ topic }}" type="button">{{ topic }}</button>{% endfor %}
+{% for topic in contact.form.topics %}<button class="topic-btn inline-flex items-center min-h-[44px] sm:min-h-0 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all {% if topic == contact.form.defaultTopic %}border-brand-navy bg-brand-navy text-white{% else %}border-slate-200 bg-slate-50 text-brand-slate hover:border-brand-navy{% endif %}" data-topic="{{ topic }}" type="button">{{ topic }}</button>{% endfor %}
 </div>
 </div>
 <!-- Form Inputs -->
@@ -78,7 +78,7 @@
 </div>
 </form>
 <!-- Success Alert -->
-<div class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3" id="form-success-banner">
+<div aria-live="polite" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3" id="form-success-banner">
 <svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
 <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>

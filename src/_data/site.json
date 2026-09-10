@@ -3,6 +3,9 @@
   "brandTagline": "Senior PM (Fintech & AI)",
   "brandInitials": "FL",
   "pageTitle": "Feby Lailani — Senior Product Manager (Fintech & AI)",
+  "siteUrl": "https://febylailani.github.io/pm-portfolio/",
+  "ogImage": "https://febylailani.github.io/pm-portfolio/assets/images/hero-illustration.png",
+  "metaDescription": "Senior Product Manager with 5+ years shipping conversational AI and regulated fintech products — from in-house banking assistants to 0→1 platform launches.",
   "avatarImage": "/assets/images/avatar-portrait.png",
   "navLinks": [
     { "label": "About", "href": "#about" },
@@ -11,7 +14,7 @@
     { "label": "Experience", "href": "#experience" },
     { "label": "Contact", "href": "#contact" }
   ],
-  "navCta": { "label": "Book Intro ↗", "href": "#contact" },
+  "navCta": { "label": "Book Intro ↓", "href": "#contact" },
   "footerNavLinks": [
     { "label": "Home", "href": "#hero" },
     { "label": "About", "href": "#about" },

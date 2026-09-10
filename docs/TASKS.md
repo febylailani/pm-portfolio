@@ -56,15 +56,15 @@ Fix plan derived from `docs/UX_AUDIT.md` (audited 2026-09-10 against live `v0.1.
 - [x] **[K-02]** Stop truncating the contact channel rows (Direct Email / Cal.com / Location) on mobile — stack label, value, and action button vertically below a breakpoint instead of sharing one row, or drop `truncate` in favor of wrapping.
 
 **Important**
-- [ ] **[P-01]** Fix the confidential-modal badge/close-button overlap on mobile — wrap badges onto their own line, or reserve clear space so `#confidentialModal .badges` never sits under the × button below ~400px.
-- [ ] **[P-02]** Demote the header brand name from `<h1>` to a non-heading element (`<p>`/`<span>`) in `partials/header.njk`, so the hero headline is the page's only `<h1>`.
-- [ ] **[P-03]** Make the confidential modal inert while closed: toggle `inert` (or `aria-hidden="true"` + `tabindex="-1"` on its focusable children) in `main.js`'s `openConfidentialModal`/`closeConfidentialModal`.
-- [ ] **[P-04]** Give `#ai-prompt-input` a visible `focus-visible` ring (e.g. `focus-visible:ring-2 focus-visible:ring-brand-blue`) in `partials/hero.njk`.
-- [ ] **[P-05]** Audit tap targets at the 375px breakpoint and bump padding until footer nav links, footer social icons, the email "Copy" button, AI-demo topic pills, and contact-form topic pills are all ≥44×44px, without changing desktop sizing.
-- [ ] **[P-06]** Relabel the "Book Intro ↗" / "Schedule Call ↗" / "Schedule 30-min Interview Call ↗" CTAs to describe what actually happens (an in-page scroll to the contact form), and remove the ↗ icon from all three — reserve ↗ for links with `target="_blank"` only (matches the Cal.com link's existing correct usage).
-- [ ] **[P-07]** Add `<meta name="description">` and `og:title` / `og:description` / `og:image` tags to `layouts/base.njk`, sourced from `site.json`/`hero.json` content and the hero illustration.
-- [ ] **[P-08]** Add `aria-live="polite"` to `#ai-response-box` and `#form-success-banner`.
-- [ ] **[P-09]** Darken the text color on the About-section stat-chip captions and the modal's "Production Architecture" badge (e.g. to `slate-600`/`blue-700`) to clear the 4.5:1 contrast threshold — same pattern as the earlier case-study tag-chip fix.
+- [x] **[P-01]** Fix the confidential-modal badge/close-button overlap on mobile — wrap badges onto their own line, or reserve clear space so `#confidentialModal .badges` never sits under the × button below ~400px.
+- [x] **[P-02]** Demote the header brand name from `<h1>` to a non-heading element (`<p>`/`<span>`) in `partials/header.njk`, so the hero headline is the page's only `<h1>`.
+- [x] **[P-03]** Make the confidential modal inert while closed: toggle `inert` (or `aria-hidden="true"` + `tabindex="-1"` on its focusable children) in `main.js`'s `openConfidentialModal`/`closeConfidentialModal`.
+- [x] **[P-04]** Give `#ai-prompt-input` a visible `focus-visible` ring (e.g. `focus-visible:ring-2 focus-visible:ring-brand-blue`) in `partials/hero.njk`.
+- [x] **[P-05]** Audit tap targets at the 375px breakpoint and bump padding until footer nav links, footer social icons, the email "Copy" button, AI-demo topic pills, and contact-form topic pills are all ≥44×44px, without changing desktop sizing.
+- [x] **[P-06]** Relabel the "Book Intro ↗" / "Schedule Call ↗" / "Schedule 30-min Interview Call ↗" CTAs to describe what actually happens (an in-page scroll to the contact form), and remove the ↗ icon from all three — reserve ↗ for links with `target="_blank"` only (matches the Cal.com link's existing correct usage).
+- [x] **[P-07]** Add `<meta name="description">` and `og:title` / `og:description` / `og:image` tags to `layouts/base.njk`, sourced from `site.json`/`hero.json` content and the hero illustration.
+- [x] **[P-08]** Add `aria-live="polite"` to `#ai-response-box` and `#form-success-banner`.
+- [x] **[P-09]** Darken the text color on the About-section stat-chip captions and the modal's "Production Architecture" badge (e.g. to `slate-600`/`blue-700`) to clear the 4.5:1 contrast threshold — same pattern as the earlier case-study tag-chip fix.
 
 **Nice-to-have**
 - [ ] **[N-01]** Bump the `<h2>` size for "Skills, Stack & Explorations" and "Academic Foundations" to match the other section headings (36px at `sm`+), or explicitly document why they're intentionally smaller.
@@ -74,10 +74,10 @@ Fix plan derived from `docs/UX_AUDIT.md` (audited 2026-09-10 against live `v0.1.
 - [ ] **[N-05]** Add a small caption under the hero AI-demo response box disclosing it's a curated preview, not a live model.
 
 **Verification**
-- [ ] Re-run `npm test` (build + html-validate + linkinator + Playwright/axe) after each batch of fixes
-- [ ] Manually re-check K-01/K-02/P-01/P-05 at 375px and 768px after fixing
-- [ ] Re-run an axe-core pass to confirm P-03/P-04/P-08 close their respective violations
-- [ ] Update `docs/UX_AUDIT.md` findings to note which are resolved, or archive it once all Critical + Important items ship
+- [x] Re-run `npm test` (build + html-validate + linkinator + Playwright/axe) after each batch of fixes
+- [x] Manually re-check K-01/K-02/P-01/P-05 at 375px and 768px after fixing
+- [x] Re-run an axe-core pass to confirm P-03/P-04/P-08 close their respective violations
+- [ ] Update `docs/UX_AUDIT.md` findings to note which are resolved, or archive it once all Critical + Important items ship (deferred until the Nice-to-have batch, N-04 excepted, is also done)
 
 ## Phase 2 — Backlog (not part of this release)
 
