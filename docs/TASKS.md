@@ -127,16 +127,17 @@ Not started (implementation-wise). All blocking questions are now answered — r
 - [x] CTA ships as a disabled "Build notes coming soon" (not a link to anywhere) rather than pointing at Learning in Public before that section exists — will wire up properly once Batch 6 ships
 - [x] 3 new regression tests (TC-36, TC-37, TC-38); `npm test` passes (38/38); visually verified desktop + mobile
 
-**Batch 6 — New section: Learning in Public**
-- [ ] Create `src/_data/learningInPublic.json` (section copy, 3 content blocks, and the 3 real article cards — title/description/URL — from `COPY_POSITIONING_AUDIT.md`; do not pad with invented cards)
-- [ ] Create `src/_includes/partials/learning-in-public.njk` (static cards linking out with `target="_blank"` + the ↗ icon, matching the site's established pattern for genuinely external links)
-- [ ] Wire into `src/index.njk` after Iqro Land (or before Contact, per the revised structure)
-- [ ] Wire up Iqro Land's CTA (currently a disabled "Build notes coming soon" from Batch 5) to link to this new section once it exists, and flip its `enabled` flag to true in `iqroLand.json`
+**Batch 6 — New section: Learning in Public** ✅ Shipped
+- [x] Create `src/_data/learningInPublic.json`: intro copy, 3 content blocks, and the 3 real article cards (title/description/URL) from `COPY_POSITIONING_AUDIT.md` — no invented cards; fixed one description that was drafted in third person ("what she learned...") to match the site's first-person voice
+- [x] Create `src/_includes/partials/learning-in-public.njk`: 3 content-block cards, then 3 article cards linking out with `target="_blank"` + "Read on LinkedIn ↗" — the ↗ icon is correct here since these are genuinely external links, per the P-06 convention
+- [x] Wired into `src/index.njk` between Iqro Land and About (temporary — Batch 7 moves it to its final spot near Toolbox/Experience); set `bg-white` so it also incidentally fixes the light-light adjacency between Iqro Land and About that Batch 5 flagged for Batch 7 cleanup
+- [x] Iqro Land's CTA flipped from disabled to a real link — relabeled "View Iqro Land Build Notes ↓", `href="#learning-in-public"`, `enabled: true`
+- [x] Updated TC-37 and TC-38 (Batch 5 tests), which asserted the old disabled-CTA state and old About-adjacency; added TC-39, TC-40 for the new section. `npm test` passes (40/40); visually verified desktop + the CTA's scroll behavior
 
 **Batch 7 — Site restructure**
 - [ ] Reorder `src/index.njk`'s includes to match: Hero → Key Metrics → Selected Product Work → Independent Build → About → Operating Principles → Toolbox → Learning in Public → Experience → Education → Contact
 - [ ] Re-check in-page anchor nav (`site.json`'s `navLinks`/`footerNavLinks`) still points at the right sections in the right order, and update the mobile nav panel accordingly (no code change needed there, it's data-driven — just verify)
-- [ ] Re-check `bg-white`/`bg-brand-light` alternation across all sections after reordering — Iqro Land shipped as `bg-brand-light` sitting next to About (also `bg-brand-light`) as an interim state; fix once the final order is locked in
+- [ ] Re-check `bg-white`/`bg-brand-light` alternation across all sections after reordering — Batch 6 already fixed the interim Iqro Land/About light-light adjacency by placing Learning in Public (`bg-white`) between them, but the full reorder will need its own final pass regardless
 
 **Batch 8 — Final QA**
 - [ ] Re-run `npm test` after each batch (not just at the end)
