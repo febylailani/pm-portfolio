@@ -67,17 +67,17 @@ Fix plan derived from `docs/UX_AUDIT.md` (audited 2026-09-10 against live `v0.1.
 - [x] **[P-09]** Darken the text color on the About-section stat-chip captions and the modal's "Production Architecture" badge (e.g. to `slate-600`/`blue-700`) to clear the 4.5:1 contrast threshold — same pattern as the earlier case-study tag-chip fix.
 
 **Nice-to-have**
-- [ ] **[N-01]** Bump the `<h2>` size for "Skills, Stack & Explorations" and "Academic Foundations" to match the other section headings (36px at `sm`+), or explicitly document why they're intentionally smaller.
-- [ ] **[N-02]** Replace the `window.alert()` copy-confirmation in `main.js` with an inline toast/tooltip matching the `#form-success-banner` visual pattern.
-- [ ] **[N-03]** Add a visually-hidden "Skip to main content" link at the top of `base.njk`, targeting `<main>`.
-- [ ] **[N-04]** Commission a second illustration so About and Experience no longer reuse the identical career-journey banner (tracked here and in the Phase 2 backlog below).
-- [ ] **[N-05]** Add a small caption under the hero AI-demo response box disclosing it's a curated preview, not a live model.
+- [x] **[N-01]** Bump the `<h2>` size for "Skills, Stack & Explorations" and "Academic Foundations" to match the other section headings (36px at `sm`+), or explicitly document why they're intentionally smaller.
+- [x] **[N-02]** Replace the `window.alert()` copy-confirmation in `main.js` with an inline toast/tooltip matching the `#form-success-banner` visual pattern.
+- [x] **[N-03]** Add a visually-hidden "Skip to main content" link at the top of `base.njk`, targeting `<main>`.
+- [ ] **[N-04]** Commission a second illustration so About and Experience no longer reuse the identical career-journey banner (tracked here and in the Phase 2 backlog below). **Not executable in an AI coding session — needs real artwork from Feby/a designer; see `docs/UX_FIXES_SPEC.md`.**
+- [x] **[N-05]** Add a small caption under the hero AI-demo response box disclosing it's a curated preview, not a live model.
 
 **Verification**
 - [x] Re-run `npm test` (build + html-validate + linkinator + Playwright/axe) after each batch of fixes
 - [x] Manually re-check K-01/K-02/P-01/P-05 at 375px and 768px after fixing
 - [x] Re-run an axe-core pass to confirm P-03/P-04/P-08 close their respective violations
-- [ ] Update `docs/UX_AUDIT.md` findings to note which are resolved, or archive it once all Critical + Important items ship (deferred until the Nice-to-have batch, N-04 excepted, is also done)
+- [x] Update `docs/UX_AUDIT.md` findings to note which are resolved (all 15 fixable findings shipped; N-04 remains open pending a real illustration asset)
 
 ## Phase 2 — Backlog (not part of this release)
 

@@ -30,7 +30,10 @@
 <p class="text-sm font-bold text-brand-navy break-words">{{ channel.value }}</p>
 </div>
 </div>
-{% if channel.action == "copy" %}<button class="contact-copy-btn inline-flex items-center min-h-[44px] sm:min-h-0 text-xs text-brand-blue font-semibold hover:underline self-start pl-[52px] sm:pl-0 flex-shrink-0" data-copy-value="{{ channel.value }}" type="button">Copy</button>
+{% if channel.action == "copy" %}<span class="inline-flex items-center gap-2 self-start pl-[52px] sm:pl-0 flex-shrink-0">
+<button class="contact-copy-btn inline-flex items-center min-h-[44px] sm:min-h-0 text-xs text-brand-blue font-semibold hover:underline" data-copy-value="{{ channel.value }}" type="button">Copy</button>
+<span class="copy-toast hidden text-xs text-emerald-600 font-semibold" role="status">Copied ✓</span>
+</span>
 {% elif channel.action == "link" %}<a class="inline-flex items-center min-h-[44px] sm:min-h-0 text-xs text-brand-blue font-semibold hover:underline self-start pl-[52px] sm:pl-0 flex-shrink-0" href="{{ channel.href }}" rel="noopener noreferrer" target="_blank">Open ↗</a>
 {% endif %}
 </div>

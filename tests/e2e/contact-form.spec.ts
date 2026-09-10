@@ -34,13 +34,23 @@ test.describe("Contact and dispatch form", () => {
     expect(nameValidity).toBe(false);
   });
 
-  test("TC-13: copy button writes the email address to the clipboard", async ({ page, context }) => {
+  test("TC-13: copy button writes the email address to the clipboard and shows an inline toast (N-02)", async ({ page, context }) => {
     await context.grantPermissions(["clipboard-read", "clipboard-write"]);
     await page.goto("/");
-    page.once("dialog", (dialog) => dialog.accept());
+
+    let dialogFired = false;
+    page.once("dialog", (dialog) => {
+      dialogFired = true;
+      dialog.accept();
+    });
+
     await page.locator(".contact-copy-btn").click();
     const clipboardText = await page.evaluate(() => navigator.clipboard.readText());
     expect(clipboardText).toBe("febylailani@gmail.com");
+
+    await expect(page.locator(".copy-toast")).toBeVisible();
+    await expect(page.locator(".copy-toast")).toHaveText("Copied ✓");
+    expect(dialogFired).toBe(false); // no native alert() blocking the page
   });
 
   test("TC-23: contact channel values are not truncated at mobile width (K-02 fix)", async ({ page }) => {

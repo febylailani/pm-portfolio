@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Relabeled anchor-scroll CTAs ("Book Intro", "Schedule Call", "Schedule 30-min Interview Call") to use "↓" instead of the external-link "↗" icon, which is now reserved for links that actually leave the page (P-06).
 - Darkened two text/background color pairs that fell just short of WCAG AA contrast (P-09).
 
+- "Skills, Stack & Explorations" and "Academic Foundations" headings now match the 36px size used by every other section heading (N-01).
+- Replaced the native `window.alert()` copy-confirmation with an inline toast next to the "Copy" button (N-02).
+- The hero AI-demo response box now discloses that its answers are a curated preview, not a live model (N-05).
+
 ### Added
 
 - `docs/UX_AUDIT.md`: a UI/UX audit of the live v0.1.0 site (16 findings: 2 critical, 9 important, 5 nice-to-have) covering navigation, responsiveness, accessibility, and CTA clarity.
@@ -27,12 +31,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `aria-live="polite"` on the AI-demo response box and the contact-form success banner, so screen readers announce them when they appear (P-08).
 - The confidential modal is now `inert` while closed, so its buttons no longer receive keyboard focus when hidden (P-03).
 - A visible focus ring on the hero AI-demo input (P-04).
-- 12 new regression tests (TC-21 … TC-32) covering the fixes above.
+- A "Skip to main content" link for keyboard users (N-03).
+- 15 new regression tests (TC-21 … TC-35) covering all of the above.
 
 ### Fixed
 
 - The page now has exactly one `<h1>` (the header brand name is no longer a heading) (P-02).
 - Mobile tap targets (footer nav links, footer social icons, the email "Copy" button, AI-demo topic pills, contact-form topic pills) now meet the 44×44px minimum (P-05).
+
+### Known limitation
+
+- N-04 (About and Experience reuse the same career-journey illustration) remains open — it needs a real second illustration, which isn't something an AI coding session can produce. Stays in the Phase 2 backlog.
 
 ## [0.1.0] - 2026-09-09
 
