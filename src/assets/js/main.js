@@ -72,6 +72,7 @@
     if (title && titleElem) titleElem.textContent = title;
     modal.classList.remove("opacity-0", "pointer-events-none");
     modal.classList.add("opacity-100", "pointer-events-auto");
+    modal.inert = false;
     document.body.style.overflow = "hidden";
   }
 
@@ -80,6 +81,7 @@
     if (!modal) return;
     modal.classList.add("opacity-0", "pointer-events-none");
     modal.classList.remove("opacity-100", "pointer-events-auto");
+    modal.inert = true;
     document.body.style.overflow = "";
   }
 
@@ -145,10 +147,11 @@
 
   // --- Contact form ------------------------------------------------------
   function selectFormTopic(selectedBtn) {
+    var base = "topic-btn inline-flex items-center min-h-[44px] sm:min-h-0 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all";
     document.querySelectorAll(".topic-btn").forEach(function (btn) {
-      btn.className = "topic-btn px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200 bg-slate-50 text-brand-slate hover:border-brand-navy transition-all";
+      btn.className = base + " border-slate-200 bg-slate-50 text-brand-slate hover:border-brand-navy";
     });
-    selectedBtn.className = "topic-btn px-3 py-1.5 rounded-lg text-xs font-semibold border border-brand-navy bg-brand-navy text-white transition-all";
+    selectedBtn.className = base + " border-brand-navy bg-brand-navy text-white";
   }
 
   function handleFormSubmit(e) {

@@ -27,6 +27,15 @@ Automated coverage for the Phase 1 MVP. Run the full suite with `npm test`. Tool
 | TC-21 | Functional | Playwright | At 375px, the hamburger toggle opens/closes the mobile nav panel and updates `aria-expanded`. Regression guard for K-01. | `tests/e2e/nav.spec.ts` |
 | TC-22 | Functional | Playwright | At 375px, tapping a mobile nav link scrolls to its section and closes the panel. Regression guard for K-01. | `tests/e2e/nav.spec.ts` |
 | TC-23 | Responsive | Playwright | At 375px, no contact-channel value (email, Cal.com, location) is truncated. Regression guard for K-02. | `tests/e2e/contact-form.spec.ts` |
+| TC-24 | Responsive | Playwright | At 375px, the modal's badges no longer overlap the close button. Regression guard for P-01. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-25 | Accessibility | Playwright | The page has exactly one `<h1>`. Regression guard for P-02. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-26 | Accessibility | Playwright | The confidential modal is `inert` while closed and not `inert` while open. Regression guard for P-03. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-27 | Accessibility | Playwright | The hero AI-demo input shows a visible focus ring on keyboard focus. Regression guard for P-04. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-28 | Content | Playwright | In-page anchor-scroll CTAs use "↓"; the genuinely external Cal.com link keeps "↗" and `target="_blank"`. Regression guard for P-06. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-29 | Content | Playwright | Meta description and Open Graph/Twitter tags are present with non-empty content. Regression guard for P-07. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-30 | Accessibility | Playwright | `#ai-response-box` and `#form-success-banner` have `aria-live="polite"`. Regression guard for P-08. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-31 | Accessibility | Playwright | The About stat-chip captions and the modal's "Production Architecture" badge render in their darkened, AA-passing colors. Regression guard for P-09. | `tests/e2e/audit-fixes.spec.ts` |
+| TC-32 | Responsive | Playwright | Footer nav links, footer social icons, AI-demo topic pills, the email "Copy" button, and contact-form topic pills are all ≥44px tall at 375px. Regression guard for P-05. | `tests/e2e/audit-fixes.spec.ts` |
 
 ## Known accepted limitation
 

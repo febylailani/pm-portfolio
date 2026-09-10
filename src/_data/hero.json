@@ -5,7 +5,7 @@
   "headlineSuffix": ".",
   "bio": "Product Manager with 5+ years shipping complex regulated products, consumer onboarding, enterprise APIs, and conversational AI assistants. Hands-on with AI prototyping, output evaluation, and model-limit testing. Recognized as top-15 performer out of ~500 employees.",
   "primaryCta": { "label": "Explore Case Studies ↓", "href": "#case-studies" },
-  "secondaryCta": { "label": "Schedule Call ↗", "href": "#contact" },
+  "secondaryCta": { "label": "Schedule Call ↓", "href": "#contact" },
   "illustration": {
     "src": "/assets/images/hero-illustration.png",
     "alt": "Feby Lailani - Conversational AI & Product Management Illustration"
