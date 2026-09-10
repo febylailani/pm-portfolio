@@ -25,6 +25,31 @@ test.describe("Contact and dispatch form", () => {
     await expect(page.locator("#user-name")).toHaveValue("");
   });
 
+  test("TC-41: submitting the form builds a mailto: link pre-filled with the entered details, to the real inbox", async ({ page }) => {
+    await page.goto("/");
+    await page.locator(".topic-btn", { hasText: "AI / Automation" }).click();
+    await page.fill("#user-name", "Alex Recruiter");
+    await page.fill("#user-email", "alex@example.com");
+    await page.fill("#user-org", "Acme Corp");
+    await page.fill("#user-msg", "Exploring an applied-AI PM opening.");
+    await page.click('#contact-dispatch-form button[type="submit"]');
+
+    const mailtoHref = await page.locator("#contact-dispatch-form").evaluate((el) => el.dataset.lastMailtoHref);
+    expect(mailtoHref).toBeTruthy();
+    expect(mailtoHref!.startsWith("mailto:febylail.work@gmail.com?")).toBe(true);
+
+    const url = new URL(mailtoHref!);
+    const params = new URLSearchParams(url.search);
+    expect(params.get("subject")).toContain("AI / Automation");
+    expect(params.get("subject")).toContain("Alex Recruiter");
+    const body = params.get("body") ?? "";
+    expect(body).toContain("Name: Alex Recruiter");
+    expect(body).toContain("Email: alex@example.com");
+    expect(body).toContain("Organization: Acme Corp");
+    expect(body).toContain("Topic: AI / Automation");
+    expect(body).toContain("Exploring an applied-AI PM opening.");
+  });
+
   test("TC-12: empty required fields block native submission", async ({ page }) => {
     await page.goto("/");
     await page.click('#contact-dispatch-form button[type="submit"]');
@@ -46,7 +71,7 @@ test.describe("Contact and dispatch form", () => {
 
     await page.locator(".contact-copy-btn").click();
     const clipboardText = await page.evaluate(() => navigator.clipboard.readText());
-    expect(clipboardText).toBe("febylailani@gmail.com");
+    expect(clipboardText).toBe("febylail.work@gmail.com");
 
     await expect(page.locator(".copy-toast")).toBeVisible();
     await expect(page.locator(".copy-toast")).toHaveText("Copied ✓");
@@ -65,6 +90,6 @@ test.describe("Contact and dispatch form", () => {
       const isTruncated = await el.evaluate((node) => node.scrollWidth > node.clientWidth);
       expect(isTruncated).toBe(false);
     }
-    await expect(page.locator("text=febylailani@gmail.com")).toBeVisible();
+    await expect(page.locator("text=febylail.work@gmail.com")).toBeVisible();
   });
 });
