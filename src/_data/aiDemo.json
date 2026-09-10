@@ -1,8 +1,8 @@
 {
-  "inputPlaceholder": "Ask me about AI in banking, product strategy, or 0→1 experience...",
+  "inputPlaceholder": "Ask me about customer lifecycle, enterprise products, applied AI, or 0→1 work...",
   "popularTopicsLabel": "POPULAR TOPICS:",
-  "fallbackResponse": "Exploring frontier products and delivering measurable business impact.",
-  "freeTextResponseTemplate": "Feby has 5+ years shipping complex regulated products, enterprise APIs, and conversational AI assistants. Inquiries about \"{{query}}\" are right in her wheelhouse!",
+  "fallbackResponse": "Exploring practical product work and delivering measurable business impact.",
+  "freeTextResponseTemplate": "Feby has 5+ years across customer lifecycle, enterprise products, and applied AI workflows. Inquiries about \"{{query}}\" fit squarely within that experience.",
   "introLine": "Feby's Copilot: ",
   "disclosureCaption": "(curated preview, not a live model)",
   "topics": [
@@ -19,11 +19,11 @@
       "response": "Spearheaded integration with Bank Indonesia's SNAP protocol for standardized, bank-grade open banking APIs, optimizing ~IDR 144M/yr in operational cost."
     },
     {
-      "label": "Prompt & Model Evals",
+      "label": "AI Workflow Evaluation",
       "response": "Set up qualitative & quantitative eval frameworks to test hallucinations, fallback rates, semantic drift, and conversational intent."
     },
     {
-      "label": "Fintech Growth",
+      "label": "Lifecycle Growth",
       "response": "Drove core banking migration reducing vendor cost by 90% and optimized multi-tier KYC onboarding funnels to under 5 minutes."
     }
   ]

@@ -91,11 +91,12 @@ Not started (implementation-wise). All blocking questions are now answered — r
 - [x] ~~Confirm Iqro Land screenshot readiness~~ — **ship with placeholders.** Feby wants to see the section's layout live before providing real screenshots; use clearly-labeled placeholder cards ("Screenshot coming soon"), not fabricated fake app UI.
 - [x] ~~Confirm Learning in Public article links~~ — **3 real LinkedIn posts provided and read directly** (not invented): "Challenges in Arabic Letter Tracing with AI", "Local-First vs. Cloud: A Vibe-Coding Lesson", "Study Notes: Git for Vibe Coding". Full titles/descriptions/URLs in `COPY_POSITIONING_AUDIT.md`'s New Section 2.
 
-**Batch 1 — Core positioning (title, meta, nav/footer, hero, AI-demo copy)**
-- [ ] Update `site.json`: `pageTitle`, `metaDescription`, navbar/footer subtitle (`brandTagline` or equivalent), `og:*`/`twitter:*` derived values
-- [ ] Update `hero.json`: badge, H1 (`headlinePrefix`/`headlineHighlight`/`headlineSuffix`), bio, `primaryCta`/`secondaryCta` labels, illustration tag annotations
-- [ ] Update `aiDemo.json`: input placeholder, the "Fintech Growth" → "Lifecycle Growth" and "Prompt & Model Evals" → "AI Workflow Evaluation" topic labels (and their canned responses if they reference the old framing)
-- [ ] Update tests that hardcode old copy strings (at minimum `tests/e2e/nav.spec.ts` TC-02, `tests/e2e/audit-fixes.spec.ts` TC-28, `tests/e2e/hero-ai-demo.spec.ts` TC-04/TC-05 topic-label assertions)
+**Batch 1 — Core positioning (title, meta, nav/footer, hero, AI-demo copy)** ✅ Shipped
+- [x] Update `site.json`: `pageTitle` (shortened to 46 chars — the audit's exact suggestion tripped html-validate's 70-char `long-title` rule; full positioning stays in `metaDescription`), `metaDescription`, navbar tagline (`brandTagline`, short) + new `footerTagline` field (full positioning) since navbar/footer need different lengths, `og:*`/`twitter:*` (already derived from the above, no template change needed)
+- [x] Update `hero.json`: badge, H1, bio, `primaryCta`/`secondaryCta` labels (`Explore Selected Work ↓` / `Contact Me ↓`), illustration tag annotations
+- [x] Update `aiDemo.json`: input placeholder, "Fintech Growth" → "Lifecycle Growth", "Prompt & Model Evals" → "AI Workflow Evaluation"; also caught and fixed two hyperbolic phrases the audit's Copy Principles explicitly ban ("frontier products" in `fallbackResponse`, "wheelhouse" in `freeTextResponseTemplate`) that weren't in the literal before/after table but violated the stated principles
+- [x] Update tests that hardcoded old copy strings (`tests/e2e/nav.spec.ts` TC-02/TC-03, `tests/e2e/audit-fixes.spec.ts` TC-28); `hero-ai-demo.spec.ts` TC-04/TC-05 needed no changes — they assert dynamically against whatever topics render, not hardcoded labels
+- [x] `npm test` passes (35/35); visually verified hero + footer render correctly
 
 **Batch 2 — Metrics & Selected Product Work (case studies)**
 - [ ] Update `metrics.json`: card 1 and card 2 copy per the table; confirm card 3/4 subtitle wording
