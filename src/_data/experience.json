@@ -1,10 +1,6 @@
 {
-  "banner": {
-    "src": "/assets/images/career-journey-banner.png",
-    "alt": "Trajectory: Schlumberger Wireline Field Engineer to Product Manager",
-    "eyebrow": "From Field Operations to Digital Core Systems",
-    "caption": "Deterministic Reliability ♡"
-  },
+  "eyebrow": "EXPERIENCE & TRACK RECORD",
+  "heading": "Career Journey",
   "roles": [
     {
       "icon": "building",

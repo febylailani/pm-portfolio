@@ -7,17 +7,29 @@
   ],
   "pullQuote": "I bring field-engineering rigor into product work: clear problem framing, careful risk thinking, and practical user journeys that reduce friction.",
   "closingParagraph": "Over the past 5+ years at **Hijra Group**, I applied this philosophy to build digital banking rails from scratch, direct core banking overhauls, orchestrate central bank open APIs, and helped ship chatbot automation and an in-house NLP banking assistant in a regulated environment. Since July 2026, I've been focused on upskilling — hands-on with automation and AI-assisted software development, starting with Iqro Land above.",
-  "cta": { "label": "Let's Talk Product →", "href": "#contact" },
+  "cta": {
+    "label": "Let's Talk Product →",
+    "href": "#contact"
+  },
   "annotationCaption": "Passionate about 0→1 ♡",
   "illustration": {
     "src": "/assets/images/career-journey-banner.png",
     "alt": "Career Progression: From Offshore Wireline Rig Engineer to AI Product Manager",
-    "cardEyebrow": "Career Evolution Visualized",
-    "cardCaption": "Field Engineering → Product Management"
+    "bannerEyebrow": "Career Evolution Visualized",
+    "bannerCaption": "Field Engineering → Product Management"
   },
   "statChips": [
-    { "label": "Oil & Gas Rig", "sub": "Extreme Rigor" },
-    { "label": "Discovery", "sub": "0 → 1 Mindset" },
-    { "label": "Fintech & AI", "sub": "High-Scale Impact" }
+    {
+      "label": "Oil & Gas Rig",
+      "sub": "Extreme Rigor"
+    },
+    {
+      "label": "Discovery",
+      "sub": "0 → 1 Mindset"
+    },
+    {
+      "label": "Fintech & AI",
+      "sub": "High-Scale Impact"
+    }
   ]
 }
