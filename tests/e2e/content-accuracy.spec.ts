@@ -146,6 +146,9 @@ test.describe("Iqro Land card placement and CTA", () => {
     expect(text).not.toContain("My son (5)");
     // The age is still stated once, in Target User, so nothing was actually lost.
     expect(text).toContain("A 5-year-old learning hijaiyah");
+  });
+});
+
 test.describe("About & career timeline", () => {
   test("TC-55: the career illustration appears exactly once on the page", async ({ page }) => {
     await page.goto("/");
@@ -186,5 +189,30 @@ test.describe("About & career timeline", () => {
 
     expect(bannerY).toBeLessThan(chipsY);
     expect(chipsY).toBeLessThan(timelineY);
+  });
+});
+
+test.describe("About closing paragraph", () => {
+  test("TC-62: the closing paragraph bridges into the timeline instead of restating it", async ({ page }) => {
+    await page.goto("/");
+    const about = page.locator("#about");
+    const closing = await about.locator("p.text-sm").first().innerText();
+
+    expect(closing).toContain("putting that philosophy to work");
+    expect(closing).toContain("the record is below");
+    expect(closing).toContain("Iqro Land above");
+
+    // These four were lifted out because the timeline directly beneath already lists
+    // them. If they creep back into the paragraph, the section is restating itself again.
+    for (const phrase of ["core banking overhauls", "central bank open APIs", "chatbot automation", "NLP banking assistant"]) {
+      expect(closing, `"${phrase}" is back in the closing paragraph`).not.toContain(phrase);
+    }
+
+    // …and they must still be somewhere on the page. Trimming the paragraph should remove
+    // repetition, never information.
+    const timeline = await page.locator("#experience").innerText();
+    expect(timeline).toContain("Core Banking CBS migration");
+    expect(timeline).toContain("BI SNAP Open API");
+    expect(timeline).toContain("NLP banking assistant");
   });
 });
