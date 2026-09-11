@@ -1,20 +1,25 @@
-[
-  {
-    "number": "01",
-    "title": "I start before the backlog does",
-    "description": "I run discovery myself: customer conversations, market research, and the P&L projection. If I can't explain who pays and why it's worth building, it doesn't reach the backlog.",
-    "footerTags": "Discovery • Customer Interviews • P&L Projection"
-  },
-  {
-    "number": "02",
-    "title": "I build alongside the team, not above it",
-    "description": "Through delivery I give design feedback, write specs, and contribute directly — I design in Figma and I ship code. I'm fluent with AI agents such as Claude Code/Codex/Cursor and other automation tools.",
-    "footerTags": "Design Feedback • Figma • AI-Assisted Build"
-  },
-  {
-    "number": "03",
-    "title": "Launch is the middle, not the end",
-    "description": "I validate with real users before release, prepare go-to-market with the teams who will run it, then measure what actually happened after launch and act on it.",
-    "footerTags": "User Validation • Go-to-Market • Post-Launch Review"
-  }
-]
+{
+  "eyebrow": "HOW I WORK, END TO END",
+  "heading": "3 Operating Principles",
+  "intro": "I turn messy customer, business, and operational signals into focused product bets: clarifying the real problem, shaping practical scope with design and engineering, shipping fast, then learning from user behavior after launch.",
+  "cards": [
+    {
+      "number": "01",
+      "title": "I start before the backlog does",
+      "description": "I run discovery myself: customer conversations, market research, and the P&L projection. If I can't explain who pays and why it's worth building, it doesn't reach the backlog.",
+      "footerTags": "Discovery • Customer Interviews • P&L Projection"
+    },
+    {
+      "number": "02",
+      "title": "I build alongside the team, not above it",
+      "description": "Through delivery I give design feedback, write specs, and contribute directly — I design in Figma and I ship code. I'm fluent with AI agents such as Claude Code/Codex/Cursor and other automation tools.",
+      "footerTags": "Design Feedback • Figma • AI-Assisted Build"
+    },
+    {
+      "number": "03",
+      "title": "Launch is the middle, not the end",
+      "description": "I validate with real users before release, prepare go-to-market with the teams who will run it, then measure what actually happened after launch and act on it.",
+      "footerTags": "User Validation • Go-to-Market • Post-Launch Review"
+    }
+  ]
+}
