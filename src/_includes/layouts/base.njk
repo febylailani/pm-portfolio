@@ -72,6 +72,52 @@
       border: 1.5px solid #0B1D3A;
     }
   </style>
+<style data-purpose="public-cta-invite">
+    /* ONLY the public Iqro Land card animates. The four NDA cards deliberately stay
+       still , an animated "Unlock Case Study" would be beckoning a recruiter toward a
+       gate they cannot open, which is worse than no animation at all. */
+    .public-story-cta {
+      position: relative;
+      overflow: hidden;
+      animation: public-cta-glow 3.6s ease-in-out infinite;
+    }
+    @keyframes public-cta-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+      50%      { box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.12); }
+    }
+    /* The sheen sweeps once, then rests for most of the cycle. Continuous motion in a
+       reader's periphery reads as a broken page; a periodic pass reads as a nudge. */
+    .public-story-cta::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -60%;
+      width: 40%;
+      background: linear-gradient(100deg, transparent, rgba(5, 150, 105, 0.18), transparent);
+      transform: skewX(-18deg);
+      animation: public-cta-sheen 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes public-cta-sheen {
+      0%, 55%   { left: -60%; }
+      85%, 100% { left: 120%; }
+    }
+    /* Once the pointer is on it the invitation has done its job; further motion would
+       just fight the hover state. */
+    .public-story-cta:hover,
+    .public-story-cta:focus-visible { animation: none; }
+    .public-story-cta:hover::after,
+    .public-story-cta:focus-visible::after { animation: none; opacity: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      /* .animate-float is pre-existing and was never gated; covering it here rather than
+         leaving one honoured animation next to one that ignores the setting. */
+      .public-story-cta,
+      .animate-float { animation: none !important; }
+      .public-story-cta::after { display: none; }
+    }
+  </style>
 </head>
 <body class="bg-white text-brand-navy font-sans antialiased selection:bg-brand-ice selection:text-brand-blue min-h-screen">
 <a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-full focus:bg-brand-navy focus:text-white focus:text-sm focus:font-semibold" href="#main-content">Skip to main content</a>

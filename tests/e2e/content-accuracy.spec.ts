@@ -82,3 +82,61 @@ test.describe("Operating Principles", () => {
     }
   });
 });
+
+test.describe("Iqro Land card placement and CTA", () => {
+  test("TC-58: Iqro Land is the first card in Selected Product Work", async ({ page }) => {
+    await page.goto("/");
+    const cards = page.locator('[data-purpose="case-study-card"]');
+    await expect(cards).toHaveCount(5);
+    await expect(cards.first().locator("h3")).toContainText("Iqro Land");
+  });
+
+  test("TC-59: only the public CTA is animated, and its label is black", async ({ page }) => {
+    await page.goto("/");
+    const cards = page.locator('[data-purpose="case-study-card"]');
+
+    const publicBtn = cards.first().locator(".case-study-lock-btn");
+    await expect(publicBtn).toHaveClass(/public-story-cta/);
+    // Black, not the previous emerald.
+    expect(await publicBtn.evaluate((el) => getComputedStyle(el).color)).toBe("rgb(0, 0, 0)");
+    expect(await publicBtn.evaluate((el) => getComputedStyle(el).animationName)).not.toBe("none");
+
+    // The four NDA cards must stay still: an animated "Unlock Case Study" would beckon a
+    // recruiter toward a gate they cannot open.
+    const locked = page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]');
+    await expect(locked).toHaveCount(4);
+    for (const btn of await locked.all()) {
+      await expect(btn).not.toHaveClass(/public-story-cta/);
+      expect(await btn.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+    }
+  });
+
+  test("TC-60: the CTA animation is disabled under prefers-reduced-motion", async ({ browser }) => {
+    const context = await browser.newContext({ reducedMotion: "reduce" });
+    const page = await context.newPage();
+    await page.goto("/");
+
+    const btn = page.locator('[data-purpose="case-study-card"]').first().locator(".case-study-lock-btn");
+    expect(await btn.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+    expect(await btn.evaluate((el) => getComputedStyle(el, "::after").display)).toBe("none");
+    // The pre-existing float was never gated either; it is covered by the same rule now.
+    const float = page.locator(".animate-float").first();
+    if (await float.count()) {
+      expect(await float.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+    }
+    await context.close();
+  });
+
+  test("TC-61: the problem statement no longer repeats the child's age", async ({ page }) => {
+    await page.goto("/");
+    await page.locator('[data-purpose="case-study-card"]').first().locator(".case-study-lock-btn").click();
+    const modal = page.locator("#publicModal");
+    await expect(modal).toHaveClass(/opacity-100/);
+
+    const text = await modal.innerText();
+    expect(text).toContain("My son kept getting stuck");
+    expect(text).not.toContain("My son (5)");
+    // The age is still stated once, in Target User, so nothing was actually lost.
+    expect(text).toContain("A 5-year-old learning hijaiyah");
+  });
+});

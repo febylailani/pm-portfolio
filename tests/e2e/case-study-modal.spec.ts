@@ -1,6 +1,9 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Confidential case study modal", () => {
+  // These target a GATED card explicitly rather than .first(). Iqro Land is now the first
+  // card in the grid and it is public, so .first() opens #publicModal and every assertion
+  // about the confidential dialog silently tests the wrong thing.
   test("TC-06: each lock button opens the modal with the correct interpolated title", async ({ page }) => {
     await page.goto("/");
     const buttons = page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]');
@@ -21,7 +24,7 @@ test.describe("Confidential case study modal", () => {
   test("TC-07: modal closes via close button, backdrop click, and Escape", async ({ page }) => {
     await page.goto("/");
 
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
     await expect(page.locator("#confidentialModal")).toHaveClass(/opacity-100/);
     await page.locator(".confidential-modal-close").first().click();
     await expect(page.locator("#confidentialModal")).toHaveClass(/opacity-0/);
@@ -29,12 +32,12 @@ test.describe("Confidential case study modal", () => {
     // The backdrop spans the full viewport, but the dialog card sits on top of
     // its center, so a real click must land outside the card (near a corner)
     // to actually hit the backdrop rather than the card above it.
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
     await expect(page.locator("#confidentialModal")).toHaveClass(/opacity-100/);
     await page.locator("#confidentialModalBackdrop").click({ position: { x: 5, y: 5 } });
     await expect(page.locator("#confidentialModal")).toHaveClass(/opacity-0/);
 
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
     await expect(page.locator("#confidentialModal")).toHaveClass(/opacity-100/);
     await page.keyboard.press("Escape");
     await expect(page.locator("#confidentialModal")).toHaveClass(/opacity-0/);
@@ -42,7 +45,7 @@ test.describe("Confidential case study modal", () => {
 
   test("TC-08: modal intro copy is in English, not the original Indonesian text", async ({ page }) => {
     await page.goto("/");
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
     const modalText = await page.locator("#confidentialModal").textContent();
     expect(modalText).toContain("Bank Indonesia (BI) and OJK regulations");
     expect(modalText).not.toMatch(/kerahasiaan|kepatuhan|regulasi/i);
