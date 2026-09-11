@@ -64,6 +64,14 @@ test.describe("Operating Principles", () => {
     await expect(cards).toHaveCount(3);
     await expect(section.locator("h2")).toHaveText("3 Operating Principles");
 
+    // The intro now traces the same arc the cards walk, and ends at the learning phase,
+    // which is why the eyebrow no longer stops at "THINK & BUILD".
+    const intro = await section.locator("p").first().innerText();
+    expect(intro).toContain("focused product bets");
+    expect(intro).toContain("learning from user behavior after launch");
+    expect(intro).not.toContain("Frameworks honed in mission-critical environments");
+    await expect(section.getByText("HOW I WORK, END TO END")).toBeVisible();
+
     const titles = ["I start before the backlog does", "I build alongside the team, not above it", "Launch is the middle, not the end"];
     for (let i = 0; i < titles.length; i++) {
       await expect(cards.nth(i).locator("h3")).toHaveText(titles[i]);
