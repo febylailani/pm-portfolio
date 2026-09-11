@@ -146,5 +146,45 @@ test.describe("Iqro Land card placement and CTA", () => {
     expect(text).not.toContain("My son (5)");
     // The age is still stated once, in Target User, so nothing was actually lost.
     expect(text).toContain("A 5-year-old learning hijaiyah");
+test.describe("About & career timeline", () => {
+  test("TC-55: the career illustration appears exactly once on the page", async ({ page }) => {
+    await page.goto("/");
+    // The whole point of the merge. It used to render twice — 540px inside About's right
+    // column and again at 1180px as the Experience banner — roughly a third of the page
+    // apart, at two different sizes.
+    const banner = page.locator('img[src*="career-journey-banner"]');
+    await expect(banner).toHaveCount(1);
+    await expect(banner).toBeVisible();
+    await expect(banner.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).resolves.toBe(true);
+  });
+
+  test("TC-56: the timeline lives inside About and keeps its #experience anchor", async ({ page }) => {
+    await page.goto("/");
+
+    // One section now, not two.
+    await expect(page.locator('[data-purpose="experience-timeline"]')).toHaveCount(0);
+    await expect(page.locator("#about")).toHaveCount(1);
+
+    // #experience survives as a sub-anchor: header, footer and mobile nav all link to it,
+    // and TC-15 requires every footer href to resolve.
+    const anchor = page.locator("#experience");
+    await expect(anchor).toHaveCount(1);
+    expect(await anchor.evaluate((el) => !!el.closest("#about"))).toBe(true);
+
+    // Both roles survived the move.
+    await expect(anchor.getByText("Product Manager", { exact: false }).first()).toBeVisible();
+    await expect(anchor.getByText("Wireline Field Engineer").first()).toBeVisible();
+  });
+
+  test("TC-57: the illustration sits above the timeline, with the stat chips under it", async ({ page }) => {
+    await page.goto("/");
+    const y = async (sel: string) => (await page.locator(sel).first().evaluate((el) => el.getBoundingClientRect().top + window.scrollY));
+
+    const bannerY = await y('img[src*="career-journey-banner"]');
+    const chipsY = await y("text=Extreme Rigor");
+    const timelineY = await y("#experience");
+
+    expect(bannerY).toBeLessThan(chipsY);
+    expect(chipsY).toBeLessThan(timelineY);
   });
 });
