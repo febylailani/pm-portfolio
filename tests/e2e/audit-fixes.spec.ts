@@ -60,8 +60,8 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
     // arrow. ↓ would now promise a scroll that never happens.
     await expect(page.locator(".confidential-modal-schedule")).toHaveText("Request Full Case Study ✉");
 
-    // the genuinely external Cal.com link keeps its correct ↗
-    await expect(page.getByRole("link", { name: /Open ↗/ })).toHaveAttribute("target", "_blank");
+    // the contact section's booking link is genuinely external too, so it keeps its ↗
+    await expect(page.getByRole("link", { name: /Book ↗/ })).toHaveAttribute("target", "_blank");
 
     // "Book Intro" now genuinely leaves the page (opens Google Calendar), so it correctly uses ↗
     const navCta = page.locator('[data-purpose="nav-cta"]');

@@ -15,7 +15,8 @@
     { "label": "Experience", "href": "#experience" },
     { "label": "Contact", "href": "#contact" }
   ],
-  "navCta": { "label": "Book Intro ↗", "href": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Intro%20Call%20with%20Feby%20Lailani&details=30-minute%20intro%20call%20to%20discuss%20Product%20Manager%2C%20Applied%20AI%2C%20or%20collaboration%20opportunities.%20Feel%20free%20to%20adjust%20the%20date%2Ftime%20before%20sending%20the%20invite%20-%20looking%20forward%20to%20connecting!&add=febylail.work%40gmail.com" },
+  "meetingInviteUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Intro%20Call%20with%20Feby%20Lailani&details=30-minute%20intro%20call%20to%20discuss%20Product%20Manager%2C%20Applied%20AI%2C%20or%20collaboration%20opportunities.%20Feel%20free%20to%20adjust%20the%20date%2Ftime%20before%20sending%20the%20invite%20-%20looking%20forward%20to%20connecting!&add=febylail.work%40gmail.com",
+  "navCta": { "label": "Book Intro ↗" },
   "footerNavLinks": [
     { "label": "Home", "href": "#hero" },
     { "label": "About", "href": "#about" },
