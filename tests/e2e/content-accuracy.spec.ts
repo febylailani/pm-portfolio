@@ -52,3 +52,33 @@ test.describe("Meeting CTAs", () => {
     await expect(page.getByText("30-min intro or advisory chat")).toBeVisible();
   });
 });
+
+test.describe("Operating Principles", () => {
+  test("TC-53: the section carries exactly three lifecycle principles, in order", async ({ page }) => {
+    await page.goto("/");
+    const section = page.locator("#principles");
+
+    // The heading says "3" and the grid is md:grid-cols-3, so a fourth card would both
+    // contradict the heading and leave an orphan on a second row.
+    const cards = section.locator(".grid > div");
+    await expect(cards).toHaveCount(3);
+    await expect(section.locator("h2")).toHaveText("3 Operating Principles");
+
+    const titles = ["I start before the backlog does", "I build alongside the team, not above it", "Launch is the middle, not the end"];
+    for (let i = 0; i < titles.length; i++) {
+      await expect(cards.nth(i).locator("h3")).toHaveText(titles[i]);
+      await expect(cards.nth(i).getByText(`PRINCIPLE 0${i + 1}`)).toBeVisible();
+    }
+  });
+
+  test("TC-54: each principle names the concrete work a recruiter would ask about", async ({ page }) => {
+    await page.goto("/");
+    const text = await page.locator("#principles").innerText();
+
+    // These are the claims Feby confirmed she can back with examples. If any is edited
+    // away, this fails loudly rather than the section quietly drifting back to buzzwords.
+    for (const claim of ["P&L projection", "customer conversations", "I ship code", "Figma", "AI agents", "go-to-market"]) {
+      expect(text, `"${claim}" dropped out of Operating Principles`).toContain(claim);
+    }
+  });
+});
