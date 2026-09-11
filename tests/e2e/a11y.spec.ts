@@ -23,7 +23,7 @@ test.describe("Accessibility", () => {
 
   test("TC-18: zero critical violations with the confidential modal open", async ({ page }) => {
     await page.goto("/");
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
     await expect(page.locator("#confidentialModal")).toHaveClass(/opacity-100/);
 
     const results = await new AxeBuilder({ page }).analyze();

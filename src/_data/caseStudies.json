@@ -1,5 +1,19 @@
 [
   {
+    "id": "iqro-land",
+    "category": "Independent Build & Kids EdTech",
+    "icon": "smartphone",
+    "title": "Iqro Land: Bilingual Hijaiyah & Tahfidz PWA",
+    "description": "Independent, end-to-end build of a bilingual learning app for hijaiyah letters and Juz 30, started for my 5-year-old after watching him stall on the same letters for weeks. Defined, designed, and shipped solo.",
+    "tags": [
+      "Independent Build",
+      "Pre-Alpha, Real User",
+      "AI-Assisted Delivery"
+    ],
+    "modalTitle": "Iqro Land: Bilingual Hijaiyah & Tahfidz PWA",
+    "access": "public"
+  },
+  {
     "id": "ai-banking-assistant",
     "category": "Conversational AI & NLP",
     "icon": "chat-bot",
@@ -54,19 +68,5 @@
     ],
     "modalTitle": "Automated KYC & Consumer Onboarding Growth",
     "access": "confidential"
-  },
-  {
-    "id": "iqro-land",
-    "category": "Independent Build & Kids EdTech",
-    "icon": "smartphone",
-    "title": "Iqro Land: Bilingual Hijaiyah & Tahfidz PWA",
-    "description": "Independent, end-to-end build of a bilingual learning app for hijaiyah letters and Juz 30, started for my 5-year-old after watching him stall on the same letters for weeks. Defined, designed, and shipped solo.",
-    "tags": [
-      "Independent Build",
-      "Pre-Alpha, Real User",
-      "AI-Assisted Delivery"
-    ],
-    "modalTitle": "Iqro Land: Bilingual Hijaiyah & Tahfidz PWA",
-    "access": "public"
   }
 ]

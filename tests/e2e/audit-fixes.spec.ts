@@ -4,7 +4,7 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
   test("TC-24: modal badges no longer overlap the close button at mobile width (P-01)", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/");
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
 
     const badge = page.locator("#confidentialModal").getByText("Production Architecture");
     const closeBtn = page.locator(".confidential-modal-close").first();
@@ -30,7 +30,7 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
       expect(inert).toBe(true);
     }).toPass();
 
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
     await expect(async () => {
       const inert = await modal.evaluate((el) => (el as HTMLElement & { inert: boolean }).inert);
       expect(inert).toBe(false);
@@ -55,7 +55,7 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
     await page.goto("/");
     await expect(page.getByRole("link", { name: /Contact Me/ })).toHaveText("Contact Me ↓");
 
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
     // No longer an anchor-scroll: it opens a pre-filled email, so it carries neither
     // arrow. ↓ would now promise a scroll that never happens.
     await expect(page.locator(".confidential-modal-schedule")).toHaveText("Request Full Case Study ✉");
@@ -91,7 +91,7 @@ test.describe("UX audit — Important fixes (P-01 … P-09)", () => {
     });
     expect(statChipColor).toBe("rgb(71, 85, 105)"); // slate-600
 
-    await page.locator(".case-study-lock-btn").first().click();
+    await page.locator('.case-study-lock-btn[data-modal-target="confidentialModal"]').first().click();
     const badgeColor = await page.evaluate(() => {
       const span = Array.from(document.querySelectorAll("span")).find((el) => el.textContent?.trim() === "Production Architecture");
       return span ? getComputedStyle(span).color : null;
