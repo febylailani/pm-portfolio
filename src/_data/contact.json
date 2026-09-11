@@ -3,7 +3,7 @@
   "intro": "I'm currently exploring Product Manager roles, customer lifecycle and automation opportunities, applied AI product work, and selected writing or speaking collaborations.",
   "channels": [
     { "type": "email", "label": "Direct Email", "value": "febylail.work@gmail.com", "action": "copy" },
-    { "type": "cal", "label": "Cal.com Video Call", "value": "30-min intro or advisory chat", "href": "https://cal.com", "action": "link" },
+    { "type": "calendar", "label": "Cal.com Video Call", "value": "30-min intro or advisory chat", "href": "https://cal.com", "action": "link" },
     { "type": "location", "label": "Location & Timezone", "value": "Yogyakarta / Jakarta (GMT+7) • Hybrid/Remote", "action": "none" }
   ],
   "closingCaption": "Good People Build Great Products ♡",
