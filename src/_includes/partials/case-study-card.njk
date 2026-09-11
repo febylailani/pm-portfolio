@@ -29,7 +29,7 @@
 <!-- One button class for both kinds so the grid stays visually even; the access
      decides which dialog opens and what it is called. A public card that still
      said "Unlock" would promise a gate that is not there. -->
-<button class="case-study-lock-btn w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border-2 {% if caseStudy.access == "public" %}border-emerald-600 text-emerald-800 hover:bg-emerald-50{% else %}border-brand-navy text-brand-navy hover:bg-brand-ice{% endif %} bg-white font-bold text-sm transition-all active:scale-95" data-modal-target="{% if caseStudy.access == "public" %}publicModal{% else %}confidentialModal{% endif %}" data-modal-title="{{ caseStudy.modalTitle }}" type="button">
+<button class="case-study-lock-btn w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border-2 {% if caseStudy.access == "public" %}public-story-cta border-emerald-600 text-black hover:bg-emerald-50{% else %}border-brand-navy text-brand-navy hover:bg-brand-ice{% endif %} bg-white font-bold text-sm transition-all active:scale-95" data-modal-target="{% if caseStudy.access == "public" %}publicModal{% else %}confidentialModal{% endif %}" data-modal-title="{{ caseStudy.modalTitle }}" type="button">
 <span>{% if caseStudy.access == "public" %}{{ iqroLand.openButtonLabel }}{% else %}{{ confidentialModal.unlockButtonLabel }}{% endif %}</span>
 </button>
 </article>
