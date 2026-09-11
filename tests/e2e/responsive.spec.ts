@@ -46,4 +46,37 @@ test.describe("Responsive layout", () => {
       expect(m.hasHeart, "the heart glyph at the end of the tagline went missing").toBe(true);
     });
   }
+
+  // Two complaints from review, pinned as numbers so they cannot quietly come back:
+  // the note was landing ON TOP of the artwork (it overlapped its top edge by 16-20px),
+  // and it sat only 6-7px from the card's own outline. The artwork's content box is a
+  // known crop of the 900x600 source, so the gap can be measured against the drawing
+  // itself rather than the image element, which carries baked-in whitespace.
+  const ART = { top: 62, bottom: 518, height: 600 };
+
+  for (const width of widths) {
+    test(`TC-50: the tagline note clears the artwork and the card outline at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto("/");
+
+      const m = await page.evaluate((ART) => {
+        const root = document.querySelector('[data-purpose="hero-illustration"]') as HTMLElement;
+        const note = root.querySelector(".absolute") as HTMLElement;
+        const card = root.querySelector(".bg-brand-light") as HTMLElement;
+        const img = card.querySelector("img") as HTMLImageElement;
+        const n = note.getBoundingClientRect(), k = card.getBoundingClientRect(), i = img.getBoundingClientRect();
+        const scale = i.height / ART.height;
+        return {
+          gapNoteToArtwork: i.top + ART.top * scale - n.bottom,
+          gapNoteToCardRight: k.right - n.right,
+          artworkBottomToCardBottom: k.bottom - (i.top + ART.bottom * scale),
+        };
+      }, ART);
+
+      expect(m.gapNoteToArtwork, "the note is sitting on top of the illustration again").toBeGreaterThanOrEqual(12);
+      expect(m.gapNoteToCardRight, "the note is crowding the card outline again").toBeGreaterThanOrEqual(14);
+      // Guards the other direction: pushing the artwork down must not bury it in the border.
+      expect(m.artworkBottomToCardBottom, "the artwork is now jammed against the card's bottom edge").toBeGreaterThanOrEqual(8);
+    });
+  }
 });
