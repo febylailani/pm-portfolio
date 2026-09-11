@@ -1,20 +1,20 @@
 [
   {
     "number": "01",
-    "title": "Care about the operational layer",
-    "description": "I care about the systems behind the interface: ledgers, integrations, reconciliation, support workflows, and the details users rarely see but feel when they break.",
-    "footerTags": "Core CBS • Ledger Integrity • APIs"
+    "title": "I start before the backlog does",
+    "description": "I run discovery myself: customer conversations, market research, and the P&L projection. If I can't explain who pays and why it's worth building, it doesn't reach the backlog.",
+    "footerTags": "Discovery • Customer Interviews • P&L Projection"
   },
   {
     "number": "02",
-    "title": "AI as an amplifier, not a gimmick",
-    "description": "I treat AI as workflow automation with guardrails: define the user problem first, test outputs, design fallbacks, and keep humans in the loop for risky actions.",
-    "footerTags": "Model Evals • Guardrails • Human-in-the-Loop"
+    "title": "I build alongside the team, not above it",
+    "description": "Through delivery I give design feedback, write specs, and contribute directly — I design in Figma and I ship code. I'm fluent with AI agents such as Claude Code/Codex/Cursor and other automation tools.",
+    "footerTags": "Design Feedback • Figma • AI-Assisted Build"
   },
   {
     "number": "03",
-    "title": "Empathy with technical precision",
-    "description": "Translate regulatory, operational, and technical constraints into user journeys that are clearer, safer, and easier to complete.",
-    "footerTags": "Human Centered • Regulated Systems"
+    "title": "Launch is the middle, not the end",
+    "description": "I validate with real users before release, prepare go-to-market with the teams who will run it, then measure what actually happened after launch and act on it.",
+    "footerTags": "User Validation • Go-to-Market • Post-Launch Review"
   }
 ]
