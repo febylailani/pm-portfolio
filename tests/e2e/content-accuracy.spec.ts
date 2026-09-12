@@ -148,3 +148,101 @@ test.describe("Iqro Land card placement and CTA", () => {
     expect(text).toContain("A 5-year-old learning hijaiyah");
   });
 });
+
+test.describe("About & career timeline", () => {
+  test("TC-55: the career illustration appears exactly once on the page", async ({ page }) => {
+    await page.goto("/");
+    // The whole point of the merge. It used to render twice — 540px inside About's right
+    // column and again at 1180px as the Experience banner — roughly a third of the page
+    // apart, at two different sizes.
+    const banner = page.locator('img[src*="career-journey-banner"]');
+    await expect(banner).toHaveCount(1);
+    await expect(banner).toBeVisible();
+    await expect(banner.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).resolves.toBe(true);
+  });
+
+  test("TC-56: the timeline lives inside About and keeps its #experience anchor", async ({ page }) => {
+    await page.goto("/");
+
+    // One section now, not two.
+    await expect(page.locator('[data-purpose="experience-timeline"]')).toHaveCount(0);
+    await expect(page.locator("#about")).toHaveCount(1);
+
+    // #experience survives as a sub-anchor: header, footer and mobile nav all link to it,
+    // and TC-15 requires every footer href to resolve.
+    const anchor = page.locator("#experience");
+    await expect(anchor).toHaveCount(1);
+    expect(await anchor.evaluate((el) => !!el.closest("#about"))).toBe(true);
+
+    // Both roles survived the move.
+    await expect(anchor.getByText("Product Manager", { exact: false }).first()).toBeVisible();
+    await expect(anchor.getByText("Wireline Field Engineer").first()).toBeVisible();
+  });
+
+  test("TC-63: on wide screens the illustration sits BESIDE the narrative, not under it", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 1300 });
+    await page.goto("/");
+
+    const m = await page.locator("#about").evaluate((about) => {
+      const wrap = about.querySelector(".max-w-7xl") as HTMLElement;
+      const cs = getComputedStyle(wrap);
+      const wr = wrap.getBoundingClientRect();
+      const contentRight = wr.right - parseFloat(cs.paddingRight);
+      const story = (about.querySelector("div.space-y-6") as HTMLElement).getBoundingClientRect();
+      const img = (about.querySelector("img") as HTMLElement).getBoundingClientRect();
+      const timeline = (about.querySelector("#experience") as HTMLElement).getBoundingClientRect();
+      return {
+        sideBySide: img.left >= story.right - 5 && img.top < story.bottom,
+        gapAfterArt: contentRight - img.right,
+        timelineBelow: timeline.top >= Math.max(story.bottom, img.bottom) - 2,
+        timelineWidth: timeline.width,
+        contentWidth: contentRight - (wr.left + parseFloat(cs.paddingLeft)),
+      };
+    });
+
+    // A full-width band under a readability-capped prose column left 480px of empty
+    // page beside the text at this width. The picture fills that instead.
+    expect(m.sideBySide, "the illustration dropped below the narrative again").toBe(true);
+    expect(m.gapAfterArt).toBeLessThan(40);
+    // The timeline is the one part that genuinely spans the full content width.
+    expect(m.timelineBelow).toBe(true);
+    expect(Math.round(m.timelineWidth)).toBe(Math.round(m.contentWidth));
+  });
+
+  test("TC-57: the illustration sits above the timeline, with the stat chips under it", async ({ page }) => {
+    await page.goto("/");
+    const y = async (sel: string) => (await page.locator(sel).first().evaluate((el) => el.getBoundingClientRect().top + window.scrollY));
+
+    const bannerY = await y('img[src*="career-journey-banner"]');
+    const chipsY = await y("text=Extreme Rigor");
+    const timelineY = await y("#experience");
+
+    expect(bannerY).toBeLessThan(chipsY);
+    expect(chipsY).toBeLessThan(timelineY);
+  });
+});
+
+test.describe("About closing paragraph", () => {
+  test("TC-62: the closing paragraph bridges into the timeline instead of restating it", async ({ page }) => {
+    await page.goto("/");
+    const about = page.locator("#about");
+    const closing = await about.locator("p.text-sm").first().innerText();
+
+    expect(closing).toContain("putting that philosophy to work");
+    expect(closing).toContain("the record is below");
+    expect(closing).toContain("Iqro Land above");
+
+    // These four were lifted out because the timeline directly beneath already lists
+    // them. If they creep back into the paragraph, the section is restating itself again.
+    for (const phrase of ["core banking overhauls", "central bank open APIs", "chatbot automation", "NLP banking assistant"]) {
+      expect(closing, `"${phrase}" is back in the closing paragraph`).not.toContain(phrase);
+    }
+
+    // …and they must still be somewhere on the page. Trimming the paragraph should remove
+    // repetition, never information.
+    const timeline = await page.locator("#experience").innerText();
+    expect(timeline).toContain("Core Banking CBS migration");
+    expect(timeline).toContain("BI SNAP Open API");
+    expect(timeline).toContain("NLP banking assistant");
+  });
+});
