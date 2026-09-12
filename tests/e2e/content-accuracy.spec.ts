@@ -179,6 +179,36 @@ test.describe("About & career timeline", () => {
     await expect(anchor.getByText("Wireline Field Engineer").first()).toBeVisible();
   });
 
+  test("TC-63: on wide screens the illustration sits BESIDE the narrative, not under it", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 1300 });
+    await page.goto("/");
+
+    const m = await page.locator("#about").evaluate((about) => {
+      const wrap = about.querySelector(".max-w-7xl") as HTMLElement;
+      const cs = getComputedStyle(wrap);
+      const wr = wrap.getBoundingClientRect();
+      const contentRight = wr.right - parseFloat(cs.paddingRight);
+      const story = (about.querySelector("div.space-y-6") as HTMLElement).getBoundingClientRect();
+      const img = (about.querySelector("img") as HTMLElement).getBoundingClientRect();
+      const timeline = (about.querySelector("#experience") as HTMLElement).getBoundingClientRect();
+      return {
+        sideBySide: img.left >= story.right - 5 && img.top < story.bottom,
+        gapAfterArt: contentRight - img.right,
+        timelineBelow: timeline.top >= Math.max(story.bottom, img.bottom) - 2,
+        timelineWidth: timeline.width,
+        contentWidth: contentRight - (wr.left + parseFloat(cs.paddingLeft)),
+      };
+    });
+
+    // A full-width band under a readability-capped prose column left 480px of empty
+    // page beside the text at this width. The picture fills that instead.
+    expect(m.sideBySide, "the illustration dropped below the narrative again").toBe(true);
+    expect(m.gapAfterArt).toBeLessThan(40);
+    // The timeline is the one part that genuinely spans the full content width.
+    expect(m.timelineBelow).toBe(true);
+    expect(Math.round(m.timelineWidth)).toBe(Math.round(m.contentWidth));
+  });
+
   test("TC-57: the illustration sits above the timeline, with the stat chips under it", async ({ page }) => {
     await page.goto("/");
     const y = async (sel: string) => (await page.locator(sel).first().evaluate((el) => el.getBoundingClientRect().top + window.scrollY));

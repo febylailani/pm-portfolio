@@ -15,8 +15,8 @@
   "illustration": {
     "src": "/assets/images/career-journey-banner.png",
     "alt": "Career Progression: From Offshore Wireline Rig Engineer to AI Product Manager",
-    "bannerEyebrow": "Career Evolution Visualized",
-    "bannerCaption": "Field Engineering → Product Management"
+    "cardEyebrow": "Career Evolution Visualized",
+    "cardCaption": "Field Engineering → Product Management"
   },
   "statChips": [
     {
