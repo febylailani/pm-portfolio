@@ -18,3 +18,4 @@ Link them as:
 |---|---|
 | `pr21/` | #21 — modal image 404'd on GitHub Pages (missing `url` filter) |
 | `pr22/` | #22 — hero tagline copy change |
+| `pr29/` | #29 — real app-screen gallery added to the Iqro Land modal |
