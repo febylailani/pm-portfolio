@@ -170,6 +170,27 @@
     });
   }
 
+  // --- App screenshots carousel (Iqro Land modal) -------------------------
+  // Scroll-snap does the actual work; these buttons just nudge scrollLeft by one
+  // slide's width so desktop visitors without a trackpad/touch aren't stuck.
+  function initAppScreensCarousel() {
+    document.querySelectorAll("[data-purpose='app-screenshot-track']").forEach(function (track) {
+      var wrapper = track.closest(".relative");
+      if (!wrapper) return;
+      var prevBtn = wrapper.querySelector(".app-screens-prev");
+      var nextBtn = wrapper.querySelector(".app-screens-next");
+
+      function scrollByOneSlide(direction) {
+        var slide = track.querySelector("[data-purpose='app-screenshot']");
+        var amount = slide ? slide.getBoundingClientRect().width + 16 : track.clientWidth * 0.8;
+        track.scrollBy({ left: direction * amount, behavior: "smooth" });
+      }
+
+      if (prevBtn) prevBtn.addEventListener("click", function () { scrollByOneSlide(-1); });
+      if (nextBtn) nextBtn.addEventListener("click", function () { scrollByOneSlide(1); });
+    });
+  }
+
   // --- Mobile nav panel ---------------------------------------------------
   function setMobileNavOpen(open) {
     var toggle = document.getElementById("mobile-nav-toggle");
@@ -283,6 +304,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     initAiDemo();
     initModal();
+    initAppScreensCarousel();
     initMobileNav();
     initContactForm();
   });

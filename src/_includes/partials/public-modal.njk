@@ -49,12 +49,44 @@
      because the image is a mockup of the intended screen, not a capture of the running
      pre-alpha , and a portfolio that blurs that line is the kind of thing a reader only
      has to catch once. -->
-<div class="mt-8">
+<div class="mt-8" data-purpose="concept-visual">
 <p class="text-xs font-bold text-brand-slate uppercase tracking-wider mb-3">{{ iqroLand.visual.label }}</p>
 <figure class="m-0">
 <img alt="{{ iqroLand.visual.alt }}" class="w-full h-auto rounded-2xl border-2 border-brand-border" height="{{ iqroLand.visual.height }}" loading="lazy" src="{{ iqroLand.visual.src | url }}" width="{{ iqroLand.visual.width }}">
 <figcaption class="text-xs text-brand-slate mt-2">{{ iqroLand.visual.caption }}</figcaption>
 </figure>
+</div>
+<!-- App screenshots. Real captures of the running pre-alpha, deliberately kept in its own
+     labelled block rather than merged with the concept mockup above , the whole point of
+     this section is that it is NOT a mockup. A horizontal snap-scroll carousel rather than
+     a grid because twelve full screens at once would dwarf the rest of the dialog; arrow
+     buttons are progressive enhancement over the native swipe/scroll that already works
+     with JS off. -->
+<div class="mt-8" data-purpose="app-screens">
+<div class="flex items-center justify-between gap-3 mb-3 flex-wrap">
+<p class="text-xs font-bold text-brand-slate uppercase tracking-wider">{{ iqroLand.screens.label }}</p>
+<p class="text-xs text-brand-slate">{{ iqroLand.screens.note }}</p>
+</div>
+<div class="relative">
+<div aria-label="Iqro Land app screenshots, scroll or use the arrow buttons to see more" class="app-screens-track flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 -mx-1 px-1" data-purpose="app-screenshot-track" role="group" tabindex="0">
+{% for item in iqroLand.screens.items %}
+<figure class="m-0 flex-shrink-0 w-[78%] sm:w-[55%] snap-center" data-purpose="app-screenshot">
+<!-- Not loading="lazy": these sit in a horizontally-scrolling track, so most of the
+     twelve are laid out far outside the viewport's rootMargin and would never cross the
+     threshold that triggers a native lazy load , they would simply never fetch. Total
+     payload for all twelve WebP captures is well under 600KB. -->
+<img alt="{{ item.alt }}" class="w-full h-auto rounded-2xl border-2 border-brand-border" height="800" src="{{ item.src | url }}" width="1280">
+<figcaption class="text-xs text-brand-slate mt-2">{{ item.caption }}</figcaption>
+</figure>
+{% endfor %}
+</div>
+<button aria-label="Previous screen" class="app-screens-prev hidden sm:flex absolute left-0 top-[38%] -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white border-2 border-brand-navy text-brand-navy items-center justify-center shadow-comic hover:bg-brand-light" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<button aria-label="Next screen" class="app-screens-next hidden sm:flex absolute right-0 top-[38%] -translate-y-1/2 translate-x-1/2 w-9 h-9 rounded-full bg-white border-2 border-brand-navy text-brand-navy items-center justify-center shadow-comic hover:bg-brand-light" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
 </div>
 <!-- CTA -->
 {% if iqroLand.cta.enabled %}

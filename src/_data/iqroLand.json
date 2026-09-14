@@ -45,6 +45,72 @@
     "alt": "Concept visualization of the Iqro Land home screen: a greeting card from the Kuku mascot above four menu tiles — Learn Hijaiyah, Hijaiyah Adventure, Tahfidz Adventure, and More Games.",
     "caption": "Concept visualization — an illustrative mockup of the intended home screen, not a screenshot of the running pre-alpha."
   },
+  "screens": {
+    "label": "App Screens — Live Pre-Alpha Build",
+    "note": "Real captures from the running build, English locale — not mockups.",
+    "items": [
+      {
+        "src": "/assets/images/iqroland/iqroland-app-01-onboarding.webp",
+        "alt": "Iqro Land onboarding slide introducing Kuku the mascot and the meaning of \"Iqro\"",
+        "caption": "First-run onboarding — introduces Kuku the mascot and the meaning behind the app's name."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-02-language-picker.webp",
+        "alt": "Language picker dialog offering Bahasa Indonesia or English",
+        "caption": "Language picker — switch between Bahasa Indonesia and English at any time."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-03-home.webp",
+        "alt": "Home screen with the adaptive greeting card and the four learning-path tiles",
+        "caption": "Home — the adaptive greeting suggests where to continue, with quick access to all four learning paths."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-04-settings-menu.webp",
+        "alt": "Settings menu open over the Home screen, listing recording, review, feedback and language options",
+        "caption": "Settings menu — quick access to the recording studio, stroke-order review, feedback, and language."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-05-hijaiyah-intro.webp",
+        "alt": "Hijaiyah Introduction screen with a toggle between machine voice and Latin reading aid, and a warning about machine-voice accuracy",
+        "caption": "Hijaiyah Introduction — an honest warning about machine-voice accuracy, with a one-tap path to record a real voice instead."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-06-hijaiyah-adventure.webp",
+        "alt": "Hijaiyah Adventure level-select screen showing eight levels with star ratings",
+        "caption": "Hijaiyah Adventure — eight levels, each grouping a small set of letters."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-07-letter-flashcard.webp",
+        "alt": "Letter flashcard for Level 2 showing the letter Ja with a sound button",
+        "caption": "Letter introduction — tap to hear the sound before moving on to practice."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-08-tahfidz-adventure.webp",
+        "alt": "Tahfidz Adventure screen with Survival and Creative play modes above a grid of Juz 'Amma surahs",
+        "caption": "Tahfidz Adventure — pick a play mode, then a surah from Juz 'Amma to memorize."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-09-surah-detail.webp",
+        "alt": "Surah An-Nas detail screen with reciter choice, continuous playback controls, and per-verse mastery status",
+        "caption": "Surah detail — continuous playback with reciter choice and per-verse mastery tracking."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-10-more-games.webp",
+        "alt": "More Games screen with the harakat sound picker and the tracing game locked behind a Coming Soon badge",
+        "caption": "More Games — practice by sound (fathah, kasrah, dhammah), with the stroke-tracing game locked pending review."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-11-achievements.webp",
+        "alt": "Achievements screen showing heart points, stars, surahs memorized, streak, and a badge grid",
+        "caption": "Achievements — badges, streaks, and memorization progress at a glance."
+      },
+      {
+        "src": "/assets/images/iqroland/iqroland-app-12-family-profiles.webp",
+        "alt": "Family Member Profiles screen with two children's profiles and an Add a Member button",
+        "caption": "Family profiles — each child gets their own separate learning progress."
+      }
+    ]
+  },
   "cta": {
     "label": "View Iqro Land Build Notes ↓",
     "enabled": true,
