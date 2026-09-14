@@ -9,20 +9,20 @@
   "metaDescription": "Product Manager with 5+ years building customer lifecycle, onboarding, enterprise API, cash management, and AI-enabled product experiences across regulated banking and independent product builds.",
   "avatarImage": "/assets/images/avatar-portrait.png",
   "navLinks": [
-    { "label": "About", "href": "#about" },
     { "label": "Case Studies", "href": "#case-studies" },
-    { "label": "Operating Principles", "href": "#principles" },
+    { "label": "About", "href": "#about" },
     { "label": "Experience", "href": "#experience" },
+    { "label": "Operating Principles", "href": "#principles" },
     { "label": "Contact", "href": "#contact" }
   ],
   "meetingInviteUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Intro%20Call%20with%20Feby%20Lailani&details=30-minute%20intro%20call%20to%20discuss%20Product%20Manager%2C%20Applied%20AI%2C%20or%20collaboration%20opportunities.%20Feel%20free%20to%20adjust%20the%20date%2Ftime%20before%20sending%20the%20invite%20-%20looking%20forward%20to%20connecting!&add=febylail.work%40gmail.com",
   "navCta": { "label": "Book Intro ↗" },
   "footerNavLinks": [
     { "label": "Home", "href": "#hero" },
-    { "label": "About", "href": "#about" },
     { "label": "Case Studies", "href": "#case-studies" },
-    { "label": "Principles", "href": "#principles" },
+    { "label": "About", "href": "#about" },
     { "label": "Experience", "href": "#experience" },
+    { "label": "Principles", "href": "#principles" },
     { "label": "Contact", "href": "#contact" }
   ],
   "social": {

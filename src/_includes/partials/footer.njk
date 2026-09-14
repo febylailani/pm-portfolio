@@ -1,6 +1,13 @@
 <!-- BEGIN: MainFooter -->
 <footer class="bg-white border-t border-brand-border py-12" data-purpose="page-footer">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
+<!-- Quick Nav Links: own full-width row so it has room to sit on one line
+     instead of being squeezed between the brand and social blocks below. -->
+<nav aria-label="Footer" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs sm:text-sm font-semibold text-brand-slate pb-6 border-b border-brand-border" data-purpose="footer-links">
+{% for link in site.footerNavLinks %}<a class="inline-flex items-center min-h-[44px] py-3 px-1.5 hover:text-brand-blue transition-colors" href="{{ link.href }}">{{ link.label }}</a>
+{% endfor %}
+</nav>
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
 <!-- Brand & Title -->
 <div class="flex items-center space-x-3">
 <img alt="{{ site.brandName }} avatar" class="w-8 h-8 rounded-full object-cover" src="{{ site.avatarImage | url }}">
@@ -9,11 +16,6 @@
 <span class="text-xs text-brand-slate ml-1">— {{ site.footerTagline }}</span>
 </div>
 </div>
-<!-- Quick Nav Links -->
-<nav aria-label="Footer" class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm font-semibold text-brand-slate" data-purpose="footer-links">
-{% for link in site.footerNavLinks %}<a class="inline-flex items-center min-h-[44px] py-3 px-1.5 hover:text-brand-blue transition-colors" href="{{ link.href }}">{{ link.label }}</a>
-{% endfor %}
-</nav>
 <!-- Socials & Copyright -->
 <div class="flex items-center gap-2">
 <a aria-label="LinkedIn" class="p-3 -m-1 text-brand-slate hover:text-brand-blue transition-colors" href="{{ site.social.linkedin }}" rel="noopener noreferrer" target="_blank">
@@ -28,6 +30,7 @@
 </svg>
 </a>
 <span class="text-xs text-brand-slate ml-1">{{ site.copyrightLine }}</span>
+</div>
 </div>
 </div>
 </footer>
