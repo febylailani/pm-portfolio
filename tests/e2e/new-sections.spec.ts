@@ -50,7 +50,7 @@ test.describe("Iqro Land as a public case study card", () => {
     await page.goto("/");
     await page.locator('[data-purpose="case-study-card"]', { hasText: "Iqro Land" }).locator(".case-study-lock-btn").click();
 
-    const figure = page.locator("#publicModal figure");
+    const figure = page.locator("#publicModal [data-purpose='concept-visual'] figure");
     const caption = (await figure.locator("figcaption").textContent())!;
     expect(caption).toContain("Concept visualization");
     expect(caption).toContain("not a screenshot of the running pre-alpha");
@@ -71,6 +71,42 @@ test.describe("Iqro Land as a public case study card", () => {
     await expect
       .poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth), { timeout: 10000 })
       .toBeGreaterThan(0);
+  });
+
+  test("TC-64: the app screenshots carousel shows all 12 real captures and is labelled apart from the concept mockup", async ({ page }) => {
+    await page.goto("/");
+    await page.locator('[data-purpose="case-study-card"]', { hasText: "Iqro Land" }).locator(".case-study-lock-btn").click();
+
+    const screens = page.locator("#publicModal [data-purpose='app-screens']");
+    await expect(screens.getByText("App Screens", { exact: false })).toBeVisible();
+
+    const slides = screens.locator("[data-purpose='app-screenshot']");
+    await expect(slides).toHaveCount(12);
+
+    // The whole point of this block is that it is NOT the mockup , guard against it ever
+    // reusing that image or its "Concept visualization" wording.
+    for (const src of await slides.locator("img").evaluateAll((imgs) => imgs.map((img) => img.getAttribute("src")))) {
+      expect(src).not.toContain("iqroland-showcase-1.webp");
+    }
+    await expect(screens.getByText("Concept visualization", { exact: false })).toHaveCount(0);
+
+    const firstImg = slides.first().locator("img");
+    await firstImg.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => firstImg.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth), { timeout: 10000 })
+      .toBeGreaterThan(0);
+  });
+
+  test("TC-65: the carousel's next/prev buttons scroll the track", async ({ page }) => {
+    await page.goto("/");
+    await page.locator('[data-purpose="case-study-card"]', { hasText: "Iqro Land" }).locator(".case-study-lock-btn").click();
+
+    const track = page.locator("[data-purpose='app-screenshot-track']");
+    const nextBtn = page.locator(".app-screens-next");
+
+    const before = await track.evaluate((el) => el.scrollLeft);
+    await nextBtn.click();
+    await expect.poll(() => track.evaluate((el) => el.scrollLeft)).toBeGreaterThan(before);
   });
 
   test("TC-44: 'Pre-Alpha' is the status wording everywhere, and 'beta' appears nowhere", async ({ page }) => {
